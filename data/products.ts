@@ -342,6 +342,12 @@ export const products: Product[] = [
       { title: "Book 04 실전 모의고사" },
     ],
     samplePreview: "패키지 구성 문제집 각각의 샘플 문제를 상세페이지에서 확인할 수 있습니다.",
+    packageItems: [
+      { name: "NCS 수리능력 기초연산 300제", originalPrice: 19900, slug: "ncs-arithmetic-300" },
+      { name: "NCS 자료해석 300제", originalPrice: 19900, slug: "ncs-data-interpretation-300" },
+      { name: "NCS 문제해결능력 300제", originalPrice: 19900, slug: "ncs-problem-solving-300" },
+      { name: "NCS 실전 모의고사 10회 (발췌 수록)", originalPrice: 24900, slug: "ncs-final-mock-test-10" },
+    ],
   },
   {
     slug: "public-enterprise-ncs-combined",

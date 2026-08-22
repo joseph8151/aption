@@ -21,6 +21,12 @@ export interface TocChapter {
   title: string;
 }
 
+export interface PackageItem {
+  name: string;
+  originalPrice: number;
+  slug?: string; // 개별 상품 상세페이지가 있는 경우 연결
+}
+
 export interface Product {
   slug: string;
   name: string;
@@ -43,6 +49,7 @@ export interface Product {
   composition: string[];
   toc: TocChapter[];
   samplePreview: string;
+  packageItems?: PackageItem[]; // productType이 "패키지"인 경우 구성 문제집 목록
 }
 
 export interface CategoryGroup {

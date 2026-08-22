@@ -5,6 +5,8 @@ import Container from "@/components/Container";
 import BookCover from "@/components/BookCover";
 import Badge from "@/components/Badge";
 import ProductCard from "@/components/ProductCard";
+import SampleQuestionPreview from "@/components/SampleQuestionPreview";
+import PackageBreakdown from "@/components/PackageBreakdown";
 import { getProductBySlug, products } from "@/data/products";
 
 export function generateStaticParams() {
@@ -167,16 +169,15 @@ export default async function ProductDetailPage({
         </Section>
 
         <Section title="샘플 페이지">
-          <div className="flex flex-col gap-4 rounded-xl border border-dashed border-line bg-white p-8 text-center">
-            <p className="text-sm leading-relaxed text-ink/60">{product.samplePreview}</p>
-            <a
-              href={`/consult?product=${encodeURIComponent(product.name)}`}
-              className="mx-auto text-sm font-bold text-blue hover:text-navy"
-            >
-              샘플 문제 상담 요청하기 →
-            </a>
-          </div>
+          <p className="-mt-3 text-sm leading-relaxed text-ink/55">{product.samplePreview}</p>
+          <SampleQuestionPreview area={product.area} />
         </Section>
+
+        {product.packageItems && product.packageItems.length > 0 ? (
+          <Section title="패키지 구성 및 혜택">
+            <PackageBreakdown items={product.packageItems} packagePrice={product.price} />
+          </Section>
+        ) : null}
 
         <Section title="구매 방법">
           <ol className="grid grid-cols-1 gap-4 sm:grid-cols-3">

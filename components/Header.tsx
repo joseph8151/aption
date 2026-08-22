@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Container from "./Container";
+import SearchAutocomplete from "./SearchAutocomplete";
 import { siteConfig } from "@/lib/config";
 import { categories } from "@/data/categories";
 import { getSubCategoryHref } from "@/lib/subcategoryLinks";
@@ -21,17 +21,7 @@ const navItems: Array<{ label: string; href: string; examKey?: ExamKey }> = [
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [query, setQuery] = useState("");
   const [mobileExpanded, setMobileExpanded] = useState<ExamKey | null>(null);
-  const router = useRouter();
-
-  const submitSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!query.trim()) return;
-    router.push(`/products?q=${encodeURIComponent(query.trim())}`);
-    setSearchOpen(false);
-    setMenuOpen(false);
-  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-offwhite/95 backdrop-blur">
@@ -96,21 +86,12 @@ export default function Header() {
       {searchOpen ? (
         <div className="border-t border-line bg-white">
           <Container className="py-3">
-            <form onSubmit={submitSearch} role="search" className="flex items-center gap-2">
-              <SearchIcon />
-              <input
-                autoFocus
-                type="search"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="시험명, 문제집명, 영역, 난이도로 검색 (예: 자료해석)"
-                aria-label="문제집 검색"
-                className="w-full bg-transparent py-1 text-sm outline-none placeholder:text-ink/40"
-              />
-              <button type="submit" className="shrink-0 text-sm font-bold text-blue">
-                검색
-              </button>
-            </form>
+            <SearchAutocomplete
+              autoFocus
+              placeholder="시험명, 문제집명, 영역, 난이도로 검색 (예: 자료해석)"
+              inputClassName="w-full bg-transparent py-1 text-sm outline-none placeholder:text-ink/40"
+              onNavigate={() => setSearchOpen(false)}
+            />
           </Container>
         </div>
       ) : null}
@@ -118,17 +99,15 @@ export default function Header() {
       {menuOpen ? (
         <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-line bg-white lg:hidden">
           <Container className="flex flex-col gap-1 py-4">
-            <form onSubmit={submitSearch} role="search" className="mb-3 flex items-center gap-2 rounded-full border border-line px-4 py-2.5">
-              <SearchIcon />
-              <input
-                type="search"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
+            <div className="mb-3 rounded-full border border-line px-4 py-2.5">
+              <SearchAutocomplete
                 placeholder="문제집 검색"
-                aria-label="문제집 검색"
-                className="w-full bg-transparent text-sm outline-none placeholder:text-ink/40"
+                onNavigate={() => {
+                  setMenuOpen(false);
+                  setMobileExpanded(null);
+                }}
               />
-            </form>
+            </div>
             {navItems.map((item) =>
               item.examKey ? (
                 <div key={item.label} className="border-b border-line/70 last:border-b-0">
