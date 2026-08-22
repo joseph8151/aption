@@ -20,9 +20,8 @@ export const siteConfig = {
   businessHours: "평일 10:00–18:00",
   businessHoursNote: "주말·공휴일 휴무 (상담 신청은 24시간 가능)",
 
-  // Formspree 또는 자체 API 엔드포인트. 발급받은 값으로 교체하세요.
-  // https://formspree.io 에서 폼을 생성한 뒤 해당 endpoint URL을 붙여넣습니다.
-  formspreeEndpoint: "https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT",
+  // Formspree 상담폼 연동 엔드포인트
+  formspreeEndpoint: "https://formspree.io/f/mppanjzr",
 
   siteUrl: "https://www.aption.co.kr",
 } as const;
