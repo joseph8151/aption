@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import { products } from "@/data/products";
-import { accentDot } from "@/lib/coverAccentColor";
+import { accentHex, getProductCoverTheme } from "@/lib/coverAccentColor";
 
 export default function SearchAutocomplete({
   placeholder = "문제집 검색",
@@ -66,7 +66,7 @@ export default function SearchAutocomplete({
       </form>
 
       {showDropdown ? (
-        <div className="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-xl border border-line bg-white shadow-xl">
+        <div className="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-[16px] border border-line bg-white shadow-xl">
           {suggestions.length > 0 ? (
             <ul>
               {suggestions.map((p) => (
@@ -78,7 +78,7 @@ export default function SearchAutocomplete({
                   >
                     <span
                       className="h-2.5 w-2.5 shrink-0 rounded-full"
-                      style={{ background: accentDot(p.coverAccent) }}
+                      style={{ background: accentHex(getProductCoverTheme(p)) }}
                       aria-hidden="true"
                     />
                     <span className="flex-1 truncate font-medium text-ink/80">{p.name}</span>
@@ -95,7 +95,7 @@ export default function SearchAutocomplete({
           <button
             type="button"
             onClick={goToResults}
-            className="flex w-full items-center justify-center gap-1 border-t border-line px-4 py-3 text-sm font-bold text-blue hover:bg-navy/5"
+            className="flex w-full items-center justify-center gap-1 border-t border-line px-4 py-3 text-sm font-bold text-navy hover:bg-gray-light"
           >
             &ldquo;{value.trim()}&rdquo; 전체 검색결과 보기 →
           </button>

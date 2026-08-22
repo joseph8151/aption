@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { Search } from "lucide-react";
 import ProductCard from "./ProductCard";
 import { products } from "@/data/products";
 import { AreaKey, DifficultyKey, ExamKey, ProductType } from "@/lib/types";
@@ -113,10 +114,7 @@ export default function ProductsExplorer() {
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-[260px_1fr]">
       <aside className="flex flex-col gap-6 lg:sticky lg:top-24 lg:self-start">
         <form onSubmit={submitSearch} role="search" className="flex items-center gap-2 rounded-full border border-line bg-white px-4 py-2.5">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true" className="shrink-0 text-ink/40">
-            <circle cx="11" cy="11" r="7" />
-            <path d="m20 20-3-3" strokeLinecap="round" />
-          </svg>
+          <Search size={16} strokeWidth={2} className="shrink-0 text-ink/40" />
           <input
             type="search"
             value={queryInput}
@@ -175,7 +173,7 @@ export default function ProductsExplorer() {
           <button
             type="button"
             onClick={clearAll}
-            className="text-left text-sm font-bold text-blue hover:text-navy"
+            className="text-left text-sm font-bold text-navy hover:text-navy/70"
           >
             필터 초기화
           </button>
@@ -190,7 +188,7 @@ export default function ProductsExplorer() {
         </div>
 
         {selectedCategory ? (
-          <div className="flex flex-col gap-2.5 rounded-xl border border-line bg-white p-4">
+          <div className="flex flex-col gap-2.5 rounded-[16px] border border-line bg-white p-4">
             <span className="text-xs font-bold uppercase tracking-wide text-ink/45">
               {selectedCategory.label} 세부 영역으로 찾기
             </span>
@@ -203,13 +201,13 @@ export default function ProductsExplorer() {
                     href={getSubCategoryHref(selectedCategory.key, sub)}
                     className={`rounded-full border px-3.5 py-1.5 text-sm font-medium transition ${
                       matched
-                        ? "border-line text-ink/70 hover:border-blue/40 hover:text-navy"
-                        : "border-dashed border-line text-ink/45 hover:border-blue/40 hover:text-navy"
+                        ? "border-line text-ink/70 hover:border-navy/40 hover:text-navy"
+                        : "border-dashed border-line text-ink/45 hover:border-navy/40 hover:text-navy"
                     }`}
                     title={matched ? undefined : "관련 문제집 준비 중 · 상담으로 안내받기"}
                   >
                     {sub}
-                    {!matched ? <span className="ml-1 text-[11px] text-blue">상담</span> : null}
+                    {!matched ? <span className="ml-1 text-[11px] text-navy">상담</span> : null}
                   </Link>
                 );
               })}
@@ -224,14 +222,14 @@ export default function ProductsExplorer() {
             ))}
           </div>
         ) : (
-          <div className="flex flex-col items-center gap-4 rounded-xl border border-dashed border-line py-20 text-center">
+          <div className="flex flex-col items-center gap-4 rounded-[16px] border border-dashed border-line py-20 text-center">
             <p className="text-base font-semibold text-navy">
               조건에 맞는 문제집을 찾지 못했습니다.
             </p>
             <p className="text-sm text-ink/55">
               필터를 조정하시거나 상담을 통해 적합한 문제집을 추천받아 보세요.
             </p>
-            <Link href="/consult" className="text-sm font-bold text-blue hover:text-navy">
+            <Link href="/consult" className="text-sm font-bold text-navy hover:text-navy/70">
               상담 신청하기 →
             </Link>
           </div>

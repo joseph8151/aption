@@ -17,18 +17,16 @@ export default function SectionHeading({
 }) {
   const alignClass = align === "center" ? "text-center items-center mx-auto" : "text-left items-start";
   const titleColor = tone === "dark" ? "text-white" : "text-navy";
-  const descColor = tone === "dark" ? "text-white/65" : "text-ink/70";
-  const eyebrowColor = tone === "dark" ? "text-lime" : "text-blue";
+  const descColor = tone === "dark" ? "text-white/60" : "text-text-gray";
+  const eyebrowColor = tone === "dark" ? "text-lime" : "text-navy";
   return (
     <div className={`flex flex-col gap-4 ${alignClass}`}>
       {eyebrow ? (
-        <span className={`text-xs font-bold uppercase tracking-[0.2em] ${eyebrowColor}`}>
+        <span className={`text-xs font-extrabold uppercase tracking-[0.22em] ${eyebrowColor}`}>
           {eyebrow}
         </span>
       ) : null}
-      <h2 className={`text-3xl font-extrabold leading-tight text-balance sm:text-4xl ${titleColor}`}>
-        {title}
-      </h2>
+      <h2 className={`text-display font-black text-balance ${titleColor}`}>{title}</h2>
       {description ? (
         <p className={`max-w-2xl text-base leading-relaxed sm:text-lg ${descColor}`}>
           {description}

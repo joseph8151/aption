@@ -8,7 +8,7 @@ export default function SampleQuestionPreview({ area }: { area: AreaKey }) {
 
   if (!content) {
     return (
-      <div className="flex flex-col gap-3 rounded-xl border border-dashed border-line bg-white p-8 text-center">
+      <div className="flex flex-col gap-3 rounded-[16px] border border-dashed border-line bg-white p-8 text-center">
         <p className="text-sm leading-relaxed text-ink/60">
           이 영역의 샘플 문제는 준비 중입니다. 상담을 통해 문제 유형을 안내받으실 수 있습니다.
         </p>
@@ -17,7 +17,7 @@ export default function SampleQuestionPreview({ area }: { area: AreaKey }) {
   }
 
   return (
-    <div className="overflow-hidden rounded-xl border border-line bg-white shadow-sm">
+    <div className="overflow-hidden rounded-[16px] border border-line bg-white shadow-sm">
       <div className="flex items-center justify-between border-b border-line bg-navy px-5 py-3 text-white">
         <span className="text-xs font-black tracking-[0.2em]">AptiON</span>
         <span className="text-xs font-semibold text-white/70">SAMPLE PAGE · {area}</span>
@@ -213,7 +213,7 @@ function ShapeGrid({ shape }: { shape: SpatialShape }) {
             width={cell}
             height={cell}
             rx={2}
-            fill={filled.has(`${r}-${c}`) ? "#17223b" : "#e4e7ec"}
+            fill={filled.has(`${r}-${c}`) ? "#101828" : "#eaecf0"}
           />
         ))
       )}
@@ -230,7 +230,7 @@ function AnswerReveal({
 }) {
   return (
     <details className="group rounded-lg border border-line pl-10 pr-4">
-      <summary className="cursor-pointer list-none py-3 text-sm font-bold text-blue">
+      <summary className="cursor-pointer list-none py-3 text-sm font-bold text-navy">
         정답 및 해설 보기
       </summary>
       <div className="flex flex-col gap-1.5 pb-4 text-sm leading-relaxed text-ink/70">

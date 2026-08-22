@@ -4,28 +4,29 @@ import { siteConfig } from "@/lib/config";
 
 const footerNav = [
   {
-    heading: "문제집",
+    heading: "PRODUCTS",
     links: [
       { label: "NCS", href: "/products?exam=ncs" },
       { label: "공기업", href: "/products?exam=public" },
       { label: "인적성", href: "/products?exam=corporate" },
       { label: "모의고사", href: "/products?type=%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC" },
+      { label: "패키지", href: "/products?type=%ED%8C%A8%ED%82%A4%EC%A7%80" },
     ],
   },
   {
-    heading: "고객지원",
+    heading: "SUPPORT",
     links: [
-      { label: "상담문의", href: "/consult" },
       { label: "FAQ", href: "/faq" },
+      { label: "상담문의", href: "/consult" },
       { label: "이용안내", href: "/guide" },
     ],
   },
   {
-    heading: "회사",
+    heading: "COMPANY",
     links: [
-      { label: "브랜드 소개", href: "/about" },
-      { label: "개인정보처리방침", href: "/privacy" },
+      { label: "About AptiON", href: "/about" },
       { label: "이용약관", href: "/terms" },
+      { label: "개인정보처리방침", href: "/privacy" },
     ],
   },
 ];
@@ -36,14 +37,18 @@ export default function Footer() {
       <Container className="grid gap-12 py-14 lg:grid-cols-[1.2fr_2fr] lg:py-20">
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-2">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-lime text-sm font-black text-navy">
+            <span className="flex h-9 w-9 items-center justify-center rounded-[10px] bg-lime text-sm font-black text-navy">
               A
             </span>
-            <span className="text-xl font-black tracking-tight text-white">AptiON</span>
+            <span className="text-xl font-black tracking-tight text-white">
+              Apti<span className="text-lime">ON</span>
+            </span>
           </div>
-          <p className="max-w-xs text-sm leading-relaxed">
-            NCS·공기업·대기업 인적성 시험을 준비하는 취업준비생을 위한
-            실전 문제집 전문 브랜드입니다.
+          <p className="text-sm font-bold text-white/90">Turn Your Ability ON.</p>
+          <p className="max-w-xs text-sm leading-relaxed text-white/55">
+            NCS · Public Enterprise · Aptitude Test
+            <br />
+            취업 필기시험을 전문적으로 연구하는 실전 문제집 브랜드입니다.
           </p>
           <dl className="mt-2 space-y-1 text-sm">
             <div className="flex gap-2">

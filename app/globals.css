@@ -1,32 +1,54 @@
 @import "tailwindcss";
 
 :root {
-  --color-aption-navy: #17223b;
-  --color-aption-navy-dark: #0e1526;
-  --color-aption-blue: #3563e9;
-  --color-aption-blue-dark: #2748b8;
-  --color-aption-blue-tint: #eaf0fe;
-  --color-aption-lime: #b8e34a;
-  --color-aption-lime-dark: #8fb52f;
-  --color-aption-bg: #f7f8fa;
-  --color-aption-ink: #15171a;
-  --color-aption-line: #e4e7ec;
+  /* Primary */
+  --color-aption-navy: #101828;
+  --color-aption-navy-2: #1d2939;
+  --color-aption-navy-soft: #182235;
+
+  /* Secondary */
+  --color-aption-lime: #c7f36b;
+  --color-aption-lime-strong: #a8d93f;
+  --color-aption-lime-tint: #eefacb;
+
+  /* Neutrals */
+  --color-aption-ivory: #f7f5ef;
+  --color-aption-white: #ffffff;
+  --color-aption-gray-light: #f2f4f7;
+  --color-aption-text-gray: #667085;
+  --color-aption-ink: #101828;
+  --color-aption-line: #eaecf0;
+
+  /* Legacy alias kept during migration; resolves to navy */
+  --color-aption-blue: #101828;
+  --color-aption-blue-tint: #f2f4f7;
 }
 
 @theme inline {
   --color-navy: var(--color-aption-navy);
-  --color-navy-dark: var(--color-aption-navy-dark);
-  --color-blue: var(--color-aption-blue);
-  --color-blue-dark: var(--color-aption-blue-dark);
-  --color-blue-tint: var(--color-aption-blue-tint);
+  --color-navy-2: var(--color-aption-navy-2);
+  --color-navy-soft: var(--color-aption-navy-soft);
+  --color-navy-dark: var(--color-aption-navy);
+
   --color-lime: var(--color-aption-lime);
-  --color-lime-dark: var(--color-aption-lime-dark);
-  --color-offwhite: var(--color-aption-bg);
+  --color-lime-strong: var(--color-aption-lime-strong);
+  --color-lime-tint: var(--color-aption-lime-tint);
+  --color-lime-dark: var(--color-aption-lime-strong);
+
+  --color-ivory: var(--color-aption-ivory);
+  --color-offwhite: var(--color-aption-ivory);
+  --color-gray-light: var(--color-aption-gray-light);
+  --color-text-gray: var(--color-aption-text-gray);
   --color-ink: var(--color-aption-ink);
   --color-line: var(--color-aption-line);
-  --font-sans: var(--font-noto-sans-kr), "Pretendard", -apple-system,
+
+  --color-blue: var(--color-aption-blue);
+  --color-blue-dark: var(--color-aption-blue);
+  --color-blue-tint: var(--color-aption-blue-tint);
+
+  --font-sans: var(--font-pretendard), "Pretendard", -apple-system,
     BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-  --container-content: 1360px;
+  --container-content: 1400px;
 }
 
 html {
@@ -34,7 +56,7 @@ html {
 }
 
 body {
-  background: var(--color-aption-bg);
+  background: var(--color-aption-ivory);
   color: var(--color-aption-ink);
   font-family: var(--font-sans);
 }
@@ -52,25 +74,64 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Fluid type scale */
+  .text-hero {
+    font-size: clamp(2.75rem, 2rem + 3.6vw, 4.75rem);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+  }
+  .text-display {
+    font-size: clamp(2rem, 1.5rem + 2.2vw, 3.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+  }
+  .text-huge-figure {
+    font-size: clamp(4rem, 3rem + 6vw, 9rem);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+  }
+
+  .section-y {
+    padding-top: clamp(4rem, 3rem + 4vw, 9.375rem);
+    padding-bottom: clamp(4rem, 3rem + 4vw, 9.375rem);
+  }
+  .section-y-tight {
+    padding-top: clamp(4rem, 3rem + 2.5vw, 6.5rem);
+    padding-bottom: clamp(4rem, 3rem + 2.5vw, 6.5rem);
+  }
 }
 
 @layer components {
   .input {
     width: 100%;
-    border-radius: 0.5rem;
+    border-radius: 12px;
     border: 1px solid var(--color-aption-line);
     background: white;
-    padding: 0.65rem 0.9rem;
+    padding: 0.7rem 0.95rem;
     font-size: 0.9375rem;
     color: var(--color-aption-ink);
-    transition: border-color 0.15s ease;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
   .input::placeholder {
     color: color-mix(in oklab, var(--color-aption-ink) 40%, transparent);
   }
   .input:focus {
     outline: none;
-    border-color: var(--color-aption-blue);
-    box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-aption-blue) 15%, transparent);
+    border-color: var(--color-aption-navy);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-aption-navy) 12%, transparent);
+  }
+}
+
+/* Reveal-on-scroll (paired with components/Reveal.tsx) */
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  [data-reveal="visible"] {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -3,10 +3,14 @@ import Hero from "@/components/Hero";
 import StatsSection from "@/components/StatsSection";
 import BestProducts from "@/components/BestProducts";
 import CategoryFinder from "@/components/CategoryFinder";
+import QuickFinder from "@/components/QuickFinder";
 import WhyAptiON from "@/components/WhyAptiON";
 import LearningSystem from "@/components/LearningSystem";
+import DontStudyEverything from "@/components/DontStudyEverything";
 import ConcernSection from "@/components/ConcernSection";
-import SalesBanner from "@/components/SalesBanner";
+import VisualBreak from "@/components/VisualBreak";
+import PackageSection from "@/components/PackageSection";
+import PersonaSection from "@/components/PersonaSection";
 import Testimonials from "@/components/Testimonials";
 import FAQPreview from "@/components/FAQPreview";
 import FinalCTA from "@/components/FinalCTA";
@@ -24,10 +28,14 @@ export default function Home() {
       <StatsSection />
       <BestProducts />
       <CategoryFinder />
+      <QuickFinder />
       <WhyAptiON />
       <LearningSystem />
+      <DontStudyEverything />
       <ConcernSection />
-      <SalesBanner />
+      <VisualBreak />
+      <PackageSection />
+      <PersonaSection />
       <Testimonials />
       <FAQPreview />
       <FinalCTA />

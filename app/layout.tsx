@@ -1,15 +1,22 @@
 import type { Metadata } from "next";
-import { Noto_Sans_KR } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import { siteConfig } from "@/lib/config";
 
-const notoSansKr = Noto_Sans_KR({
-  variable: "--font-noto-sans-kr",
-  subsets: ["latin"],
-  weight: ["400", "500", "700", "900"],
+const pretendard = localFont({
+  variable: "--font-pretendard",
+  display: "swap",
+  src: [
+    { path: "./fonts/pretendard/Pretendard-Regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/pretendard/Pretendard-Medium.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/pretendard/Pretendard-SemiBold.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/pretendard/Pretendard-Bold.woff2", weight: "700", style: "normal" },
+    { path: "./fonts/pretendard/Pretendard-ExtraBold.woff2", weight: "800", style: "normal" },
+    { path: "./fonts/pretendard/Pretendard-Black.woff2", weight: "900", style: "normal" },
+  ],
 });
 
 export const metadata: Metadata = {
@@ -35,9 +42,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="ko"
       data-scroll-behavior="smooth"
-      className={`${notoSansKr.variable} h-full antialiased`}
+      className={`${pretendard.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-offwhite text-ink">
+      <body className="flex min-h-full flex-col bg-ivory text-ink">
+        <noscript>
+          <style>{`[data-reveal] { opacity: 1 !important; transform: none !important; }`}</style>
+        </noscript>
         <Header />
         <main className="flex-1 pb-16 lg:pb-0">{children}</main>
         <Footer />

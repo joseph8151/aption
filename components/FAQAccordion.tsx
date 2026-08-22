@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { Plus } from "lucide-react";
 import { FaqItem } from "@/data/faq";
 
 export default function FAQAccordion({ items }: { items: FaqItem[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <div className="flex flex-col divide-y divide-line rounded-xl border border-line bg-white">
+    <div className="flex flex-col divide-y divide-line rounded-[18px] border border-line bg-white">
       {items.map((item, i) => {
         const isOpen = openIndex === i;
         return (
@@ -24,12 +25,12 @@ export default function FAQAccordion({ items }: { items: FaqItem[] }) {
                   Q. {item.question}
                 </span>
                 <span
-                  className={`shrink-0 text-xl font-bold text-blue transition-transform ${
+                  className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gray-light text-navy transition-transform duration-300 ${
                     isOpen ? "rotate-45" : ""
                   }`}
                   aria-hidden="true"
                 >
-                  +
+                  <Plus size={15} strokeWidth={2.5} />
                 </span>
               </button>
             </h3>

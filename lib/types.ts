@@ -17,6 +17,10 @@ export type ProductType = "문제집" | "모의고사" | "패키지";
 
 export type CoverAccent = "blue" | "purple" | "orange" | "green" | "navy";
 
+// v2 브랜드 표지 시스템(단계 30 리디자인)에서 사용하는 커버 테마.
+// 영역/난이도/상품유형으로부터 계산되며, 기존 Product.coverAccent 필드는 더 이상 사용하지 않는다.
+export type CoverTheme = "lime" | "sky" | "orange" | "purple" | "advanced" | "final";
+
 export interface TocChapter {
   title: string;
 }
@@ -50,6 +54,7 @@ export interface Product {
   toc: TocChapter[];
   samplePreview: string;
   packageItems?: PackageItem[]; // productType이 "패키지"인 경우 구성 문제집 목록
+  bestValue?: boolean; // 패키지 섹션에서 "BEST VALUE" 뱃지 표시 여부
 }
 
 export interface CategoryGroup {

@@ -8,11 +8,11 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <div className="py-14 lg:py-20">
+    <div className="section-y-tight bg-white">
       <Container className="flex max-w-3xl flex-col gap-8">
         <div className="flex flex-col gap-3">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue">Legal</span>
-          <h1 className="text-3xl font-extrabold text-navy sm:text-4xl">이용약관</h1>
+          <span className="text-xs font-extrabold uppercase tracking-[0.22em] text-navy">Legal</span>
+          <h1 className="text-display font-black text-navy">이용약관</h1>
           <p className="text-sm text-ink/50">최종 개정일: 서비스 오픈 준비 중 (추후 확정)</p>
         </div>
 

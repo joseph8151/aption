@@ -62,7 +62,7 @@ export default function ConsultForm({ initialProduct = "" }: { initialProduct?: 
 
   if (status === "success") {
     return (
-      <div className="flex flex-col items-center gap-3 rounded-xl border border-line bg-white p-10 text-center">
+      <div className="flex flex-col items-center gap-3 rounded-[16px] border border-line bg-white p-10 text-center">
         <span className="flex h-12 w-12 items-center justify-center rounded-full bg-lime text-navy">
           <CheckIcon />
         </span>
@@ -71,7 +71,7 @@ export default function ConsultForm({ initialProduct = "" }: { initialProduct?: 
         </p>
         <p className="text-sm text-ink/55">
           급하신 경우 전화 문의({" "}
-          <a href={siteConfig.phoneHref} className="font-semibold text-blue">
+          <a href={siteConfig.phoneHref} className="font-semibold text-navy">
             {siteConfig.phoneNumber}
           </a>{" "}
           )도 이용해 주세요.
@@ -81,7 +81,7 @@ export default function ConsultForm({ initialProduct = "" }: { initialProduct?: 
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-7 rounded-xl border border-line bg-white p-6 sm:p-8">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-7 rounded-[16px] border border-line bg-white p-6 sm:p-8">
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <Field label="이름" htmlFor="name" required>
           <input
@@ -212,7 +212,7 @@ function Field({
   return (
     <div className="flex flex-col gap-2">
       <label htmlFor={htmlFor} className="text-sm font-bold text-navy">
-        {label} {required ? <span className="text-blue">*</span> : null}
+        {label} {required ? <span className="text-lime-strong">*</span> : null}
       </label>
       {children}
     </div>

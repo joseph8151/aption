@@ -29,14 +29,14 @@ const steps = [
 
 export default function GuidePage() {
   return (
-    <div className="py-14 lg:py-20">
+    <div className="section-y-tight bg-white">
       <Container className="flex max-w-3xl flex-col gap-10">
         <div className="flex flex-col gap-3">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue">이용안내</span>
-          <h1 className="text-3xl font-extrabold text-navy sm:text-4xl">
-            AptiON은 이렇게 이용할 수 있어요
-          </h1>
-          <p className="text-base leading-relaxed text-ink/60">
+          <span className="text-xs font-extrabold uppercase tracking-[0.22em] text-navy">
+            이용안내
+          </span>
+          <h1 className="text-display font-black text-navy">AptiON은 이렇게 이용할 수 있어요</h1>
+          <p className="text-base leading-relaxed text-text-gray sm:text-lg">
             현재 AptiON은 온라인 자동결제 대신 상담 신청과 전화 문의를 통해 상품 안내와
             구매를 진행하고 있습니다.
           </p>
@@ -44,7 +44,7 @@ export default function GuidePage() {
 
         <ol className="flex flex-col gap-4">
           {steps.map((step, i) => (
-            <li key={step.title} className="flex gap-4 rounded-xl border border-line bg-white p-5">
+            <li key={step.title} className="flex gap-4 rounded-[16px] border border-line bg-white p-5">
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-navy text-sm font-bold text-lime">
                 {i + 1}
               </span>
@@ -56,14 +56,14 @@ export default function GuidePage() {
           ))}
         </ol>
 
-        <div className="flex flex-col gap-2 rounded-xl bg-blue-tint p-6">
+        <div className="flex flex-col gap-2 rounded-[16px] bg-gray-light p-6">
           <h2 className="text-sm font-bold text-navy">운영시간 안내</h2>
           <p className="text-sm text-ink/65">
             {siteConfig.businessHours} · {siteConfig.businessHoursNote}
           </p>
           <p className="text-sm text-ink/65">
             전화 문의:{" "}
-            <a href={siteConfig.phoneHref} className="font-semibold text-blue">
+            <a href={siteConfig.phoneHref} className="font-semibold text-navy">
               {siteConfig.phoneNumber}
             </a>
           </p>
@@ -72,13 +72,13 @@ export default function GuidePage() {
         <div className="flex flex-col gap-3 sm:flex-row">
           <Link
             href="/consult"
-            className="inline-flex items-center justify-center rounded-full bg-lime px-7 py-3.5 text-base font-bold text-navy transition hover:brightness-95"
+            className="inline-flex items-center justify-center rounded-[14px] bg-lime px-7 py-3.5 text-base font-bold text-navy transition hover:bg-lime-strong"
           >
             상담 신청하기
           </Link>
           <Link
             href="/faq"
-            className="inline-flex items-center justify-center rounded-full border-2 border-navy/15 px-7 py-3.5 text-base font-bold text-navy transition hover:border-navy/40"
+            className="inline-flex items-center justify-center rounded-[14px] border border-line px-7 py-3.5 text-base font-bold text-navy transition hover:border-navy/30"
           >
             FAQ 보기
           </Link>

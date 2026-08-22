@@ -1,13 +1,93 @@
-import { CoverAccent } from "./types";
+import { AreaKey, CoverTheme, DifficultyKey, Product, ProductType } from "./types";
 
-export const coverAccentColors: Record<CoverAccent, { from: string; to: string; chip: string }> = {
-  blue: { from: "#2748b8", to: "#3563e9", chip: "#8fb2ff" },
-  purple: { from: "#4c3fb0", to: "#6c5ce7", chip: "#c3b8ff" },
-  orange: { from: "#b96a1e", to: "#e08a3c", chip: "#ffd39c" },
-  green: { from: "#1f7a52", to: "#2e9e6c", chip: "#9be6c4" },
-  navy: { from: "#0e1526", to: "#17223b", chip: "#b8e34a" },
+export interface CoverThemeStyle {
+  bgFrom: string;
+  bgTo: string;
+  accent: string;
+  text: string;
+  textSoft: string;
+  isLight: boolean;
+}
+
+// 브랜드 표지 디자인 시스템: 문제집마다 다른 브랜드처럼 보이지 않도록
+// 영역·난이도·상품유형에서 자동으로 파생되는 6가지 고정 테마만 사용한다.
+export const coverThemeStyles: Record<CoverTheme, CoverThemeStyle> = {
+  lime: {
+    bgFrom: "#182235",
+    bgTo: "#101828",
+    accent: "#C7F36B",
+    text: "#FFFFFF",
+    textSoft: "rgba(255,255,255,0.62)",
+    isLight: false,
+  },
+  sky: {
+    bgFrom: "#182235",
+    bgTo: "#101828",
+    accent: "#7DD3FC",
+    text: "#FFFFFF",
+    textSoft: "rgba(255,255,255,0.62)",
+    isLight: false,
+  },
+  orange: {
+    bgFrom: "#182235",
+    bgTo: "#101828",
+    accent: "#FDBA74",
+    text: "#FFFFFF",
+    textSoft: "rgba(255,255,255,0.62)",
+    isLight: false,
+  },
+  purple: {
+    bgFrom: "#182235",
+    bgTo: "#101828",
+    accent: "#D6BCFA",
+    text: "#FFFFFF",
+    textSoft: "rgba(255,255,255,0.62)",
+    isLight: false,
+  },
+  advanced: {
+    bgFrom: "#15181f",
+    bgTo: "#05070a",
+    accent: "#C7F36B",
+    text: "#FFFFFF",
+    textSoft: "rgba(255,255,255,0.6)",
+    isLight: false,
+  },
+  final: {
+    bgFrom: "#fdfcf9",
+    bgTo: "#f0ecdf",
+    accent: "#101828",
+    text: "#101828",
+    textSoft: "rgba(16,24,40,0.55)",
+    isLight: true,
+  },
 };
 
-export function accentDot(accent: CoverAccent): string {
-  return coverAccentColors[accent].to;
+const areaTheme: Record<AreaKey, CoverTheme> = {
+  수리: "lime",
+  자료해석: "sky",
+  공간지각: "sky",
+  문제해결: "orange",
+  전공: "orange",
+  의사소통: "purple",
+  논리추리: "purple",
+  상황판단: "purple",
+  모의고사: "final",
+};
+
+export function getCoverTheme(
+  area: AreaKey,
+  productType: ProductType,
+  difficultyTags: DifficultyKey[]
+): CoverTheme {
+  if (productType === "모의고사" || area === "모의고사") return "final";
+  if (difficultyTags.includes("고난도")) return "advanced";
+  return areaTheme[area] ?? "lime";
+}
+
+export function getProductCoverTheme(product: Product): CoverTheme {
+  return getCoverTheme(product.area, product.productType, product.difficultyTags);
+}
+
+export function accentHex(theme: CoverTheme): string {
+  return coverThemeStyles[theme].accent;
 }

@@ -8,6 +8,7 @@ import ProductCard from "@/components/ProductCard";
 import SampleQuestionPreview from "@/components/SampleQuestionPreview";
 import PackageBreakdown from "@/components/PackageBreakdown";
 import { getProductBySlug, products } from "@/data/products";
+import { getProductCoverTheme } from "@/lib/coverAccentColor";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -41,9 +42,9 @@ export default async function ProductDetailPage({
     .slice(0, 4);
 
   return (
-    <div className="py-10 lg:py-14">
+    <div className="section-y-tight bg-white">
       <Container className="flex flex-col gap-16">
-        <nav aria-label="이동 경로" className="text-sm text-ink/50">
+        <nav aria-label="이동 경로" className="text-sm text-text-gray">
           <Link href="/" className="hover:text-navy">
             홈
           </Link>
@@ -58,10 +59,11 @@ export default async function ProductDetailPage({
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[380px_1fr] lg:gap-16">
           <div className="relative mx-auto w-full max-w-xs lg:mx-0">
             <BookCover
-              accent={product.coverAccent}
+              theme={getProductCoverTheme(product)}
               eyebrow={product.coverEyebrow}
               titleLines={product.coverTitleLines}
               footer={product.coverFooter}
+              bigNumber={product.questionCount}
               className="shadow-xl"
             />
             {product.badges.length > 0 ? (
@@ -75,39 +77,39 @@ export default async function ProductDetailPage({
 
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-3">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue">
+              <span className="text-xs font-extrabold uppercase tracking-[0.22em] text-navy">
                 {product.coverEyebrow} · {product.area}
               </span>
-              <h1 className="text-3xl font-extrabold leading-snug text-navy sm:text-4xl">
-                {product.name}
-              </h1>
-              <p className="text-base leading-relaxed text-ink/65">{product.shortDescription}</p>
+              <h1 className="text-display font-black leading-tight text-navy">{product.name}</h1>
+              <p className="text-base leading-relaxed text-text-gray sm:text-lg">
+                {product.shortDescription}
+              </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 rounded-xl border border-line bg-white p-5 sm:grid-cols-4">
+            <div className="grid grid-cols-2 gap-4 rounded-[16px] border border-line bg-gray-light p-5 sm:grid-cols-4">
               <Meta label="문제 수" value={`${product.questionCount}문제`} />
               <Meta label="페이지 수" value={`${product.pageCount}쪽`} />
               <Meta label="난이도" value={product.difficultyLabel} />
               <Meta label="상품유형" value={product.productType} />
             </div>
 
-            <div className="flex flex-col gap-4 rounded-xl border border-line bg-white p-6">
+            <div className="flex flex-col gap-4 rounded-[18px] border border-line bg-white p-6">
               <span className="text-3xl font-black text-navy">
                 {product.price.toLocaleString("ko-KR")}원
               </span>
-              <p className="text-sm leading-relaxed text-ink/55">
+              <p className="text-sm leading-relaxed text-text-gray">
                 현재는 상담 신청 또는 전화 문의를 통해 구매 안내를 드리고 있습니다.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Link
                   href={`/consult?product=${encodeURIComponent(product.name)}`}
-                  className="inline-flex flex-1 items-center justify-center rounded-full bg-navy px-6 py-3.5 text-base font-bold text-white transition hover:bg-navy-dark"
+                  className="inline-flex flex-1 items-center justify-center rounded-[14px] bg-navy px-6 py-3.5 text-base font-bold text-white transition hover:bg-navy-2"
                 >
                   구매 문의
                 </Link>
                 <Link
                   href={`/consult?product=${encodeURIComponent(product.name)}`}
-                  className="inline-flex flex-1 items-center justify-center rounded-full border-2 border-navy/15 px-6 py-3.5 text-base font-bold text-navy transition hover:border-navy/40"
+                  className="inline-flex flex-1 items-center justify-center rounded-[14px] border border-line px-6 py-3.5 text-base font-bold text-navy transition hover:border-navy/30"
                 >
                   문제집 상담
                 </Link>
@@ -115,11 +117,11 @@ export default async function ProductDetailPage({
             </div>
 
             <div>
-              <h2 className="mb-3 text-lg font-bold text-navy">추천 대상</h2>
+              <h2 className="mb-3 text-lg font-extrabold text-navy">추천 대상</h2>
               <ul className="flex flex-col gap-2">
                 {product.targetAudience.map((t) => (
                   <li key={t} className="flex items-start gap-2 text-sm leading-relaxed text-ink/70">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-lime" />
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-lime-strong" />
                     {t}
                   </li>
                 ))}
@@ -133,7 +135,7 @@ export default async function ProductDetailPage({
             <ul className="flex flex-col gap-2">
               {product.learningGoals.map((g) => (
                 <li key={g} className="flex items-start gap-2 text-sm leading-relaxed text-ink/70">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue" />
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-navy" />
                   {g}
                 </li>
               ))}
@@ -144,7 +146,7 @@ export default async function ProductDetailPage({
             <ul className="flex flex-col gap-2">
               {product.composition.map((c) => (
                 <li key={c} className="flex items-start gap-2 text-sm leading-relaxed text-ink/70">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue" />
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-navy" />
                   {c}
                 </li>
               ))}
@@ -157,7 +159,7 @@ export default async function ProductDetailPage({
             {product.toc.map((chapter, i) => (
               <li
                 key={chapter.title}
-                className="flex items-center gap-3 rounded-lg border border-line bg-white px-4 py-3 text-sm text-ink/75"
+                className="flex items-center gap-3 rounded-[12px] border border-line bg-white px-4 py-3 text-sm text-ink/75"
               >
                 <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-navy/5 text-xs font-bold text-navy">
                   {i + 1}
@@ -169,7 +171,7 @@ export default async function ProductDetailPage({
         </Section>
 
         <Section title="샘플 페이지">
-          <p className="-mt-3 text-sm leading-relaxed text-ink/55">{product.samplePreview}</p>
+          <p className="-mt-3 text-sm leading-relaxed text-text-gray">{product.samplePreview}</p>
           <SampleQuestionPreview area={product.area} />
         </Section>
 
@@ -186,10 +188,10 @@ export default async function ProductDetailPage({
               { step: "2", title: "안내 및 확인", desc: "적합한 문제집과 구매 방법을 안내해드립니다." },
               { step: "3", title: "구매 진행", desc: "안내에 따라 결제 및 배송을 진행합니다." },
             ].map((s) => (
-              <li key={s.step} className="flex flex-col gap-2 rounded-xl border border-line bg-white p-5">
-                <span className="text-sm font-black text-lime-dark">STEP {s.step}</span>
+              <li key={s.step} className="flex flex-col gap-2 rounded-[16px] border border-line bg-white p-5">
+                <span className="text-sm font-black text-lime-strong">STEP {s.step}</span>
                 <span className="text-sm font-bold text-navy">{s.title}</span>
-                <span className="text-xs leading-relaxed text-ink/55">{s.desc}</span>
+                <span className="text-xs leading-relaxed text-text-gray">{s.desc}</span>
               </li>
             ))}
           </ol>
@@ -212,7 +214,7 @@ export default async function ProductDetailPage({
 function Meta({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col gap-1">
-      <span className="text-xs font-medium text-ink/45">{label}</span>
+      <span className="text-xs font-medium text-text-gray">{label}</span>
       <span className="text-sm font-bold text-navy">{value}</span>
     </div>
   );
@@ -221,7 +223,7 @@ function Meta({ label, value }: { label: string; value: string }) {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-col gap-5">
-      <h2 className="text-xl font-extrabold text-navy sm:text-2xl">{title}</h2>
+      <h2 className="text-2xl font-extrabold text-navy sm:text-[28px]">{title}</h2>
       {children}
     </div>
   );
