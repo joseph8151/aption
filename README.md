@@ -44,3 +44,23 @@ lib/                 전역 설정(config.ts)과 타입 정의(types.ts)
 npm run build
 npm run start
 ```
+
+## Cloudflare Workers 배포
+
+이 프로젝트는 [OpenNext Cloudflare 어댑터](https://opennext.js.org/cloudflare)로 Cloudflare Workers에 배포하도록 설정되어 있습니다 (`wrangler.jsonc`, `open-next.config.ts`).
+
+```bash
+npm run cf:build     # Next.js 빌드 후 .open-next/ 로 Worker 번들 생성
+npm run cf:preview   # 로컬에서 실제 Worker 런타임으로 미리보기
+npm run cf:deploy    # 빌드 후 Cloudflare에 배포
+```
+
+**Cloudflare 대시보드(Workers Builds)에서 Git 연동으로 자동 배포할 경우**, Settings → Build 화면에서 다음과 같이 설정하세요.
+
+| 항목 | 값 |
+| --- | --- |
+| Build command | `npx opennextjs-cloudflare build` |
+| Deploy command | `npx wrangler deploy` |
+| Root directory | `/` |
+
+Build command가 비어 있으면(`None`) `.open-next/` 산출물이 생성되지 않아 `wrangler deploy`가 실패합니다.
