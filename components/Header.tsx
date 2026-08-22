@@ -5,11 +5,14 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Container from "./Container";
 import { siteConfig } from "@/lib/config";
+import { categories } from "@/data/categories";
+import { getSubCategoryHref } from "@/lib/subcategoryLinks";
+import { ExamKey } from "@/lib/types";
 
-const navItems = [
-  { label: "NCS", href: "/products?exam=ncs" },
-  { label: "공기업", href: "/products?exam=public" },
-  { label: "인적성", href: "/products?exam=corporate" },
+const navItems: Array<{ label: string; href: string; examKey?: ExamKey }> = [
+  { label: "NCS", href: "/products?exam=ncs", examKey: "ncs" },
+  { label: "공기업", href: "/products?exam=public", examKey: "public" },
+  { label: "인적성", href: "/products?exam=corporate", examKey: "corporate" },
   { label: "문제집", href: "/products" },
   { label: "패키지", href: "/products?type=%ED%8C%A8%ED%82%A4%EC%A7%80" },
   { label: "브랜드 소개", href: "/about" },
@@ -19,6 +22,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const [mobileExpanded, setMobileExpanded] = useState<ExamKey | null>(null);
   const router = useRouter();
 
   const submitSearch = (e: React.FormEvent) => {
@@ -40,15 +44,19 @@ export default function Header() {
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="주요 메뉴">
-          {navItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="rounded-md px-3 py-2 text-sm font-semibold text-ink/80 transition hover:bg-navy/5 hover:text-navy"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) =>
+            item.examKey ? (
+              <NavDropdown key={item.label} label={item.label} href={item.href} examKey={item.examKey} />
+            ) : (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="rounded-md px-3 py-2 text-sm font-semibold text-ink/80 transition hover:bg-navy/5 hover:text-navy"
+              >
+                {item.label}
+              </Link>
+            )
+          )}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -108,7 +116,7 @@ export default function Header() {
       ) : null}
 
       {menuOpen ? (
-        <div className="border-t border-line bg-white lg:hidden">
+        <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-line bg-white lg:hidden">
           <Container className="flex flex-col gap-1 py-4">
             <form onSubmit={submitSearch} role="search" className="mb-3 flex items-center gap-2 rounded-full border border-line px-4 py-2.5">
               <SearchIcon />
@@ -121,16 +129,68 @@ export default function Header() {
                 className="w-full bg-transparent text-sm outline-none placeholder:text-ink/40"
               />
             </form>
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                onClick={() => setMenuOpen(false)}
-                className="rounded-md px-3 py-3 text-base font-semibold text-ink/85 hover:bg-navy/5"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) =>
+              item.examKey ? (
+                <div key={item.label} className="border-b border-line/70 last:border-b-0">
+                  <button
+                    type="button"
+                    aria-expanded={mobileExpanded === item.examKey}
+                    onClick={() =>
+                      setMobileExpanded((v) => (v === item.examKey ? null : (item.examKey as ExamKey)))
+                    }
+                    className="flex w-full items-center justify-between rounded-md px-3 py-3 text-base font-semibold text-ink/85 hover:bg-navy/5"
+                  >
+                    {item.label}
+                    <span
+                      className={`text-lg text-ink/40 transition-transform ${
+                        mobileExpanded === item.examKey ? "rotate-45" : ""
+                      }`}
+                      aria-hidden="true"
+                    >
+                      +
+                    </span>
+                  </button>
+                  {mobileExpanded === item.examKey ? (
+                    <div className="flex flex-col gap-0.5 pb-3 pl-3">
+                      {categories
+                        .find((c) => c.key === item.examKey)
+                        ?.subCategories.map((sub) => (
+                          <Link
+                            key={sub}
+                            href={getSubCategoryHref(item.examKey as ExamKey, sub)}
+                            onClick={() => {
+                              setMenuOpen(false);
+                              setMobileExpanded(null);
+                            }}
+                            className="rounded-md px-3 py-2 text-sm text-ink/65 hover:bg-navy/5 hover:text-navy"
+                          >
+                            {sub}
+                          </Link>
+                        ))}
+                      <Link
+                        href={item.href}
+                        onClick={() => {
+                          setMenuOpen(false);
+                          setMobileExpanded(null);
+                        }}
+                        className="rounded-md px-3 py-2 text-sm font-bold text-blue"
+                      >
+                        {item.label} 전체 문제집 보기 →
+                      </Link>
+                    </div>
+                  ) : null}
+                </div>
+              ) : (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-md px-3 py-3 text-base font-semibold text-ink/85 hover:bg-navy/5"
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
             <div className="mt-3 flex gap-2">
               <a
                 href={siteConfig.phoneHref}
@@ -151,6 +211,49 @@ export default function Header() {
         </div>
       ) : null}
     </header>
+  );
+}
+
+function NavDropdown({ label, href, examKey }: { label: string; href: string; examKey: ExamKey }) {
+  const category = categories.find((c) => c.key === examKey);
+  if (!category) return null;
+
+  return (
+    <div className="group relative">
+      <Link
+        href={href}
+        className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-semibold text-ink/80 transition hover:bg-navy/5 hover:text-navy"
+      >
+        {label}
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true" className="text-ink/40">
+          <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </Link>
+      <div className="invisible absolute left-1/2 top-full z-50 w-96 -translate-x-1/2 pt-2 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+        <div className="rounded-xl border border-line bg-white p-4 shadow-xl">
+          <p className="mb-3 px-1 text-xs font-bold uppercase tracking-wide text-ink/40">
+            {category.description}
+          </p>
+          <div className="grid grid-cols-2 gap-1">
+            {category.subCategories.map((sub) => (
+              <Link
+                key={sub}
+                href={getSubCategoryHref(examKey, sub)}
+                className="rounded-md px-2.5 py-2 text-sm text-ink/70 transition hover:bg-navy/5 hover:text-navy"
+              >
+                {sub}
+              </Link>
+            ))}
+          </div>
+          <Link
+            href={href}
+            className="mt-3 block rounded-md bg-navy/5 px-2.5 py-2.5 text-center text-sm font-bold text-blue transition hover:bg-navy/10"
+          >
+            {label} 전체 문제집 보기 →
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 }
 

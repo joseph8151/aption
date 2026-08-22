@@ -6,6 +6,8 @@ import Link from "next/link";
 import ProductCard from "./ProductCard";
 import { products } from "@/data/products";
 import { AreaKey, DifficultyKey, ExamKey, ProductType } from "@/lib/types";
+import { categories } from "@/data/categories";
+import { getSubCategoryHref, hasSubCategoryProducts } from "@/lib/subcategoryLinks";
 
 const examOptions: { key: ExamKey; label: string }[] = [
   { key: "ncs", label: "NCS" },
@@ -21,6 +23,8 @@ const areaOptions: AreaKey[] = [
   "문제해결",
   "논리추리",
   "전공",
+  "공간지각",
+  "상황판단",
   "모의고사",
 ];
 
@@ -102,6 +106,9 @@ export default function ProductsExplorer() {
   const hasActiveFilters =
     Boolean(q) || examFilter.length > 0 || areaFilter.length > 0 || difficultyFilter.length > 0 || typeFilter.length > 0;
 
+  const selectedCategory =
+    examFilter.length === 1 ? categories.find((c) => c.key === examFilter[0]) : undefined;
+
   return (
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-[260px_1fr]">
       <aside className="flex flex-col gap-6 lg:sticky lg:top-24 lg:self-start">
@@ -181,6 +188,34 @@ export default function ProductsExplorer() {
             총 <span className="font-bold text-navy">{filtered.length}</span>개의 문제집
           </p>
         </div>
+
+        {selectedCategory ? (
+          <div className="flex flex-col gap-2.5 rounded-xl border border-line bg-white p-4">
+            <span className="text-xs font-bold uppercase tracking-wide text-ink/45">
+              {selectedCategory.label} 세부 영역으로 찾기
+            </span>
+            <div className="flex flex-wrap gap-2">
+              {selectedCategory.subCategories.map((sub) => {
+                const matched = hasSubCategoryProducts(selectedCategory.key, sub);
+                return (
+                  <Link
+                    key={sub}
+                    href={getSubCategoryHref(selectedCategory.key, sub)}
+                    className={`rounded-full border px-3.5 py-1.5 text-sm font-medium transition ${
+                      matched
+                        ? "border-line text-ink/70 hover:border-blue/40 hover:text-navy"
+                        : "border-dashed border-line text-ink/45 hover:border-blue/40 hover:text-navy"
+                    }`}
+                    title={matched ? undefined : "관련 문제집 준비 중 · 상담으로 안내받기"}
+                  >
+                    {sub}
+                    {!matched ? <span className="ml-1 text-[11px] text-blue">상담</span> : null}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        ) : null}
 
         {filtered.length > 0 ? (
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">

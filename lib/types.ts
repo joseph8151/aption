@@ -7,6 +7,8 @@ export type AreaKey =
   | "문제해결"
   | "논리추리"
   | "전공"
+  | "공간지각"
+  | "상황판단"
   | "모의고사";
 
 export type DifficultyKey = "입문" | "기본" | "실전" | "고난도";
