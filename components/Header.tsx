@@ -12,6 +12,8 @@ import { ExamKey } from "@/lib/types";
 const navItems: Array<{ label: string; href: string; examKey?: ExamKey }> = [
   { label: "이번 달 필기", href: "/this-month" },
   { label: "NCS", href: "/products?exam=ncs", examKey: "ncs" },
+  { label: "자격 약점", href: "/products" },
+  { label: "TOPIK·EPS", href: "/category/topik-eps" },
   { label: "공기업", href: "/products?exam=public", examKey: "public" },
   { label: "인적성", href: "/products?exam=corporate", examKey: "corporate" },
   { label: "패키지", href: "/products?type=%ED%8C%A8%ED%82%A4%EC%A7%80" },

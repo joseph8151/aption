@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Container from "./Container";
 
+const catalogLinks = [{ label: "TOPIK·EPS", href: "/category/topik-eps" }];
+
 const secondaryLinks = [
   { label: "FAQ", href: "/faq" },
   { label: "이용안내", href: "/guide" },
@@ -32,6 +34,11 @@ export default function Footer() {
             <Link href="/terms" className="text-ivory/60 transition hover:text-lime">
               이용약관
             </Link>
+            {catalogLinks.map((link) => (
+              <Link key={link.label} href={link.href} className="text-ivory/60 transition hover:text-lime">
+                {link.label}
+              </Link>
+            ))}
             {secondaryLinks.map((link) => (
               <Link key={link.label} href={link.href} className="text-ivory/40 transition hover:text-lime">
                 {link.label}
