@@ -9,9 +9,9 @@ export default function ProductCard({ product }: { product: Product }) {
   const theme = getProductCoverTheme(product);
 
   return (
-    <div className="group flex flex-col overflow-hidden rounded-[18px] border border-line bg-white transition-all duration-300 hover:-translate-y-1.5 hover:border-navy/15 hover:shadow-[0_24px_48px_-24px_rgba(16,24,40,0.28)]">
+    <div className="group flex flex-col overflow-hidden rounded-[8px] border border-line bg-white transition-all duration-300 hover:-translate-y-1.5 hover:border-navy/15 hover:shadow-[0_24px_48px_-24px_rgba(20,18,15,0.28)]">
       <Link href={`/products/${product.slug}`} className="block p-5 pb-0">
-        <div className="relative overflow-hidden rounded-[14px]">
+        <div className="relative overflow-hidden rounded-[6px]">
           <div className="transition-transform duration-500 ease-out group-hover:scale-[1.03]">
             <BookCover
               theme={theme}
@@ -72,7 +72,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
         <Link
           href={`/consult?product=${encodeURIComponent(product.name)}`}
-          className="mt-1 flex items-center justify-center rounded-[12px] bg-navy px-3 py-2.5 text-sm font-bold text-white transition hover:bg-navy-2"
+          className="mt-1 flex items-center justify-center rounded-[6px] bg-navy px-3 py-2.5 text-sm font-bold text-white transition hover:bg-navy-2"
         >
           구매 문의
         </Link>

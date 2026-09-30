@@ -8,7 +8,7 @@ export default function FAQAccordion({ items }: { items: FaqItem[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <div className="flex flex-col divide-y divide-line rounded-[18px] border border-line bg-white">
+    <div className="flex flex-col divide-y divide-line rounded-[8px] border border-line bg-white">
       {items.map((item, i) => {
         const isOpen = openIndex === i;
         return (

@@ -48,7 +48,7 @@ export default function WhyAptiON() {
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {reasons.map((reason, i) => (
             <Reveal key={reason.number} delay={i * 90}>
-              <div className="relative flex h-full flex-col gap-3 overflow-hidden rounded-[18px] border border-white/10 bg-white/[0.04] p-6 transition-colors duration-300 hover:border-lime/40 hover:bg-white/[0.07]">
+              <div className="relative flex h-full flex-col gap-3 overflow-hidden rounded-[8px] border border-white/10 bg-white/[0.04] p-6 transition-colors duration-300 hover:border-lime/40 hover:bg-white/[0.07]">
                 <span
                   aria-hidden="true"
                   className="pointer-events-none absolute -bottom-6 -right-3 text-[6.5rem] font-black leading-none text-white/[0.05] select-none"

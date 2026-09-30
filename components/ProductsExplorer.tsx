@@ -188,7 +188,7 @@ export default function ProductsExplorer() {
         </div>
 
         {selectedCategory ? (
-          <div className="flex flex-col gap-2.5 rounded-[16px] border border-line bg-white p-4">
+          <div className="flex flex-col gap-2.5 rounded-[8px] border border-line bg-white p-4">
             <span className="text-xs font-bold uppercase tracking-wide text-ink/45">
               {selectedCategory.label} 세부 영역으로 찾기
             </span>
@@ -222,7 +222,7 @@ export default function ProductsExplorer() {
             ))}
           </div>
         ) : (
-          <div className="flex flex-col items-center gap-4 rounded-[16px] border border-dashed border-line py-20 text-center">
+          <div className="flex flex-col items-center gap-4 rounded-[8px] border border-dashed border-line py-20 text-center">
             <p className="text-base font-semibold text-navy">
               조건에 맞는 문제집을 찾지 못했습니다.
             </p>

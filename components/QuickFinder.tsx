@@ -158,7 +158,7 @@ function QuickFinderStep({
 }) {
   return (
     <div
-      className={`flex flex-col gap-4 rounded-[18px] border border-line bg-white p-6 transition-opacity duration-300 sm:p-7 ${
+      className={`flex flex-col gap-4 rounded-[8px] border border-line bg-white p-6 transition-opacity duration-300 sm:p-7 ${
         active ? "opacity-100" : "pointer-events-none opacity-40"
       }`}
     >

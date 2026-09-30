@@ -28,14 +28,14 @@ export default function PackageSection() {
 
             return (
               <Reveal key={pkg.slug} delay={i * 90}>
-                <div className="relative flex flex-col gap-6 overflow-hidden rounded-[20px] border border-line bg-ivory p-6 transition-shadow duration-300 hover:shadow-[0_24px_48px_-28px_rgba(16,24,40,0.3)] sm:p-8 lg:flex-row lg:items-center lg:gap-10">
+                <div className="relative flex flex-col gap-6 overflow-hidden rounded-[8px] border border-line bg-ivory p-6 transition-shadow duration-300 hover:shadow-[0_24px_48px_-28px_rgba(20,18,15,0.3)] sm:p-8 lg:flex-row lg:items-center lg:gap-10">
                   {pkg.bestValue ? (
-                    <span className="absolute right-6 top-6 rounded-full bg-lime px-3 py-1 text-[11px] font-extrabold tracking-wide text-navy">
+                    <span className="absolute right-6 top-6 rounded-[3px] bg-lime px-3 py-1 text-[11px] font-extrabold tracking-wide text-navy">
                       BEST VALUE
                     </span>
                   ) : null}
 
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-[14px] bg-navy text-lime">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-[8px] bg-navy text-lime">
                     <Package size={24} strokeWidth={1.75} />
                   </div>
 
@@ -71,7 +71,7 @@ export default function PackageSection() {
                     ) : null}
                     <Link
                       href={`/products/${pkg.slug}`}
-                      className="group mt-1 inline-flex items-center gap-1.5 rounded-[12px] bg-navy px-5 py-3 text-sm font-bold text-white transition hover:bg-navy-2"
+                      className="group mt-1 inline-flex items-center gap-1.5 rounded-[6px] bg-navy px-5 py-3 text-sm font-bold text-white transition hover:bg-navy-2"
                     >
                       패키지 자세히 보기
                       <ArrowRight size={15} strokeWidth={2.5} className="transition-transform group-hover:translate-x-1" />

@@ -8,7 +8,7 @@ export default function SampleQuestionPreview({ area }: { area: AreaKey }) {
 
   if (!content) {
     return (
-      <div className="flex flex-col gap-3 rounded-[16px] border border-dashed border-line bg-white p-8 text-center">
+      <div className="flex flex-col gap-3 rounded-[8px] border border-dashed border-line bg-white p-8 text-center">
         <p className="text-sm leading-relaxed text-ink/60">
           이 영역의 샘플 문제는 준비 중입니다. 상담을 통해 문제 유형을 안내받으실 수 있습니다.
         </p>
@@ -17,7 +17,7 @@ export default function SampleQuestionPreview({ area }: { area: AreaKey }) {
   }
 
   return (
-    <div className="overflow-hidden rounded-[16px] border border-line bg-white shadow-sm">
+    <div className="overflow-hidden rounded-[8px] border border-line bg-white shadow-sm">
       <div className="flex items-center justify-between border-b border-line bg-navy px-5 py-3 text-white">
         <span className="text-xs font-black tracking-[0.2em]">AptiON</span>
         <span className="text-xs font-semibold text-white/70">SAMPLE PAGE · {area}</span>

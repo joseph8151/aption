@@ -30,7 +30,7 @@ export default function LearningSystem() {
               <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-navy bg-ivory text-sm font-black text-navy lg:h-12 lg:w-12">
                 {step.code}
               </div>
-              <div className="flex flex-1 flex-col gap-2 rounded-[16px] border border-line bg-white p-5 lg:p-6">
+              <div className="flex flex-1 flex-col gap-2 rounded-[8px] border border-line bg-white p-5 lg:p-6">
                 <span className="text-[11px] font-extrabold tracking-[0.2em] text-lime-strong">
                   {step.tag}
                 </span>

@@ -33,11 +33,11 @@ export default async function ConsultPage({
         </div>
 
         <aside className="flex flex-col gap-5">
-          <div className="flex flex-col gap-4 rounded-[18px] bg-navy p-6 text-white">
+          <div className="flex flex-col gap-4 rounded-[8px] bg-navy p-6 text-white">
             <h2 className="text-lg font-extrabold">전화 상담이 더 편하신가요?</h2>
             <a
               href={siteConfig.phoneHref}
-              className="inline-flex items-center justify-center rounded-[14px] bg-lime px-5 py-3 text-base font-bold text-navy transition hover:bg-lime-strong"
+              className="inline-flex items-center justify-center rounded-[6px] bg-lime px-5 py-3 text-base font-bold text-navy transition hover:bg-lime-strong"
             >
               {siteConfig.phoneNumber}
             </a>
@@ -50,7 +50,7 @@ export default async function ConsultPage({
             </dl>
           </div>
 
-          <div className="flex flex-col gap-2 rounded-[18px] border border-line bg-white p-6">
+          <div className="flex flex-col gap-2 rounded-[8px] border border-line bg-white p-6">
             <h2 className="text-sm font-extrabold text-navy">상담 후 진행 순서</h2>
             <ol className="flex flex-col gap-2 text-sm text-text-gray">
               <li>1. 상담 신청 또는 전화 문의</li>

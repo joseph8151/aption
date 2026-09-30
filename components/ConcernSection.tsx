@@ -14,7 +14,7 @@ export default function ConcernSection() {
         <div className="grid grid-cols-1 gap-x-5 gap-y-8 sm:grid-cols-2 lg:grid-cols-5">
           {concernItems.map((item, i) => (
             <Reveal key={item.concern} delay={i * 80} className="flex flex-col items-center gap-4">
-              <div className="relative w-full rounded-[18px] bg-gray-light p-5">
+              <div className="relative w-full rounded-[8px] bg-gray-light p-5">
                 <p className="text-sm font-bold leading-relaxed text-navy">
                   &ldquo;{item.concern}&rdquo;
                 </p>
@@ -25,7 +25,7 @@ export default function ConcernSection() {
               </div>
               <Link
                 href={item.productSlug ? `/products/${item.productSlug}` : "/consult"}
-                className="group flex w-full flex-col items-start gap-1 rounded-[14px] border border-line px-4 py-3 transition hover:border-navy/30 hover:bg-gray-light"
+                className="group flex w-full flex-col items-start gap-1 rounded-[8px] border border-line px-4 py-3 transition hover:border-navy/30 hover:bg-gray-light"
               >
                 <span className="text-[11px] font-extrabold uppercase tracking-wide text-lime-strong">
                   추천
@@ -46,7 +46,7 @@ export default function ConcernSection() {
         <div className="flex justify-center pt-2">
           <Link
             href="/consult"
-            className="inline-flex items-center justify-center rounded-[14px] bg-lime px-7 py-3.5 text-base font-bold text-navy transition hover:bg-lime-strong"
+            className="inline-flex items-center justify-center rounded-[6px] bg-lime px-7 py-3.5 text-base font-bold text-navy transition hover:bg-lime-strong"
           >
             나에게 맞는 문제집 상담받기
           </Link>

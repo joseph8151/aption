@@ -9,57 +9,25 @@ export interface CoverThemeStyle {
   isLight: boolean;
 }
 
-// 브랜드 표지 디자인 시스템: 문제집마다 다른 브랜드처럼 보이지 않도록
-// 영역·난이도·상품유형에서 자동으로 파생되는 6가지 고정 테마만 사용한다.
+// 브랜드 표지 디자인 시스템: "Shared system" — 모든 표지는 같은 가문(ink + brass)으로 통일한다.
+// 영역별로 색을 바꾸지 않는다(라임/파스텔 색상 제거). 테마 키는 기존 호출부와의
+// 호환을 위해 유지하되, 전부 동일한 잉크(#14120F) + 브라스(#B0893E) 스타일로 수렴한다.
+const shared: CoverThemeStyle = {
+  bgFrom: "#14120F",
+  bgTo: "#14120F",
+  accent: "#B0893E",
+  text: "#F3EEE6",
+  textSoft: "rgba(243,238,230,0.6)",
+  isLight: false,
+};
+
 export const coverThemeStyles: Record<CoverTheme, CoverThemeStyle> = {
-  lime: {
-    bgFrom: "#182235",
-    bgTo: "#101828",
-    accent: "#C7F36B",
-    text: "#FFFFFF",
-    textSoft: "rgba(255,255,255,0.62)",
-    isLight: false,
-  },
-  sky: {
-    bgFrom: "#182235",
-    bgTo: "#101828",
-    accent: "#7DD3FC",
-    text: "#FFFFFF",
-    textSoft: "rgba(255,255,255,0.62)",
-    isLight: false,
-  },
-  orange: {
-    bgFrom: "#182235",
-    bgTo: "#101828",
-    accent: "#FDBA74",
-    text: "#FFFFFF",
-    textSoft: "rgba(255,255,255,0.62)",
-    isLight: false,
-  },
-  purple: {
-    bgFrom: "#182235",
-    bgTo: "#101828",
-    accent: "#D6BCFA",
-    text: "#FFFFFF",
-    textSoft: "rgba(255,255,255,0.62)",
-    isLight: false,
-  },
-  advanced: {
-    bgFrom: "#15181f",
-    bgTo: "#05070a",
-    accent: "#C7F36B",
-    text: "#FFFFFF",
-    textSoft: "rgba(255,255,255,0.6)",
-    isLight: false,
-  },
-  final: {
-    bgFrom: "#fdfcf9",
-    bgTo: "#f0ecdf",
-    accent: "#101828",
-    text: "#101828",
-    textSoft: "rgba(16,24,40,0.55)",
-    isLight: true,
-  },
+  lime: shared,
+  sky: shared,
+  orange: shared,
+  purple: shared,
+  advanced: shared,
+  final: shared,
 };
 
 const areaTheme: Record<AreaKey, CoverTheme> = {

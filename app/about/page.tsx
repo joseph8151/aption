@@ -76,7 +76,7 @@ export default function AboutPage() {
               {positioningPoints.map((p) => (
                 <li
                   key={p}
-                  className="rounded-[12px] border border-line bg-white px-3.5 py-2.5 text-sm font-semibold text-navy"
+                  className="rounded-[6px] border border-line bg-white px-3.5 py-2.5 text-sm font-semibold text-navy"
                 >
                   {p}
                 </li>
@@ -93,7 +93,7 @@ export default function AboutPage() {
           </h2>
           <Link
             href="/products"
-            className="inline-flex items-center justify-center rounded-[14px] bg-navy px-7 py-3.5 text-base font-bold text-white transition hover:bg-navy-2"
+            className="inline-flex items-center justify-center rounded-[6px] bg-navy px-7 py-3.5 text-base font-bold text-white transition hover:bg-navy-2"
           >
             문제집 전체 보기
           </Link>

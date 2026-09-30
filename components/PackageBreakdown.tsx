@@ -13,7 +13,7 @@ export default function PackageBreakdown({
   const discountRate = originalTotal > 0 ? Math.round((savings / originalTotal) * 100) : 0;
 
   return (
-    <div className="flex flex-col gap-5 rounded-[16px] border border-line bg-white p-6">
+    <div className="flex flex-col gap-5 rounded-[8px] border border-line bg-white p-6">
       <ul className="flex flex-col divide-y divide-line">
         {items.map((item) => {
           const content = (

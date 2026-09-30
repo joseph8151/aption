@@ -21,14 +21,14 @@ export default function FinalCTA() {
           <div className="mt-2 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/consult"
-              className="group inline-flex items-center justify-center gap-2 rounded-[14px] bg-lime px-7 py-4 text-base font-bold text-navy transition hover:bg-lime-strong"
+              className="group inline-flex items-center justify-center gap-2 rounded-[6px] bg-lime px-7 py-4 text-base font-bold text-navy transition hover:bg-lime-strong"
             >
               문제집 추천받기
               <ArrowRight size={18} strokeWidth={2.5} className="transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               href="/products"
-              className="inline-flex items-center justify-center rounded-[14px] border border-white/25 px-7 py-4 text-base font-bold text-white transition hover:border-white/50"
+              className="inline-flex items-center justify-center rounded-[6px] border border-ivory/25 px-7 py-4 text-base font-bold text-ivory transition hover:border-ivory/50"
             >
               전체 문제집 보기
             </Link>

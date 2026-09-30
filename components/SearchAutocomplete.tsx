@@ -66,7 +66,7 @@ export default function SearchAutocomplete({
       </form>
 
       {showDropdown ? (
-        <div className="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-[16px] border border-line bg-white shadow-xl">
+        <div className="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-[8px] border border-line bg-white shadow-xl">
           {suggestions.length > 0 ? (
             <ul>
               {suggestions.map((p) => (

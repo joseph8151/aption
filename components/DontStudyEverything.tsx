@@ -7,7 +7,7 @@ export default function DontStudyEverything() {
   return (
     <section className="section-y-tight bg-ivory">
       <Container>
-        <Reveal className="grid grid-cols-1 gap-10 rounded-[24px] border border-line bg-white p-8 sm:p-12 lg:grid-cols-2 lg:gap-16 lg:p-16">
+        <Reveal className="grid grid-cols-1 gap-10 rounded-[8px] border border-line bg-white p-8 sm:p-12 lg:grid-cols-2 lg:gap-16 lg:p-16">
           <h2 className="text-display font-black leading-[1.08] text-navy text-balance">
             모든 영역을
             <br />
@@ -24,7 +24,7 @@ export default function DontStudyEverything() {
             </p>
             <Link
               href="/products"
-              className="group inline-flex w-fit items-center gap-2 rounded-[14px] bg-navy px-6 py-3.5 text-sm font-bold text-white transition hover:bg-navy-2"
+              className="group inline-flex w-fit items-center gap-2 rounded-[6px] bg-navy px-6 py-3.5 text-sm font-bold text-white transition hover:bg-navy-2"
             >
               약점별 문제집 찾기
               <ArrowRight size={16} strokeWidth={2.5} className="transition-transform group-hover:translate-x-1" />

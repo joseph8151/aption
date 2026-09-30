@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+import AnnouncementBar from "@/components/AnnouncementBar";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
@@ -19,18 +21,24 @@ const pretendard = localFont({
   ],
 });
 
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
   title: {
-    default: "AptiON 앱티온 | NCS·공기업·인적성 문제집 전문",
+    default: "AptiON 앱티온 | 이번 달 필기, 기관별 실전 회차",
     template: "%s | AptiON",
   },
   description:
-    "NCS 수리, 자료해석, 문제해결, 의사소통부터 공기업·대기업 인적성까지. 유형별 집중 문제집과 실전 모의고사를 만나보세요.",
+    "농축협·신협·인천 공무직 등 이번 달 필기시험 일정에 맞춘 기관별 실전 회차. NCS·공기업·인적성 문제집도 함께 만나보세요.",
   openGraph: {
-    title: "AptiON 앱티온 | NCS·공기업·인적성 문제집 전문",
+    title: "AptiON 앱티온 | 이번 달 필기, 기관별 실전 회차",
     description:
-      "NCS 수리, 자료해석, 문제해결, 의사소통부터 공기업·대기업 인적성까지. 유형별 집중 문제집과 실전 모의고사를 만나보세요.",
+      "농축협·신협·인천 공무직 등 이번 달 필기시험 일정에 맞춘 기관별 실전 회차. NCS·공기업·인적성 문제집도 함께 만나보세요.",
     siteName: "AptiON",
     locale: "ko_KR",
     type: "website",
@@ -42,12 +50,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="ko"
       data-scroll-behavior="smooth"
-      className={`${pretendard.variable} h-full antialiased`}
+      className={`${pretendard.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-ivory text-ink">
         <noscript>
           <style>{`[data-reveal] { opacity: 1 !important; transform: none !important; }`}</style>
         </noscript>
+        <AnnouncementBar />
         <Header />
         <main className="flex-1 pb-16 lg:pb-0">{children}</main>
         <Footer />

@@ -1,27 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  /* Primary */
-  --color-aption-navy: #101828;
-  --color-aption-navy-2: #1d2939;
-  --color-aption-navy-soft: #182235;
+  /* Primary (forest — buttons, dark sections; replaces old "navy" role) */
+  --color-aption-navy: #1f4a3a;
+  --color-aption-navy-2: #16352a;
+  --color-aption-navy-soft: #24503f;
 
-  /* Secondary */
-  --color-aption-lime: #c7f36b;
-  --color-aption-lime-strong: #a8d93f;
-  --color-aption-lime-tint: #eefacb;
+  /* Accent (brass/gold — "ON", badges, CTAs; replaces old "lime" role. No lime green anywhere.) */
+  --color-aption-lime: #b0893e;
+  --color-aption-lime-strong: #96742f;
+  --color-aption-lime-tint: #f0e6d2;
 
-  /* Neutrals */
-  --color-aption-ivory: #f7f5ef;
-  --color-aption-white: #ffffff;
-  --color-aption-gray-light: #f2f4f7;
-  --color-aption-text-gray: #667085;
-  --color-aption-ink: #101828;
-  --color-aption-line: #eaecf0;
+  /* D-day only — never used elsewhere */
+  --color-aption-terracotta: #8c3a2f;
 
-  /* Legacy alias kept during migration; resolves to navy */
-  --color-aption-blue: #101828;
-  --color-aption-blue-tint: #f2f4f7;
+  /* Neutrals (paper / ink) */
+  --color-aption-ivory: #f3eee6;
+  --color-aption-card: #faf7f2;
+  --color-aption-white: #faf7f2;
+  --color-aption-gray-light: #e7e0d6;
+  --color-aption-text-gray: #5b554c;
+  --color-aption-ink: #14120f;
+  --color-aption-line: #ddd4c6;
+
+  /* Legacy alias kept during migration; resolves to primary */
+  --color-aption-blue: #1f4a3a;
+  --color-aption-blue-tint: #e7e0d6;
 }
 
 @theme inline {
@@ -35,8 +39,15 @@
   --color-lime-tint: var(--color-aption-lime-tint);
   --color-lime-dark: var(--color-aption-lime-strong);
 
+  --color-terracotta: var(--color-aption-terracotta);
+
   --color-ivory: var(--color-aption-ivory);
   --color-offwhite: var(--color-aption-ivory);
+  --color-card: var(--color-aption-card);
+  /* Override Tailwind's built-in white so every existing bg-white/text-white/
+     border-white in the codebase becomes the paper card tone automatically —
+     "matte paper, not glossy" applies everywhere without a full file sweep. */
+  --color-white: var(--color-aption-white);
   --color-gray-light: var(--color-aption-gray-light);
   --color-text-gray: var(--color-aption-text-gray);
   --color-ink: var(--color-aption-ink);
@@ -48,6 +59,7 @@
 
   --font-sans: var(--font-pretendard), "Pretendard", -apple-system,
     BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, monospace;
   --container-content: 1400px;
 }
 
@@ -66,8 +78,8 @@ body {
 }
 
 ::selection {
-  background: var(--color-aption-lime);
-  color: var(--color-aption-navy);
+  background: var(--color-aption-lime-tint);
+  color: var(--color-aption-ink);
 }
 
 @layer utilities {
@@ -100,6 +112,18 @@ body {
     padding-top: clamp(4rem, 3rem + 2.5vw, 6.5rem);
     padding-bottom: clamp(4rem, 3rem + 2.5vw, 6.5rem);
   }
+
+  /* Faint paper grid backdrop (spec: "faint grid #E7E0D6") */
+  .bg-paper-grid {
+    background-image: linear-gradient(var(--color-aption-gray-light) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-aption-gray-light) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  /* Restrained paper-grain overlay for ink covers */
+  .bg-paper-grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
 }
 
 @layer components {
@@ -107,7 +131,7 @@ body {
     width: 100%;
     border-radius: 12px;
     border: 1px solid var(--color-aption-line);
-    background: white;
+    background: var(--color-aption-card);
     padding: 0.7rem 0.95rem;
     font-size: 0.9375rem;
     color: var(--color-aption-ink);

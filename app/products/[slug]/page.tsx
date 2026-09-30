@@ -86,14 +86,14 @@ export default async function ProductDetailPage({
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 rounded-[16px] border border-line bg-gray-light p-5 sm:grid-cols-4">
+            <div className="grid grid-cols-2 gap-4 rounded-[8px] border border-line bg-gray-light p-5 sm:grid-cols-4">
               <Meta label="문제 수" value={`${product.questionCount}문제`} />
               <Meta label="페이지 수" value={`${product.pageCount}쪽`} />
               <Meta label="난이도" value={product.difficultyLabel} />
               <Meta label="상품유형" value={product.productType} />
             </div>
 
-            <div className="flex flex-col gap-4 rounded-[18px] border border-line bg-white p-6">
+            <div className="flex flex-col gap-4 rounded-[8px] border border-line bg-white p-6">
               <span className="text-3xl font-black text-navy">
                 {product.price.toLocaleString("ko-KR")}원
               </span>
@@ -103,13 +103,13 @@ export default async function ProductDetailPage({
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Link
                   href={`/consult?product=${encodeURIComponent(product.name)}`}
-                  className="inline-flex flex-1 items-center justify-center rounded-[14px] bg-navy px-6 py-3.5 text-base font-bold text-white transition hover:bg-navy-2"
+                  className="inline-flex flex-1 items-center justify-center rounded-[6px] bg-navy px-6 py-3.5 text-base font-bold text-white transition hover:bg-navy-2"
                 >
                   구매 문의
                 </Link>
                 <Link
                   href={`/consult?product=${encodeURIComponent(product.name)}`}
-                  className="inline-flex flex-1 items-center justify-center rounded-[14px] border border-line px-6 py-3.5 text-base font-bold text-navy transition hover:border-navy/30"
+                  className="inline-flex flex-1 items-center justify-center rounded-[6px] border border-line px-6 py-3.5 text-base font-bold text-navy transition hover:border-navy/30"
                 >
                   문제집 상담
                 </Link>
@@ -159,7 +159,7 @@ export default async function ProductDetailPage({
             {product.toc.map((chapter, i) => (
               <li
                 key={chapter.title}
-                className="flex items-center gap-3 rounded-[12px] border border-line bg-white px-4 py-3 text-sm text-ink/75"
+                className="flex items-center gap-3 rounded-[6px] border border-line bg-white px-4 py-3 text-sm text-ink/75"
               >
                 <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-navy/5 text-xs font-bold text-navy">
                   {i + 1}
@@ -188,7 +188,7 @@ export default async function ProductDetailPage({
               { step: "2", title: "안내 및 확인", desc: "적합한 문제집과 구매 방법을 안내해드립니다." },
               { step: "3", title: "구매 진행", desc: "안내에 따라 결제 및 배송을 진행합니다." },
             ].map((s) => (
-              <li key={s.step} className="flex flex-col gap-2 rounded-[16px] border border-line bg-white p-5">
+              <li key={s.step} className="flex flex-col gap-2 rounded-[8px] border border-line bg-white p-5">
                 <span className="text-sm font-black text-lime-strong">STEP {s.step}</span>
                 <span className="text-sm font-bold text-navy">{s.title}</span>
                 <span className="text-xs leading-relaxed text-text-gray">{s.desc}</span>

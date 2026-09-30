@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
+import ThisMonthSection from "@/components/ThisMonthSection";
 import StatsSection from "@/components/StatsSection";
 import BestProducts from "@/components/BestProducts";
 import CategoryFinder from "@/components/CategoryFinder";
@@ -16,15 +17,16 @@ import FAQPreview from "@/components/FAQPreview";
 import FinalCTA from "@/components/FinalCTA";
 
 export const metadata: Metadata = {
-  title: "AptiON 앱티온 | NCS·공기업·인적성 문제집 전문",
+  title: "AptiON 앱티온 | 이번 달 필기, 기관별 실전 회차",
   description:
-    "NCS 수리, 자료해석, 문제해결, 의사소통부터 공기업·대기업 인적성까지. 유형별 집중 문제집과 실전 모의고사를 만나보세요.",
+    "농축협·신협·인천 공무직 등 이번 달 필기시험 일정에 맞춘 기관별 실전 회차. NCS·공기업·인적성 문제집도 함께 만나보세요.",
 };
 
 export default function Home() {
   return (
     <>
       <Hero />
+      <ThisMonthSection />
       <StatsSection />
       <BestProducts />
       <CategoryFinder />

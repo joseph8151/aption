@@ -44,7 +44,7 @@ export default function GuidePage() {
 
         <ol className="flex flex-col gap-4">
           {steps.map((step, i) => (
-            <li key={step.title} className="flex gap-4 rounded-[16px] border border-line bg-white p-5">
+            <li key={step.title} className="flex gap-4 rounded-[8px] border border-line bg-white p-5">
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-navy text-sm font-bold text-lime">
                 {i + 1}
               </span>
@@ -56,7 +56,7 @@ export default function GuidePage() {
           ))}
         </ol>
 
-        <div className="flex flex-col gap-2 rounded-[16px] bg-gray-light p-6">
+        <div className="flex flex-col gap-2 rounded-[8px] bg-gray-light p-6">
           <h2 className="text-sm font-bold text-navy">운영시간 안내</h2>
           <p className="text-sm text-ink/65">
             {siteConfig.businessHours} · {siteConfig.businessHoursNote}
@@ -72,13 +72,13 @@ export default function GuidePage() {
         <div className="flex flex-col gap-3 sm:flex-row">
           <Link
             href="/consult"
-            className="inline-flex items-center justify-center rounded-[14px] bg-lime px-7 py-3.5 text-base font-bold text-navy transition hover:bg-lime-strong"
+            className="inline-flex items-center justify-center rounded-[6px] bg-lime px-7 py-3.5 text-base font-bold text-navy transition hover:bg-lime-strong"
           >
             상담 신청하기
           </Link>
           <Link
             href="/faq"
-            className="inline-flex items-center justify-center rounded-[14px] border border-line px-7 py-3.5 text-base font-bold text-navy transition hover:border-navy/30"
+            className="inline-flex items-center justify-center rounded-[6px] border border-line px-7 py-3.5 text-base font-bold text-navy transition hover:border-navy/30"
           >
             FAQ 보기
           </Link>

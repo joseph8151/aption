@@ -10,13 +10,11 @@ import { getSubCategoryHref, hasSubCategoryProducts } from "@/lib/subcategoryLin
 import { ExamKey } from "@/lib/types";
 
 const navItems: Array<{ label: string; href: string; examKey?: ExamKey }> = [
+  { label: "이번 달 필기", href: "/this-month" },
   { label: "NCS", href: "/products?exam=ncs", examKey: "ncs" },
   { label: "공기업", href: "/products?exam=public", examKey: "public" },
   { label: "인적성", href: "/products?exam=corporate", examKey: "corporate" },
-  { label: "문제집", href: "/products" },
   { label: "패키지", href: "/products?type=%ED%8C%A8%ED%82%A4%EC%A7%80" },
-  { label: "모의고사", href: "/products?type=%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC" },
-  { label: "브랜드", href: "/about" },
 ];
 
 export default function Header() {
@@ -40,7 +38,7 @@ export default function Header() {
     >
       <Container className="flex h-16 items-center justify-between gap-4 lg:h-20">
         <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="AptiON 홈으로 이동">
-          <span className="flex h-9 w-9 items-center justify-center rounded-[10px] bg-navy text-sm font-black text-lime">
+          <span className="flex h-9 w-9 items-center justify-center rounded-[6px] bg-navy text-sm font-black text-lime">
             A
           </span>
           <span className="text-xl font-black tracking-tight text-navy">
@@ -75,13 +73,13 @@ export default function Header() {
           </button>
           <Link
             href="/products"
-            className="hidden items-center rounded-[12px] border border-line px-4 py-2.5 text-sm font-bold text-navy transition hover:border-navy/30 hover:bg-gray-light lg:flex"
+            className="hidden items-center rounded-[6px] border border-line px-4 py-2.5 text-sm font-bold text-navy transition hover:border-navy/30 hover:bg-gray-light lg:flex"
           >
             문제집 찾기
           </Link>
           <Link
             href="/consult"
-            className="hidden items-center rounded-[12px] bg-lime px-4 py-2.5 text-sm font-bold text-navy transition hover:bg-lime-strong lg:flex"
+            className="hidden items-center rounded-[6px] bg-lime px-4 py-2.5 text-sm font-bold text-navy transition hover:bg-lime-strong lg:flex"
           >
             상담하기
           </Link>
@@ -90,7 +88,7 @@ export default function Header() {
             aria-label="메뉴 열기"
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((v) => !v)}
-            className="flex h-10 w-10 items-center justify-center rounded-[10px] text-navy lg:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-[6px] text-navy lg:hidden"
           >
             {menuOpen ? <X size={22} strokeWidth={2} /> : <Menu size={22} strokeWidth={2} />}
           </button>
@@ -187,14 +185,14 @@ export default function Header() {
               <Link
                 href="/products"
                 onClick={() => setMenuOpen(false)}
-                className="flex flex-1 items-center justify-center rounded-[12px] border border-line px-4 py-3 text-sm font-bold text-navy"
+                className="flex flex-1 items-center justify-center rounded-[6px] border border-line px-4 py-3 text-sm font-bold text-navy"
               >
                 문제집 찾기
               </Link>
               <Link
                 href="/consult"
                 onClick={() => setMenuOpen(false)}
-                className="flex flex-1 items-center justify-center rounded-[12px] bg-lime px-4 py-3 text-sm font-bold text-navy"
+                className="flex flex-1 items-center justify-center rounded-[6px] bg-lime px-4 py-3 text-sm font-bold text-navy"
               >
                 상담하기
               </Link>
@@ -220,7 +218,7 @@ function NavDropdown({ label, href, examKey }: { label: string; href: string; ex
         <ChevronDown size={14} strokeWidth={2.5} className="text-ink/35" />
       </Link>
       <div className="invisible absolute left-1/2 top-full z-50 w-[560px] -translate-x-1/2 pt-3 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-        <div className="rounded-[18px] border border-line bg-white p-5 shadow-[0_32px_64px_-24px_rgba(16,24,40,0.28)]">
+        <div className="rounded-[8px] border border-line bg-white p-5 shadow-[0_32px_64px_-24px_rgba(20,18,15,0.28)]">
           <p className="mb-3 px-1 text-xs font-bold uppercase tracking-[0.14em] text-text-gray">
             {category.description}
           </p>
@@ -231,7 +229,7 @@ function NavDropdown({ label, href, examKey }: { label: string; href: string; ex
                 <Link
                   key={sub}
                   href={getSubCategoryHref(examKey, sub)}
-                  className="flex items-center gap-2.5 rounded-[12px] px-3 py-2.5 text-sm font-semibold text-ink/75 transition hover:bg-gray-light hover:text-navy"
+                  className="flex items-center gap-2.5 rounded-[6px] px-3 py-2.5 text-sm font-semibold text-ink/75 transition hover:bg-gray-light hover:text-navy"
                 >
                   <span
                     className={`h-1.5 w-1.5 shrink-0 rounded-full ${
@@ -245,7 +243,7 @@ function NavDropdown({ label, href, examKey }: { label: string; href: string; ex
           </div>
           <Link
             href={href}
-            className="mt-3 flex items-center justify-center rounded-[12px] bg-navy px-3 py-3 text-sm font-bold text-white transition hover:bg-navy-2"
+            className="mt-3 flex items-center justify-center rounded-[6px] bg-navy px-3 py-3 text-sm font-bold text-white transition hover:bg-navy-2"
           >
             {label} 전체 문제집 보기 →
           </Link>
