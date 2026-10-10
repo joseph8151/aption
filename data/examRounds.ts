@@ -17,7 +17,27 @@ export interface ExamRound {
 
 // "이번 달 필기" — 이번 달 필기시험이 확정된 기관의 실전 회차.
 // 상시 판매하는 NCS 유형별 문제집과 달리, 특정 채용 일정에 맞춘 한시 상품이다.
+// 배열 순서 = D-day 짧은 것부터. 필기일이 아직 공개되지 않은 건(배지: 일정 확인)은 맨 뒤.
 export const examRounds: ExamRound[] = [
+  {
+    slug: "busan-public-agency-2026-10",
+    institution: "부산 공공기관",
+    title: "부산 공공기관 NCS 실전 3회",
+    dDayLabel: "D-14",
+    examDateLabel: "10.24",
+    examDateShort: "10/24",
+    roundCount: 3,
+    roundLabel: "3회 · 10.24",
+    questionMeta: "NCS 50문항",
+    cardMeta: "3회 · NCS 50문항 · PDF",
+    promise: "10월 24일, 직업기초능력 50문항. 원서는 이미 닫혔습니다.",
+    price: 39800,
+    composition: [
+      "부산 공공기관 NCS 실전 1~3회 (50문항)",
+      "회차별 정답 및 해설",
+      "접수 마감 이후 필기 대비에 맞춘 구성",
+    ],
+  },
   {
     slug: "incheon-public-service-2026-10",
     institution: "인천 공무직",
@@ -35,6 +55,25 @@ export const examRounds: ExamRound[] = [
       "일반상식 실전 1~8회 (회차별 50문항)",
       "회차별 정답 및 해설",
       "50분 타이머 기준 OMR 체크시트",
+    ],
+  },
+  {
+    slug: "suwon-public-agency-2026-11",
+    institution: "수원시 공공기관",
+    title: "수원시 공공기관 NCS 실전 3회",
+    dDayLabel: "D-28",
+    examDateLabel: "11.7",
+    examDateShort: "11/7",
+    roundCount: 3,
+    roundLabel: "3회 · 11.7",
+    questionMeta: "직업기초능력",
+    cardMeta: "3회 · 직업기초능력 · PDF",
+    promise: "11월 7일 공통 NCS. 문화재단·도시공사 전공은 이 파일에 없습니다.",
+    price: 39800,
+    composition: [
+      "수원시 공공기관 NCS 실전 1~3회 (직업기초능력)",
+      "회차별 정답 및 해설",
+      "기관 전공 과목은 포함되지 않습니다",
     ],
   },
   {
@@ -74,6 +113,44 @@ export const examRounds: ExamRound[] = [
       "농축협 직무능력 실전 1~5회",
       "인적성 영역 별도 수록",
       "회차별 정답 및 해설",
+    ],
+  },
+  {
+    slug: "at-job-competency-2026",
+    institution: "aT",
+    title: "aT 직무능력 실전 3회",
+    dDayLabel: "일정 확인",
+    examDateLabel: "접수 ~10.13",
+    examDateShort: "접수~10.13",
+    roundCount: 3,
+    roundLabel: "3회 · 접수중",
+    questionMeta: "직무능력",
+    cardMeta: "3회 · 직무능력 · PDF",
+    promise: "한국농수산식품유통공사. 접수 13일까지. 필기일은 확정되면 적습니다.",
+    price: 58000,
+    composition: [
+      "aT(한국농수산식품유통공사) 직무능력 실전 1~3회",
+      "회차별 정답 및 해설",
+      "필기일 확정 시 별도 안내",
+    ],
+  },
+  {
+    slug: "sh-job-competency-2026",
+    institution: "SH",
+    title: "SH 직무능력 실전 3회",
+    dDayLabel: "일정 확인",
+    examDateLabel: "접수 ~10.19",
+    examDateShort: "접수~10.19",
+    roundCount: 3,
+    roundLabel: "3회 · 접수중",
+    questionMeta: "직무능력",
+    cardMeta: "3회 · 직무능력 · PDF",
+    promise: "서울주택도시공사. 접수 19일까지. 필기일은 아직 없습니다.",
+    price: 58000,
+    composition: [
+      "SH(서울주택도시공사) 직무능력 실전 1~3회",
+      "회차별 정답 및 해설",
+      "필기일 확정 시 별도 안내",
     ],
   },
 ];
