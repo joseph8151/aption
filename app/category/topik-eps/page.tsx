@@ -55,21 +55,21 @@ const products: TopikEpsProduct[] = [
     name: "TOPIK II 쓰기 50제",
     detail: "51번 편지·52번 주장",
     meta: "50제 · 모범답안 · PDF",
-    price: 29000,
+    price: 58000,
   },
   {
     slug: "topik2-reading-300",
     name: "TOPIK II 읽기 빈출 300제",
     detail: "빈칸·중심 생각·순서",
     meta: "300제 · 짧은 해설 · PDF",
-    price: 24900,
+    price: 49800,
   },
   {
     slug: "eps-topik-practice-5",
     name: "EPS-TOPIK 실전 5회",
     detail: "고용허가제 듣기+읽기",
     meta: "5회 · 답지 · PDF",
-    price: 29000,
+    price: 58000,
   },
 ];
 
