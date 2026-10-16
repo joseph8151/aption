@@ -30,7 +30,7 @@ export const examRounds: ExamRound[] = [
     roundLabel: "3회 · 10.24",
     questionMeta: "NCS 50문항",
     cardMeta: "3회 · NCS 50문항 · PDF",
-    promise: "10월 24일, 직업기초능력 50문항. 원서는 이미 닫혔습니다.",
+    promise: "직업기초능력 50문항. 접수는 이미 마감됐습니다.",
     price: 79600,
     composition: [
       "부산 공공기관 NCS 실전 1~3회 (50문항)",
@@ -68,7 +68,7 @@ export const examRounds: ExamRound[] = [
     roundLabel: "3회 · 11.7",
     questionMeta: "직업기초능력",
     cardMeta: "3회 · 직업기초능력 · PDF",
-    promise: "11월 7일 공통 NCS. 문화재단·도시공사 전공은 이 파일에 없습니다.",
+    promise: "공통 NCS. 전공 과목은 포함하지 않습니다.",
     price: 79600,
     composition: [
       "수원시 공공기관 NCS 실전 1~3회 (직업기초능력)",
@@ -93,6 +93,25 @@ export const examRounds: ExamRound[] = [
       "신협 필기 실전 1~3회",
       "빈출 유형 정리 노트",
       "회차별 정답 및 해설",
+    ],
+  },
+  {
+    slug: "shinhyup-frequent-extra-2026-11",
+    institution: "신협",
+    title: "신협 빈출 유형 추가 회차",
+    dDayLabel: "D-37",
+    examDateLabel: "11.7–8",
+    examDateShort: "11/7",
+    roundCount: 1,
+    roundLabel: "추가 1회 · 11.7–8",
+    questionMeta: "빈출유형 집중",
+    cardMeta: "추가 1회 · 빈출유형 집중 · PDF",
+    promise: "기존 3회에서 부족했던 빈출 유형만 더 풉니다.",
+    price: 58000,
+    composition: [
+      "신협 빈출 유형 추가 회차 (1회)",
+      "빈출 유형 집중 정리",
+      "정답 및 해설",
     ],
   },
   {

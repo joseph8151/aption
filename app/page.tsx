@@ -14,6 +14,8 @@ import PackageSection from "@/components/PackageSection";
 import PersonaSection from "@/components/PersonaSection";
 import Testimonials from "@/components/Testimonials";
 import FAQPreview from "@/components/FAQPreview";
+import MilitaryWrittenSection from "@/components/MilitaryWrittenSection";
+import CertWeaknessSection from "@/components/CertWeaknessSection";
 import FinalCTA from "@/components/FinalCTA";
 
 export const metadata: Metadata = {
@@ -40,6 +42,8 @@ export default function Home() {
       <PersonaSection />
       <Testimonials />
       <FAQPreview />
+      <MilitaryWrittenSection />
+      <CertWeaknessSection />
       <FinalCTA />
     </>
   );
