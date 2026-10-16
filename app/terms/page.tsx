@@ -28,7 +28,7 @@ export default function TermsPage() {
           <section className="flex flex-col gap-2">
             <h2 className="text-lg font-bold text-navy">제2조 (서비스의 제공)</h2>
             <p>
-              회사는 현재 온라인 자동결제를 제공하지 않으며, 상담 신청 및 전화 문의를 통해
+              회사는 현재 온라인 자동결제를 제공하지 않으며, 상담 신청을 통해
               문제집 안내와 구매 절차를 진행합니다.
             </p>
           </section>

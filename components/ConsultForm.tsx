@@ -67,14 +67,7 @@ export default function ConsultForm({ initialProduct = "" }: { initialProduct?: 
           <CheckIcon />
         </span>
         <p className="text-lg font-bold text-navy">
-          상담 신청이 정상적으로 접수되었습니다. 확인 후 안내드리겠습니다.
-        </p>
-        <p className="text-sm text-ink/55">
-          급하신 경우 전화 문의({" "}
-          <a href={siteConfig.phoneHref} className="font-semibold text-navy">
-            {siteConfig.phoneNumber}
-          </a>{" "}
-          )도 이용해 주세요.
+          상담 신청이 정상적으로 접수되었습니다. 확인 후 이메일로 안내드리겠습니다.
         </p>
       </div>
     );
@@ -183,7 +176,7 @@ export default function ConsultForm({ initialProduct = "" }: { initialProduct?: 
 
       {status === "error" ? (
         <p role="alert" className="text-sm font-semibold text-red-600">
-          접수 중 문제가 발생했습니다. 잠시 후 다시 시도하시거나 전화로 문의해주세요.
+          접수 중 문제가 발생했습니다. 잠시 후 다시 시도해주세요.
         </p>
       ) : null}
 

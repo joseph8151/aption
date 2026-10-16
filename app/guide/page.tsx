@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Container from "@/components/Container";
-import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "이용안내",
@@ -14,7 +13,7 @@ const steps = [
     description: "시험별·영역별·난이도별 필터와 검색으로 필요한 문제집을 찾아보세요.",
   },
   {
-    title: "상담 신청 또는 전화 문의",
+    title: "상담 신청",
     description: "상세페이지의 '구매 문의' 버튼 또는 상담 페이지에서 신청할 수 있습니다.",
   },
   {
@@ -37,7 +36,7 @@ export default function GuidePage() {
           </span>
           <h1 className="text-display font-black text-navy">AptiON은 이렇게 이용할 수 있어요</h1>
           <p className="text-base leading-relaxed text-text-gray sm:text-lg">
-            현재 AptiON은 온라인 자동결제 대신 상담 신청과 전화 문의를 통해 상품 안내와
+            현재 AptiON은 온라인 자동결제 대신 상담 신청을 통해 상품 안내와
             구매를 진행하고 있습니다.
           </p>
         </div>
@@ -55,19 +54,6 @@ export default function GuidePage() {
             </li>
           ))}
         </ol>
-
-        <div className="flex flex-col gap-2 rounded-[8px] bg-gray-light p-6">
-          <h2 className="text-sm font-bold text-navy">운영시간 안내</h2>
-          <p className="text-sm text-ink/65">
-            {siteConfig.businessHours} · {siteConfig.businessHoursNote}
-          </p>
-          <p className="text-sm text-ink/65">
-            전화 문의:{" "}
-            <a href={siteConfig.phoneHref} className="font-semibold text-navy">
-              {siteConfig.phoneNumber}
-            </a>
-          </p>
-        </div>
 
         <div className="flex flex-col gap-3 sm:flex-row">
           <Link

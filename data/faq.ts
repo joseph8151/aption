@@ -19,7 +19,7 @@ export const faqItems: FaqItem[] = [
   },
   {
     question: "문제집은 어떻게 구매하나요?",
-    answer: "현재 상담 신청 또는 전화 문의 후 구매 안내를 드립니다.",
+    answer: "현재 상담 신청 후 이메일로 구매 안내를 드립니다.",
   },
   {
     question: "문제집마다 난이도가 다른가요?",

@@ -22,8 +22,7 @@ export default function PrivacyPage() {
             <h2 className="text-lg font-bold text-navy">1. 수집하는 개인정보 항목</h2>
             <p>
               AptiON(이하 &ldquo;회사&rdquo;)은 상담 신청 시 이름, 연락처, 이메일, 준비 시험,
-              문의 내용을 수집합니다. 전화 문의 시 통화 과정에서 제공되는 정보가 추가로 수집될
-              수 있습니다.
+              문의 내용을 수집합니다.
             </p>
           </section>
           <section className="flex flex-col gap-2">
@@ -50,8 +49,7 @@ export default function PrivacyPage() {
           <section className="flex flex-col gap-2">
             <h2 className="text-lg font-bold text-navy">5. 문의처</h2>
             <p>
-              개인정보 관련 문의는 이메일({siteConfig.contactEmail}) 또는 전화(
-              {siteConfig.phoneNumber})로 접수해 주세요.
+              개인정보 관련 문의는 이메일({siteConfig.contactEmail})로 접수해 주세요.
             </p>
           </section>
         </div>

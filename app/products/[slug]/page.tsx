@@ -98,7 +98,7 @@ export default async function ProductDetailPage({
                 {product.price.toLocaleString("ko-KR")}원
               </span>
               <p className="text-sm leading-relaxed text-text-gray">
-                현재는 상담 신청 또는 전화 문의를 통해 구매 안내를 드리고 있습니다.
+                현재는 상담 신청을 통해 구매 안내를 드리고 있습니다.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Link
@@ -184,7 +184,7 @@ export default async function ProductDetailPage({
         <Section title="구매 방법">
           <ol className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             {[
-              { step: "1", title: "상담 신청 또는 전화 문의", desc: "필요한 문제집과 준비 상황을 알려주세요." },
+              { step: "1", title: "상담 신청", desc: "필요한 문제집과 준비 상황을 알려주세요." },
               { step: "2", title: "안내 및 확인", desc: "적합한 문제집과 구매 방법을 안내해드립니다." },
               { step: "3", title: "구매 진행", desc: "안내에 따라 결제 및 배송을 진행합니다." },
             ].map((s) => (
