@@ -51,24 +51,24 @@ interface TopikEpsProduct {
 
 const products: TopikEpsProduct[] = [
   {
-    slug: "topik2-writing-50",
-    name: "TOPIK II 쓰기 50제",
+    slug: "topik2-writing-80",
+    name: "TOPIK II 쓰기 80제",
     detail: "51번 편지·52번 주장",
-    meta: "50제 · 모범답안 · PDF",
+    meta: "80제 · 모범답안 · 45~50p · PDF",
     price: 58000,
   },
   {
-    slug: "topik2-reading-300",
-    name: "TOPIK II 읽기 빈출 300제",
+    slug: "topik2-reading-400",
+    name: "TOPIK II 읽기 빈출 400제",
     detail: "빈칸·중심 생각·순서",
-    meta: "300제 · 짧은 해설 · PDF",
+    meta: "400제 · 짧은 해설 · 80~90p · PDF",
     price: 49800,
   },
   {
-    slug: "eps-topik-practice-5",
-    name: "EPS-TOPIK 실전 5회",
+    slug: "eps-topik-practice-8",
+    name: "EPS-TOPIK 실전 8회",
     detail: "고용허가제 듣기+읽기",
-    meta: "5회 · 답지 · PDF",
+    meta: "8회 · 답지 · 60~70p · PDF",
     price: 58000,
   },
 ];
