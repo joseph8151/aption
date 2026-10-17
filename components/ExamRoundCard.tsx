@@ -33,7 +33,7 @@ export default function ExamRoundCard({ exam }: { exam: ExamRound }) {
         </span>
         <Link
           href={`/consult?product=${encodeURIComponent(exam.title)}`}
-          className="inline-flex items-center justify-center rounded-[6px] bg-navy px-5 py-2.5 text-sm font-bold text-ivory transition hover:bg-navy-2"
+          className="inline-flex items-center justify-center rounded-[6px] bg-navy px-5 py-3 text-sm font-bold text-ivory transition hover:bg-navy-2"
         >
           구매 문의
         </Link>

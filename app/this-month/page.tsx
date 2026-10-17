@@ -6,7 +6,7 @@ import { examRounds } from "@/data/examRounds";
 export const metadata: Metadata = {
   title: "이번 달 필기",
   description:
-    "농축협·신협·인천 공무직 등 이번 달 필기시험 일정이 확정된 기관의 실전 회차. 기출예상 문제로 구성된 한시 상품입니다.",
+    "농축협·신협·부산·수원 등 이번 달 필기시험 일정이 확정된 기관의 실전 회차. 기출예상 문제로 구성된 한시 상품입니다.",
 };
 
 export default function ThisMonthPage() {

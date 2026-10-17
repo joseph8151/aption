@@ -143,7 +143,7 @@ export default function TopikEpsPage() {
                 </span>
                 <Link
                   href={`/consult?product=${encodeURIComponent(product.name)}`}
-                  className="inline-flex items-center justify-center rounded-[2px] px-5 py-2.5 text-sm font-semibold"
+                  className="inline-flex items-center justify-center rounded-[2px] px-5 py-3 text-sm font-semibold"
                   style={{ background: colors.button, color: colors.card }}
                 >
                   구매 문의

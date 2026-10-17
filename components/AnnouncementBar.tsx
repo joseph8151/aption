@@ -41,9 +41,9 @@ export default function AnnouncementBar() {
       <div className="flex w-full max-w-(--container-content) items-center justify-center gap-3 sm:justify-between">
         <Link href="/this-month" className="flex min-w-0 items-center gap-1.5 overflow-hidden text-ivory">
           <span className="hidden truncate font-mono text-lime sm:inline">
-            인천 공무직 10/17 · 신협 11/7 · 농축협 11/22
+            부산 공공기관 10/24 · 신협 11/7 · 농축협 11/22
           </span>
-          <span className="truncate font-mono text-lime sm:hidden">10/17 · 11/7 · 11/22</span>
+          <span className="truncate font-mono text-lime sm:hidden">10/24 · 11/7 · 11/22</span>
           <span className="shrink-0 font-semibold underline-offset-4 hover:underline">
             이번 달 필기 보기 →
           </span>

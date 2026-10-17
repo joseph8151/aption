@@ -51,7 +51,7 @@ export default function MidTermProductCard({ product }: { product: MidTermProduc
         </span>
         <Link
           href={`/consult?product=${encodeURIComponent(product.title)}`}
-          className="inline-flex items-center justify-center rounded-[2px] px-5 py-2.5 text-sm font-semibold"
+          className="inline-flex items-center justify-center rounded-[2px] px-5 py-3 text-sm font-semibold"
           style={{ background: midTermColors.button, color: midTermColors.card }}
         >
           구매 문의

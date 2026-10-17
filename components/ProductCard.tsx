@@ -72,7 +72,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
         <Link
           href={`/consult?product=${encodeURIComponent(product.name)}`}
-          className="mt-1 flex items-center justify-center rounded-[6px] bg-navy px-3 py-2.5 text-sm font-bold text-white transition hover:bg-navy-2"
+          className="mt-1 flex items-center justify-center rounded-[6px] bg-navy px-3 py-3 text-sm font-bold text-white transition hover:bg-navy-2"
         >
           구매 문의
         </Link>

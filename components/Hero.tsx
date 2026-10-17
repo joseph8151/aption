@@ -19,10 +19,10 @@ const heroBooks = [
     wrapClassName: "left-[30%] top-[2%] z-20 w-[40%] rotate-[3deg]",
   },
   {
-    eyebrow: "인천",
-    titleLines: ["인천 공무직", "일반상식", "실전"],
-    footer: "8회 · 10.17",
-    bigNumber: 8,
+    eyebrow: "부산",
+    titleLines: ["부산 공공기관", "NCS", "실전"],
+    footer: "6회 · 10.24",
+    bigNumber: 6,
     wrapClassName: "left-[16%] top-[26%] z-30 w-[40%] rotate-[-2deg]",
   },
 ];
@@ -33,7 +33,7 @@ export default function Hero() {
       <Container className="relative grid grid-cols-1 items-center gap-16 py-20 lg:grid-cols-[55%_45%] lg:gap-10 lg:py-28">
         <div className="flex flex-col gap-8">
           <span className="font-mono text-xs font-medium tracking-[0.1em] text-text-gray">
-            10월 마감 일정 · 농축협 11/22 · 신협 11/7 · 인천 공무직 10/17
+            10월 마감 일정 · 부산 10/24 · 신협 11/7 · 농축협 11/22
           </span>
           <h1 className="text-hero max-w-2xl font-black text-ink text-balance">
             이번 달 필기만

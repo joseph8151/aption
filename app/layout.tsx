@@ -34,11 +34,11 @@ export const metadata: Metadata = {
     template: "%s | AptiON",
   },
   description:
-    "농축협·신협·인천 공무직 등 이번 달 필기시험 일정에 맞춘 기관별 실전 회차. NCS·공기업·인적성 문제집도 함께 만나보세요.",
+    "농축협·신협·부산·수원 등 이번 달 필기시험 일정에 맞춘 기관별 실전 회차. NCS·공기업·인적성 문제집도 함께 만나보세요.",
   openGraph: {
     title: "AptiON 앱티온 | 이번 달 필기, 기관별 실전 회차",
     description:
-      "농축협·신협·인천 공무직 등 이번 달 필기시험 일정에 맞춘 기관별 실전 회차. NCS·공기업·인적성 문제집도 함께 만나보세요.",
+      "농축협·신협·부산·수원 등 이번 달 필기시험 일정에 맞춘 기관별 실전 회차. NCS·공기업·인적성 문제집도 함께 만나보세요.",
     siteName: "AptiON",
     locale: "ko_KR",
     type: "website",

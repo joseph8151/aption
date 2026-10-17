@@ -31,7 +31,7 @@ export const examRounds: ExamRound[] = [
     questionMeta: "NCS 50문항",
     cardMeta: "6회 · 회차당 50문항 · 총 300문항",
     promise: "직업기초능력 50문항. 접수는 이미 마감됐습니다.",
-    price: 59700,
+    price: 58000,
     composition: [
       "부산 공공기관 NCS 실전 1~6회 (50문항)",
       "회차별 정답 및 해설",
@@ -50,7 +50,7 @@ export const examRounds: ExamRound[] = [
     questionMeta: "직업기초능력",
     cardMeta: "6회 · 회차당 50문항 · 총 300문항",
     promise: "공통 NCS. 전공 과목은 포함하지 않습니다.",
-    price: 59700,
+    price: 58000,
     composition: [
       "수원시 공공기관 NCS 실전 1~6회 (직업기초능력)",
       "회차별 정답 및 해설",
@@ -69,7 +69,7 @@ export const examRounds: ExamRound[] = [
     questionMeta: "직무능력 + 직무상식",
     cardMeta: "6회 · 회차당 50문항 · 총 300문항",
     promise: "직무능력과 직무상식 빈출 유형을 한 번에 정리합니다.",
-    price: 43500,
+    price: 58000,
     composition: [
       "신협 필기 실전 1~6회",
       "빈출 유형 정리 노트",
@@ -108,7 +108,7 @@ export const examRounds: ExamRound[] = [
     questionMeta: "인적성 + 직무능력",
     cardMeta: "8회 · 회차당 50문항 · 총 400문항",
     promise: "11/22, 867명이 함께 보는 시험을 실전 8회로 준비합니다.",
-    price: 58500,
+    price: 58000,
     composition: [
       "농축협 직무능력 실전 1~8회",
       "인적성 영역 별도 수록",
