@@ -24,6 +24,7 @@ export default function Footer() {
             </span>
           </div>
           <p className="text-sm text-ivory/60">합격을 위한 실전 감각을 ON.</p>
+          <p className="text-xs text-ivory/40">서울특별시 서초구 반포대로 18길 62, 엘루크 101동</p>
         </div>
 
         <div className="flex flex-col gap-4 border-t border-ivory/10 pt-6 sm:flex-row sm:items-center sm:justify-between">

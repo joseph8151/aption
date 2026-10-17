@@ -12,7 +12,7 @@ export default function TermsPage() {
       <Container className="flex max-w-3xl flex-col gap-8">
         <div className="flex flex-col gap-3">
           <span className="text-xs font-extrabold uppercase tracking-[0.22em] text-navy">Legal</span>
-          <h1 className="text-display font-black text-navy">이용약관</h1>
+          <h1 className="text-display font-display font-black text-navy">이용약관</h1>
           <p className="text-sm text-ink/50">최종 개정일: 서비스 오픈 준비 중 (추후 확정)</p>
         </div>
 

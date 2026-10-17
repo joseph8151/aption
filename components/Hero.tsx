@@ -35,7 +35,7 @@ export default function Hero() {
           <span className="font-mono text-xs font-medium tracking-[0.1em] text-text-gray">
             10월 마감 일정 · 부산 10/24 · 신협 11/7 · 농축협 11/22
           </span>
-          <h1 className="text-hero max-w-2xl font-black text-ink text-balance">
+          <h1 className="text-hero font-display max-w-2xl font-black text-ink text-balance">
             이번 달 필기만
             <br />
             남긴 사람을 위해.

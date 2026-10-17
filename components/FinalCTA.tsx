@@ -8,7 +8,7 @@ export default function FinalCTA() {
     <section className="section-y-tight bg-navy text-white">
       <Container className="flex flex-col items-center gap-6 text-center">
         <Reveal className="flex flex-col items-center gap-6">
-          <h2 className="text-display max-w-2xl font-black text-balance">
+          <h2 className="text-display font-display max-w-2xl font-black text-balance">
             어떤 문제부터
             <br />
             풀어야 할지 모르겠다면.

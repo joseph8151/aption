@@ -46,7 +46,7 @@ export default function VisualBreak() {
 
       <Container className="relative flex flex-col items-center gap-6 text-center">
         <Reveal className="flex flex-col items-center gap-6">
-          <h2 className="text-hero font-black text-ivory text-balance">
+          <h2 className="text-hero font-display font-black text-ivory text-balance">
             덜 읽고,
             <br />
             더 풉니다.

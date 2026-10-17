@@ -8,7 +8,7 @@ export default function DontStudyEverything() {
     <section className="section-y-tight bg-ivory">
       <Container>
         <Reveal className="grid grid-cols-1 gap-10 rounded-[8px] border border-line bg-white p-8 sm:p-12 lg:grid-cols-2 lg:gap-16 lg:p-16">
-          <h2 className="text-display font-black leading-[1.08] text-navy text-balance">
+          <h2 className="text-display font-display font-black leading-[1.08] text-navy text-balance">
             모든 영역을
             <br />
             똑같이 공부할

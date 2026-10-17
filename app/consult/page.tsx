@@ -23,7 +23,7 @@ export default async function ConsultPage({
             <span className="text-xs font-extrabold uppercase tracking-[0.22em] text-navy">
               상담 신청
             </span>
-            <h1 className="text-display font-black text-navy">어떤 문제집이 필요한지 모르겠다면</h1>
+            <h1 className="text-display font-display font-black text-navy">어떤 문제집이 필요한지 모르겠다면</h1>
             <p className="max-w-xl text-base leading-relaxed text-text-gray sm:text-lg">
               준비 중인 시험과 어려운 영역을 알려주시면 적합한 문제집을 안내해드립니다.
             </p>

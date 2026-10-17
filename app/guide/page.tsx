@@ -34,7 +34,7 @@ export default function GuidePage() {
           <span className="text-xs font-extrabold uppercase tracking-[0.22em] text-navy">
             이용안내
           </span>
-          <h1 className="text-display font-black text-navy">AptiON은 이렇게 이용할 수 있어요</h1>
+          <h1 className="text-display font-display font-black text-navy">AptiON은 이렇게 이용할 수 있어요</h1>
           <p className="text-base leading-relaxed text-text-gray sm:text-lg">
             현재 AptiON은 온라인 자동결제 대신 상담 신청을 통해 상품 안내와
             구매를 진행하고 있습니다.

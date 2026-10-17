@@ -13,7 +13,7 @@ export default function ThisMonthSection() {
             <span className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-text-gray">
               이번 달 필기
             </span>
-            <h2 className="text-display font-black text-ink text-balance">
+            <h2 className="text-display font-display font-black text-ink text-balance">
               이번 달, 필기가 확정된 곳부터.
             </h2>
           </div>

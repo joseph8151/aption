@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Mono, Noto_Serif_KR } from "next/font/google";
 import "./globals.css";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
+import FloatingConsultButton from "@/components/FloatingConsultButton";
 import { siteConfig } from "@/lib/config";
 
 const pretendard = localFont({
@@ -25,6 +26,12 @@ const plexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
+});
+
+const notoSerifKr = Noto_Serif_KR({
+  variable: "--font-noto-serif-kr",
+  weight: ["700", "900"],
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -50,7 +57,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="ko"
       data-scroll-behavior="smooth"
-      className={`${pretendard.variable} ${plexMono.variable} h-full antialiased`}
+      className={`${pretendard.variable} ${plexMono.variable} ${notoSerifKr.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-ivory text-ink">
         <noscript>
@@ -61,6 +68,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main className="flex-1 pb-16 lg:pb-0">{children}</main>
         <Footer />
         <MobileStickyCTA />
+        <FloatingConsultButton />
       </body>
     </html>
   );

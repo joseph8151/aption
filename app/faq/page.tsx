@@ -15,7 +15,7 @@ export default function FaqPage() {
       <Container className="flex flex-col items-center gap-10">
         <div className="flex flex-col items-center gap-3 text-center">
           <span className="text-xs font-extrabold uppercase tracking-[0.22em] text-navy">FAQ</span>
-          <h1 className="text-display font-black text-navy">자주 묻는 질문</h1>
+          <h1 className="text-display font-display font-black text-navy">자주 묻는 질문</h1>
           <p className="max-w-xl text-base leading-relaxed text-text-gray sm:text-lg">
             궁금한 점이 더 있으시면 상담 신청을 이용해 주세요.
           </p>

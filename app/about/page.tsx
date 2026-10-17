@@ -26,7 +26,7 @@ export default function AboutPage() {
           <span className="text-xs font-extrabold uppercase tracking-[0.22em] text-navy">
             Brand Story
           </span>
-          <h1 className="text-hero max-w-3xl font-black text-navy text-balance">
+          <h1 className="text-hero font-display max-w-3xl font-black text-navy text-balance">
             Aptitude ON.
             <br />
             가능성을 <span className="text-lime-strong">실력</span>으로.

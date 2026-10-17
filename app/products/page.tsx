@@ -17,7 +17,7 @@ export default function ProductsPage() {
           <span className="text-xs font-extrabold uppercase tracking-[0.22em] text-navy">
             전체 문제집
           </span>
-          <h1 className="text-display font-black text-navy">내게 필요한 문제집 찾기</h1>
+          <h1 className="text-display font-display font-black text-navy">내게 필요한 문제집 찾기</h1>
           <p className="max-w-2xl text-base leading-relaxed text-text-gray sm:text-lg">
             시험, 영역, 난이도, 상품유형으로 원하는 문제집을 빠르게 찾아보세요.
           </p>
