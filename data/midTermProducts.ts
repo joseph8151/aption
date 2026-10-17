@@ -50,26 +50,107 @@ export const certWeaknessProducts: MidTermProduct[] = [
   },
 ];
 
-export const interviewDocsProducts: MidTermProduct[] = [
+export interface MidTermProductGroup {
+  label: string;
+  products: MidTermProduct[];
+}
+
+export const interviewDocsGroups: MidTermProductGroup[] = [
   {
-    slug: "nonghyup-shinhyup-interview-questions",
-    title: "농축협·신협 면접 예상질문",
-    promise: "필기 이후 바로 보는 질문과 답변 구조",
-    meta: "PDF",
-    price: 39800,
+    label: "공공기관",
+    products: [
+      {
+        slug: "nonghyup-shinhyup-interview-questions",
+        title: "농축협·신협 면접 예상질문",
+        promise: "필기 이후 바로 보는 질문과 답변 구조",
+        meta: "PDF",
+        price: 39800,
+      },
+      {
+        slug: "ncs-experience-statement-guide",
+        title: "NCS 경험기술서 작성 가이드",
+        promise: "공공기관 서류에서 자주 막히는 부분을 정리",
+        meta: "PDF",
+        price: 29800,
+      },
+      {
+        slug: "calculation-data-interpretation-weakness-drill",
+        title: "계산·자료해석 약점 드릴",
+        promise: "전체 모의고사 말고 이 두 유형만 반복",
+        meta: "PDF",
+        price: 29800,
+      },
+    ],
   },
   {
-    slug: "ncs-experience-statement-guide",
-    title: "NCS 경험기술서 작성 가이드",
-    promise: "공공기관 서류에서 자주 막히는 부분을 정리",
-    meta: "PDF",
-    price: 29800,
+    label: "금융권",
+    products: [
+      {
+        slug: "finance-interview-questions",
+        title: "금융권 면접 예상질문",
+        promise: "예상질문 35개 + 답변 구조",
+        meta: "28~32p · 35문항 · PDF",
+        price: 39800,
+      },
+      {
+        slug: "finance-cover-letter-structure",
+        title: "금융권 자기소개서 구조",
+        promise: "작성 구조 + 예시",
+        meta: "22~26p · PDF",
+        price: 29800,
+      },
+    ],
   },
   {
-    slug: "calculation-data-interpretation-weakness-drill",
-    title: "계산·자료해석 약점 드릴",
-    promise: "전체 모의고사 말고 이 두 유형만 반복",
-    meta: "PDF",
-    price: 29800,
+    label: "IT·개발",
+    products: [
+      {
+        slug: "it-portfolio-guide",
+        title: "포트폴리오 구성 가이드",
+        promise: "구성 예시 포함",
+        meta: "20~24p · PDF",
+        price: 29800,
+      },
+      {
+        slug: "it-technical-interview-questions",
+        title: "기술 면접 예상질문",
+        promise: "CS 기초 + 프로젝트 질문 40개",
+        meta: "32~36p · 40문항 · PDF",
+        price: 39800,
+      },
+      {
+        slug: "sql-weakness-drill",
+        title: "SQL 약점 드릴",
+        promise: "유형별 100문항",
+        meta: "40~45p · 100문항 · PDF",
+        price: 29800,
+      },
+    ],
+  },
+  {
+    label: "군",
+    products: [
+      {
+        slug: "military-officer-interview-advanced",
+        title: "장교·군무원 면접 심화",
+        promise: "예상질문 45개 + 답변 구조",
+        meta: "36~40p · 45문항 · PDF",
+        price: 49800,
+      },
+      {
+        slug: "military-fitness-test-prep",
+        title: "체력 검정 준비",
+        promise: "종목별 기준 + 체크리스트",
+        meta: "16~20p · PDF",
+        price: 19900,
+      },
+      {
+        slug: "military-motivation-cover-letter",
+        title: "군 지원동기·자기소개서",
+        promise: "작성 구조 + 예시",
+        meta: "22~26p · PDF",
+        price: 29800,
+      },
+    ],
   },
 ];
