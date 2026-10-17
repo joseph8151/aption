@@ -49,3 +49,27 @@ export const certWeaknessProducts: MidTermProduct[] = [
     price: 58000,
   },
 ];
+
+export const interviewDocsProducts: MidTermProduct[] = [
+  {
+    slug: "nonghyup-shinhyup-interview-questions",
+    title: "농축협·신협 면접 예상질문",
+    promise: "필기 이후 바로 보는 질문과 답변 구조",
+    meta: "PDF",
+    price: 39800,
+  },
+  {
+    slug: "ncs-experience-statement-guide",
+    title: "NCS 경험기술서 작성 가이드",
+    promise: "공공기관 서류에서 자주 막히는 부분을 정리",
+    meta: "PDF",
+    price: 29800,
+  },
+  {
+    slug: "calculation-data-interpretation-weakness-drill",
+    title: "계산·자료해석 약점 드릴",
+    promise: "전체 모의고사 말고 이 두 유형만 반복",
+    meta: "PDF",
+    price: 29800,
+  },
+];

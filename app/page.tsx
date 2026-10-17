@@ -16,6 +16,7 @@ import Testimonials from "@/components/Testimonials";
 import FAQPreview from "@/components/FAQPreview";
 import MilitaryWrittenSection from "@/components/MilitaryWrittenSection";
 import CertWeaknessSection from "@/components/CertWeaknessSection";
+import InterviewDocsSection from "@/components/InterviewDocsSection";
 import FinalCTA from "@/components/FinalCTA";
 
 export const metadata: Metadata = {
@@ -44,6 +45,7 @@ export default function Home() {
       <FAQPreview />
       <MilitaryWrittenSection />
       <CertWeaknessSection />
+      <InterviewDocsSection />
       <FinalCTA />
     </>
   );
