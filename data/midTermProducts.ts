@@ -13,7 +13,7 @@ export const militaryWrittenProducts: MidTermProduct[] = [
     title: "군무원 필기 실전 4회",
     promise: "7·9급 공채 대비 실전 4회. 국어·한국사·행정학·행정법 빈출 유형 중심.",
     meta: "4회 · 과목별 시간 맞춤 · PDF",
-    price: 58000,
+    price: 43500,
     badge: "연중 상시",
   },
   {
@@ -21,7 +21,7 @@ export const militaryWrittenProducts: MidTermProduct[] = [
     title: "장교 필기 실전 3회",
     promise: "학사사관·군 가산복무 지원금 대비 실전 3회. 국어·영어·한국사 빈출.",
     meta: "3회 · 빈출 유형 정리 포함 · PDF",
-    price: 58000,
+    price: 43500,
     badge: "연중 상시",
   },
 ];

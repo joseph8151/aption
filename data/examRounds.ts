@@ -31,7 +31,7 @@ export const examRounds: ExamRound[] = [
     questionMeta: "NCS 50문항",
     cardMeta: "3회 · NCS 50문항 · PDF",
     promise: "직업기초능력 50문항. 접수는 이미 마감됐습니다.",
-    price: 79600,
+    price: 59700,
     composition: [
       "부산 공공기관 NCS 실전 1~3회 (50문항)",
       "회차별 정답 및 해설",
@@ -50,7 +50,7 @@ export const examRounds: ExamRound[] = [
     questionMeta: "50제 50분",
     cardMeta: "8회 · 50문항 · PDF",
     promise: "실전 8회로 시간 안에 끝내는 감각부터 잡습니다.",
-    price: 39800,
+    price: 29850,
     composition: [
       "일반상식 실전 1~8회 (회차별 50문항)",
       "회차별 정답 및 해설",
@@ -69,7 +69,7 @@ export const examRounds: ExamRound[] = [
     questionMeta: "직업기초능력",
     cardMeta: "3회 · 직업기초능력 · PDF",
     promise: "공통 NCS. 전공 과목은 포함하지 않습니다.",
-    price: 79600,
+    price: 59700,
     composition: [
       "수원시 공공기관 NCS 실전 1~3회 (직업기초능력)",
       "회차별 정답 및 해설",
@@ -88,7 +88,7 @@ export const examRounds: ExamRound[] = [
     questionMeta: "직무능력 + 직무상식",
     cardMeta: "3회 · 빈출유형 포함 · PDF",
     promise: "직무능력과 직무상식 빈출 유형을 한 번에 정리합니다.",
-    price: 58000,
+    price: 43500,
     composition: [
       "신협 필기 실전 1~3회",
       "빈출 유형 정리 노트",
@@ -107,7 +107,7 @@ export const examRounds: ExamRound[] = [
     questionMeta: "빈출유형 집중",
     cardMeta: "추가 1회 · 빈출유형 집중 · PDF",
     promise: "기존 3회에서 부족했던 빈출 유형만 더 풉니다.",
-    price: 58000,
+    price: 43500,
     composition: [
       "신협 빈출 유형 추가 회차 (1회)",
       "빈출 유형 집중 정리",
@@ -127,7 +127,7 @@ export const examRounds: ExamRound[] = [
     questionMeta: "인적성 + 직무능력",
     cardMeta: "5회 · 인적성+직무능력 · PDF",
     promise: "11/22, 867명이 함께 보는 시험을 실전 5회로 준비합니다.",
-    price: 78000,
+    price: 58500,
     composition: [
       "농축협 직무능력 실전 1~5회",
       "인적성 영역 별도 수록",
@@ -146,7 +146,7 @@ export const examRounds: ExamRound[] = [
     questionMeta: "직무능력",
     cardMeta: "3회 · 직무능력 · PDF",
     promise: "한국농수산식품유통공사. 접수 13일까지. 필기일은 확정되면 적습니다.",
-    price: 116000,
+    price: 87000,
     composition: [
       "aT(한국농수산식품유통공사) 직무능력 실전 1~3회",
       "회차별 정답 및 해설",
@@ -165,7 +165,7 @@ export const examRounds: ExamRound[] = [
     questionMeta: "직무능력",
     cardMeta: "3회 · 직무능력 · PDF",
     promise: "서울주택도시공사. 접수 19일까지. 필기일은 아직 없습니다.",
-    price: 116000,
+    price: 87000,
     composition: [
       "SH(서울주택도시공사) 직무능력 실전 1~3회",
       "회차별 정답 및 해설",
