@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ExamRound } from "@/data/examRounds";
 import SamplePreviewModal from "./samplepreview/SamplePreviewModal";
 import { getSampleByProductSlug } from "@/data/productSamples";
+import SelectionToggle from "./SelectionToggle";
 
 export default function ExamRoundCard({ exam }: { exam: ExamRound }) {
   const sample = getSampleByProductSlug(exam.slug);
@@ -11,7 +12,15 @@ export default function ExamRoundCard({ exam }: { exam: ExamRound }) {
         <span className="rounded-[3px] bg-terracotta px-2.5 py-1 font-mono text-[11px] font-semibold tracking-wide text-ivory">
           {exam.dDayLabel}
         </span>
-        <span className="font-mono text-[12px] text-text-gray">{exam.examDateLabel}</span>
+        <div className="flex items-center gap-2">
+          <SelectionToggle
+            slug={exam.slug}
+            name={exam.title}
+            price={exam.price}
+            className="flex items-center gap-1.5 rounded-full border border-line px-2.5 py-1 text-[11px] font-bold text-ink transition hover:border-ink/30"
+          />
+          <span className="font-mono text-[12px] text-text-gray">{exam.examDateLabel}</span>
+        </div>
       </div>
 
       <div className="flex flex-col gap-2">

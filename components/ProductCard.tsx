@@ -6,6 +6,7 @@ import Badge from "./Badge";
 import { getProductCoverTheme } from "@/lib/coverAccentColor";
 import SamplePreviewModal from "./samplepreview/SamplePreviewModal";
 import { getSampleByProductSlug } from "@/data/productSamples";
+import SelectionToggle from "./SelectionToggle";
 
 export default function ProductCard({ product }: { product: Product }) {
   const theme = getProductCoverTheme(product);
@@ -31,6 +32,12 @@ export default function ProductCard({ product }: { product: Product }) {
               ))}
             </div>
           ) : null}
+          <SelectionToggle
+            slug={product.slug}
+            name={product.name}
+            price={product.price}
+            className="absolute left-3 top-3 flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1.5 text-[11px] font-bold text-navy backdrop-blur-sm transition hover:bg-white"
+          />
         </div>
       </Link>
 

@@ -7,6 +7,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileStickyCTA from "@/components/MobileStickyCTA";
 import FloatingConsultButton from "@/components/FloatingConsultButton";
+import SelectionTray from "@/components/SelectionTray";
+import { ProductSelectionProvider } from "@/lib/ProductSelectionContext";
 import { siteConfig } from "@/lib/config";
 
 const pretendard = localFont({
@@ -63,12 +65,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <noscript>
           <style>{`[data-reveal] { opacity: 1 !important; transform: none !important; }`}</style>
         </noscript>
-        <AnnouncementBar />
-        <Header />
-        <main className="flex-1 pb-16 lg:pb-0">{children}</main>
-        <Footer />
-        <MobileStickyCTA />
-        <FloatingConsultButton />
+        <ProductSelectionProvider>
+          <AnnouncementBar />
+          <Header />
+          <main className="flex-1 pb-16 lg:pb-0">{children}</main>
+          <Footer />
+          <MobileStickyCTA />
+          <FloatingConsultButton />
+          <SelectionTray />
+        </ProductSelectionProvider>
       </body>
     </html>
   );
