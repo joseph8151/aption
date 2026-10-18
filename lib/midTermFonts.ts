@@ -29,10 +29,10 @@ export const fragmentMono = Fragment_Mono({
 export const midTermFontVars = `${wantedSans.variable} ${notoSerifKr.variable} ${fragmentMono.variable}`;
 
 export const midTermColors = {
-  bg: "#EFE8DC",
+  bg: "#F7F4EC",
   ink: "#1A1713",
-  card: "#F7F3EC",
-  line: "#D6CDBE",
-  button: "#1C4336",
-  accent: "#9C7A3C",
+  card: "#FFFFFF",
+  line: "#E2DDD2",
+  button: "#122240",
+  accent: "#7A2331",
 };

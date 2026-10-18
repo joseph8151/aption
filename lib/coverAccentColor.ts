@@ -9,15 +9,15 @@ export interface CoverThemeStyle {
   isLight: boolean;
 }
 
-// 브랜드 표지 디자인 시스템: "Shared system" — 모든 표지는 같은 가문(ink + brass)으로 통일한다.
-// 영역별로 색을 바꾸지 않는다(라임/파스텔 색상 제거). 테마 키는 기존 호출부와의
-// 호환을 위해 유지하되, 전부 동일한 잉크(#14120F) + 브라스(#B0893E) 스타일로 수렴한다.
+// 브랜드 표지 디자인 시스템: "Shared system" — 모든 표지는 같은 가문(딥 네이비 +
+// 버건디)으로 통일한다. 영역별로 색을 바꾸지 않는다. 테마 키는 기존 호출부와의
+// 호환을 위해 유지하되, 전부 동일한 네이비(#122240) + 버건디(#7A2331) 스타일로 수렴한다.
 const shared: CoverThemeStyle = {
-  bgFrom: "#1A1713",
-  bgTo: "#1A1713",
-  accent: "#9C7A3C",
-  text: "#F7F3EC",
-  textSoft: "rgba(247,243,236,0.6)",
+  bgFrom: "#122240",
+  bgTo: "#122240",
+  accent: "#7A2331",
+  text: "#F7F4EC",
+  textSoft: "rgba(247,244,236,0.6)",
   isLight: false,
 };
 

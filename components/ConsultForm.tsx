@@ -227,6 +227,12 @@ export default function ConsultForm({
             </label>
           ))}
         </div>
+        {inquiryType === "구매" ? (
+          <p className="rounded-[6px] border border-line bg-gray-light px-3.5 py-2.5 text-xs leading-relaxed text-text-gray">
+            구매 신청은 상품 구성과 가격을 확인하신 후, 구매를 신중하게 결정하신 분만 진행해
+            주세요. 입금 후에는 취소·환불이 어렵습니다.
+          </p>
+        ) : null}
       </fieldset>
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">

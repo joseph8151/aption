@@ -69,17 +69,17 @@ export default function SamplePreviewModal({
         >
           <div className="flex min-h-full items-start justify-center sm:items-center sm:p-6">
             <div
-              className="relative flex w-full flex-col bg-[#EFE8DC] sm:w-[560px] sm:rounded-[10px] sm:shadow-[0_32px_64px_-20px_rgba(20,18,15,0.5)]"
+              className="relative flex w-full flex-col bg-[#F7F4EC] sm:w-[560px] sm:rounded-[10px] sm:shadow-[0_32px_64px_-20px_rgba(20,18,15,0.5)]"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="sticky top-0 z-10 flex items-center justify-between gap-3 border-b border-[#D6CDBE] bg-[#F7F3EC] px-4 py-3">
+              <div className="sticky top-0 z-10 flex items-center justify-between gap-3 border-b border-[#E2DDD2] bg-[#FFFFFF] px-4 py-3">
                 <span className="truncate text-sm font-bold text-[#1A1713]">{productName}</span>
                 <div className="flex shrink-0 items-center gap-1">
                   <button
                     type="button"
                     aria-label="축소"
                     onClick={() => setZoom((z) => Math.max(0.85, Math.round((z - 0.1) * 100) / 100))}
-                    className="hidden h-9 w-9 items-center justify-center rounded-[6px] text-[#1A1713]/60 transition hover:bg-[#EFE8DC] sm:flex"
+                    className="hidden h-9 w-9 items-center justify-center rounded-[6px] text-[#1A1713]/60 transition hover:bg-[#F7F4EC] sm:flex"
                   >
                     <Minus size={16} strokeWidth={2.25} />
                   </button>
@@ -87,7 +87,7 @@ export default function SamplePreviewModal({
                     type="button"
                     aria-label="확대"
                     onClick={() => setZoom((z) => Math.min(1.4, Math.round((z + 0.1) * 100) / 100))}
-                    className="hidden h-9 w-9 items-center justify-center rounded-[6px] text-[#1A1713]/60 transition hover:bg-[#EFE8DC] sm:flex"
+                    className="hidden h-9 w-9 items-center justify-center rounded-[6px] text-[#1A1713]/60 transition hover:bg-[#F7F4EC] sm:flex"
                   >
                     <Plus size={16} strokeWidth={2.25} />
                   </button>
@@ -95,7 +95,7 @@ export default function SamplePreviewModal({
                     type="button"
                     aria-label="닫기"
                     onClick={() => setOpen(false)}
-                    className="flex h-9 w-9 items-center justify-center rounded-[6px] text-[#1A1713]/70 transition hover:bg-[#EFE8DC]"
+                    className="flex h-9 w-9 items-center justify-center rounded-[6px] text-[#1A1713]/70 transition hover:bg-[#F7F4EC]"
                   >
                     <X size={20} strokeWidth={2.25} />
                   </button>
@@ -107,20 +107,20 @@ export default function SamplePreviewModal({
                   className="w-full max-w-[480px] origin-top transition-transform duration-150"
                   style={{ transform: `scale(${zoom})` }}
                 >
-                  <div className="rounded-[4px] border border-[#D6CDBE] bg-white shadow-[0_4px_16px_-4px_rgba(20,18,15,0.12)]">
+                  <div className="rounded-[4px] border border-[#E2DDD2] bg-white shadow-[0_4px_16px_-4px_rgba(20,18,15,0.12)]">
                     <SampleA4Page sample={sample} pageIndex={page} />
                   </div>
                 </div>
               </div>
 
-              <div className="sticky bottom-0 z-10 flex flex-col gap-3 border-t border-[#D6CDBE] bg-[#F7F3EC] px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+              <div className="sticky bottom-0 z-10 flex flex-col gap-3 border-t border-[#E2DDD2] bg-[#FFFFFF] px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
                 {pageCount > 1 ? (
                   <div className="flex items-center justify-center gap-3 text-sm font-semibold text-[#1A1713]">
                     <button
                       type="button"
                       disabled={page === 0}
                       onClick={() => setPage(0)}
-                      className="rounded-[6px] px-2.5 py-1.5 text-[#1A1713]/60 transition hover:bg-[#EFE8DC] disabled:opacity-30"
+                      className="rounded-[6px] px-2.5 py-1.5 text-[#1A1713]/60 transition hover:bg-[#F7F4EC] disabled:opacity-30"
                     >
                       ← 이전
                     </button>
@@ -129,7 +129,7 @@ export default function SamplePreviewModal({
                       type="button"
                       disabled={page === 1}
                       onClick={() => setPage(1)}
-                      className="rounded-[6px] px-2.5 py-1.5 text-[#1A1713]/60 transition hover:bg-[#EFE8DC] disabled:opacity-30"
+                      className="rounded-[6px] px-2.5 py-1.5 text-[#1A1713]/60 transition hover:bg-[#F7F4EC] disabled:opacity-30"
                     >
                       다음 →
                     </button>
@@ -141,13 +141,13 @@ export default function SamplePreviewModal({
                   <button
                     type="button"
                     onClick={() => setOpen(false)}
-                    className="inline-flex items-center justify-center rounded-[6px] border border-[#D6CDBE] px-4 py-3 text-sm font-bold text-[#1A1713] transition hover:bg-[#EFE8DC]"
+                    className="inline-flex items-center justify-center rounded-[6px] border border-[#E2DDD2] px-4 py-3 text-sm font-bold text-[#1A1713] transition hover:bg-[#F7F4EC]"
                   >
                     닫기
                   </button>
                   <Link
                     href={`/consult?product=${encodeURIComponent(productName)}&intent=${encodeURIComponent("구매")}${productPrice ? `&price=${productPrice}` : ""}`}
-                    className="inline-flex flex-1 items-center justify-center rounded-[6px] bg-[#1C4336] px-5 py-3 text-sm font-bold text-white transition hover:opacity-90 sm:flex-none"
+                    className="inline-flex flex-1 items-center justify-center rounded-[6px] bg-[#122240] px-5 py-3 text-sm font-bold text-white transition hover:opacity-90 sm:flex-none"
                   >
                     구매 신청
                   </Link>

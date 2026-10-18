@@ -11,8 +11,8 @@ const POSITIONS: Array<{ row: number; col: number; group: "ud" | "lr" | "fb" }> 
 ];
 
 const GROUP_COLOR: Record<string, string> = {
-  ud: "#1C4336",
-  lr: "#9C7A3C",
+  ud: "#122240",
+  lr: "#7A2331",
   fb: "#8C3A2F",
 };
 
@@ -51,7 +51,7 @@ export default function CubeNetFigure({
               y={y}
               width={cell}
               height={cell}
-              fill="#F7F3EC"
+              fill="#FFFFFF"
               stroke={stroke}
               strokeWidth={highlightPairs ? 2.5 : 1.5}
               rx={3}
