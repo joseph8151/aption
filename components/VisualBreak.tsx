@@ -12,29 +12,29 @@ export default function VisualBreak() {
         <defs>
           <pattern id="examPattern" width="220" height="220" patternUnits="userSpaceOnUse">
             {/* bar chart */}
-            <g stroke="#F3EEE6" strokeWidth="2" fill="none">
+            <g stroke="#F7F3EC" strokeWidth="2" fill="none">
               <path d="M10 60 L10 30 M22 60 L22 20 M34 60 L34 40 M46 60 L46 10" strokeLinecap="round" />
             </g>
             {/* checkbox */}
-            <g stroke="#F3EEE6" strokeWidth="2" fill="none">
+            <g stroke="#F7F3EC" strokeWidth="2" fill="none">
               <rect x="110" y="16" width="24" height="24" rx="4" />
               <path d="m115 28 5 5 10-10" strokeLinecap="round" strokeLinejoin="round" />
             </g>
             {/* timer */}
-            <g stroke="#F3EEE6" strokeWidth="2" fill="none">
+            <g stroke="#F7F3EC" strokeWidth="2" fill="none">
               <circle cx="180" cy="80" r="18" />
               <path d="M180 70v10l7 6" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M173 60h14" strokeLinecap="round" />
             </g>
             {/* formula */}
-            <text x="20" y="140" fill="#F3EEE6" fontSize="22" fontWeight="700">
+            <text x="20" y="140" fill="#F7F3EC" fontSize="22" fontWeight="700">
               ∑
             </text>
-            <text x="70" y="150" fill="#F3EEE6" fontSize="16" fontWeight="700">
+            <text x="70" y="150" fill="#F7F3EC" fontSize="16" fontWeight="700">
               x+y=z
             </text>
             {/* exam sheet lines */}
-            <g stroke="#F3EEE6" strokeWidth="2" strokeLinecap="round">
+            <g stroke="#F7F3EC" strokeWidth="2" strokeLinecap="round">
               <path d="M120 170h60" />
               <path d="M120 182h44" />
               <path d="M120 194h52" />

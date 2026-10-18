@@ -1,31 +1,32 @@
 @import "tailwindcss";
 
 :root {
-  /* Primary (forest — buttons, dark sections; replaces old "navy" role) */
-  --color-aption-navy: #1f4a3a;
-  --color-aption-navy-2: #16352a;
-  --color-aption-navy-soft: #24503f;
+  /* Primary (deep forest — buttons, dark sections). 사이트 전체(이번 달 필기 포함)
+     단일 팔레트로 통일 — 기존 중기 카탈로그(#1C4336/#9C7A3C/#EFE8DC)로 수렴. */
+  --color-aption-navy: #1c4336;
+  --color-aption-navy-2: #15332a;
+  --color-aption-navy-soft: #2a4f40;
 
-  /* Accent (brass/gold — "ON", badges, CTAs; replaces old "lime" role. No lime green anywhere.) */
-  --color-aption-lime: #b0893e;
-  --color-aption-lime-strong: #96742f;
-  --color-aption-lime-tint: #f0e6d2;
+  /* Accent (muted antique gold — "ON", badges, CTAs) */
+  --color-aption-lime: #9c7a3c;
+  --color-aption-lime-strong: #84652f;
+  --color-aption-lime-tint: #ede2c8;
 
   /* D-day only — never used elsewhere */
   --color-aption-terracotta: #8c3a2f;
 
-  /* Neutrals (paper / ink) */
-  --color-aption-ivory: #f3eee6;
-  --color-aption-card: #faf7f2;
-  --color-aption-white: #faf7f2;
-  --color-aption-gray-light: #e7e0d6;
-  --color-aption-text-gray: #5b554c;
-  --color-aption-ink: #14120f;
-  --color-aption-line: #ddd4c6;
+  /* Neutrals (warm paper / ink) */
+  --color-aption-ivory: #efe8dc;
+  --color-aption-card: #f7f3ec;
+  --color-aption-white: #f7f3ec;
+  --color-aption-gray-light: #e8e0d2;
+  --color-aption-text-gray: #5b5347;
+  --color-aption-ink: #1a1713;
+  --color-aption-line: #d6cdbe;
 
   /* Legacy alias kept during migration; resolves to primary */
-  --color-aption-blue: #1f4a3a;
-  --color-aption-blue-tint: #e7e0d6;
+  --color-aption-blue: #1c4336;
+  --color-aption-blue-tint: #e8e0d2;
 }
 
 @theme inline {

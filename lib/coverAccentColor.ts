@@ -13,11 +13,11 @@ export interface CoverThemeStyle {
 // 영역별로 색을 바꾸지 않는다(라임/파스텔 색상 제거). 테마 키는 기존 호출부와의
 // 호환을 위해 유지하되, 전부 동일한 잉크(#14120F) + 브라스(#B0893E) 스타일로 수렴한다.
 const shared: CoverThemeStyle = {
-  bgFrom: "#14120F",
-  bgTo: "#14120F",
-  accent: "#B0893E",
-  text: "#F3EEE6",
-  textSoft: "rgba(243,238,230,0.6)",
+  bgFrom: "#1A1713",
+  bgTo: "#1A1713",
+  accent: "#9C7A3C",
+  text: "#F7F3EC",
+  textSoft: "rgba(247,243,236,0.6)",
   isLight: false,
 };
 

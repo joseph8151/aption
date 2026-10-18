@@ -39,13 +39,13 @@ export default function LineChartFigure({
         return (
           <g key={i}>
             <line x1={padL} y1={y} x2={width - padR} y2={y} stroke="#D6CDBE" strokeWidth={1} />
-            <text x={padL - 8} y={y + 4} fontSize={10} textAnchor="end" fill="#5B554C" fontFamily="sans-serif">
+            <text x={padL - 8} y={y + 4} fontSize={10} textAnchor="end" fill="#5B5347" fontFamily="sans-serif">
               {Math.round(v)}
             </text>
           </g>
         );
       })}
-      <text x={padL} y={14} fontSize={10} fill="#5B554C" fontFamily="sans-serif">
+      <text x={padL} y={14} fontSize={10} fill="#5B5347" fontFamily="sans-serif">
         (단위: {unit})
       </text>
 
