@@ -59,6 +59,7 @@ export default function ConsultForm({
     items: DesiredItem[];
     total: number;
     hasUnknown: boolean;
+    name: string;
   } | null>(null);
 
   const suggestions = useMemo(() => searchCatalog(manualInput), [manualInput]);
@@ -140,7 +141,8 @@ export default function ConsultForm({
         headers: { Accept: "application/json" },
       });
       if (res.ok) {
-        setSubmittedSummary({ items: desiredItems, total: knownTotal, hasUnknown: hasUnknownPrice });
+        const submittedName = formData.get("이름")?.toString().trim() ?? "";
+        setSubmittedSummary({ items: desiredItems, total: knownTotal, hasUnknown: hasUnknownPrice, name: submittedName });
         setStatus("success");
         form.reset();
         setWeakAreas([]);
@@ -190,6 +192,11 @@ export default function ConsultForm({
               ) : (
                 <span>정확한 입금 금액은 확인 후 이메일로 안내드립니다.</span>
               )}
+              <span className="font-bold text-navy">
+                입금자명:{" "}
+                {submittedSummary?.name ? `반드시 "${submittedSummary.name}" (신청자 본인 이름)` : "반드시 신청자 본인 이름"}
+                으로 입력해 주세요
+              </span>
             </div>
             <button
               type="button"
@@ -199,8 +206,9 @@ export default function ConsultForm({
               {copied ? "복사됨" : "계좌번호 복사"}
             </button>
             <p className="text-xs leading-relaxed text-text-gray">
-              입금해 주시면 영업시간({siteConfig.businessHours.label}) 기준 입금 확인 후 3~10시간
-              이내 이메일로 발송해 드립니다. 영업시간 이후 입금은 다음 영업시간 중 확인됩니다.
+              입금자명이 신청자 이름과 다르면 확인이 지연될 수 있습니다. 입금해 주시면
+              영업시간({siteConfig.businessHours.label}) 기준 입금 확인 후 3~10시간 이내
+              이메일로 발송해 드립니다. 영업시간 이후 입금은 다음 영업시간 중 확인됩니다.
             </p>
           </div>
         ) : (
