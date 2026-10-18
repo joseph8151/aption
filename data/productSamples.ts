@@ -349,7 +349,7 @@ export const productSamples: ProductSample[] = [
   },
   {
     productSlug: "ncs-final-mock-test-10",
-    sampleTitle: "NCS 실전 모의고사 10회",
+    sampleTitle: "NCS 실전 모의고사 7회",
     category: "NCS · 실전 모의고사",
     difficulty: "실전 → 고난도",
     page1Count: 2,
@@ -361,20 +361,20 @@ export const productSamples: ProductSample[] = [
     questions: [
       {
         number: 1,
-        prompt: "위 표는 실전 모의고사 1교시 구성이다. 1교시 전체 제한시간은?",
+        prompt: "위 표는 실전 모의고사 1회차 구성이다(총 350문항 · 7회 · 회차당 50문항). 1회차 전체 제한시간은?",
         figure: {
           type: "table",
           headers: ["영역", "문항수", "제한시간"],
           rows: [
-            ["의사소통능력", "20문항", "20분"],
-            ["수리능력", "20문항", "25분"],
-            ["문제해결능력", "20문항", "25분"],
-            ["자료해석", "15문항", "20분"],
+            ["의사소통능력", "15문항", "15분"],
+            ["수리능력", "15문항", "20분"],
+            ["문제해결능력", "10문항", "15분"],
+            ["자료해석", "10문항", "15분"],
           ],
         },
-        choices: ["70분", "80분", "85분", "90분", "95분"],
-        answerIndex: 3,
-        explanation: "20+25+25+20=90분입니다.",
+        choices: ["55분", "60분", "65분", "70분", "75분"],
+        answerIndex: 2,
+        explanation: "15+20+15+15=65분입니다.",
       },
       {
         number: 2,
@@ -395,10 +395,10 @@ export const productSamples: ProductSample[] = [
       },
       {
         number: 3,
-        prompt: "채점 기준에서 정답 1문항당 1.25점이 부여되고 오답 감점이 없다고 할 때, 75문항 중 60문항을 맞혔다면 총점은?",
-        choices: ["65점", "70점", "75점", "80점", "85점"],
+        prompt: "채점 기준에서 정답 1문항당 1.25점이 부여되고 오답 감점이 없다고 할 때, 1회차 50문항 중 40문항을 맞혔다면 총점은?",
+        choices: ["40점", "45점", "50점", "55점", "60점"],
         answerIndex: 2,
-        explanation: "60×1.25=75점입니다.",
+        explanation: "40×1.25=50점입니다.",
       },
       {
         number: 4,
