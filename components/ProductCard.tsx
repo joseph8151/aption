@@ -4,9 +4,12 @@ import { Product } from "@/lib/types";
 import BookCover from "./BookCover";
 import Badge from "./Badge";
 import { getProductCoverTheme } from "@/lib/coverAccentColor";
+import SamplePreviewModal from "./samplepreview/SamplePreviewModal";
+import { getSampleByProductSlug } from "@/data/productSamples";
 
 export default function ProductCard({ product }: { product: Product }) {
   const theme = getProductCoverTheme(product);
+  const sample = getSampleByProductSlug(product.slug);
 
   return (
     <div className="group flex flex-col overflow-hidden rounded-[8px] border border-line bg-white transition-all duration-300 hover:-translate-y-1.5 hover:border-navy/15 hover:shadow-[0_24px_48px_-24px_rgba(20,18,15,0.28)]">
@@ -70,12 +73,21 @@ export default function ProductCard({ product }: { product: Product }) {
           </Link>
         </div>
 
-        <Link
-          href={`/consult?product=${encodeURIComponent(product.name)}`}
-          className="mt-1 flex items-center justify-center rounded-[6px] bg-navy px-3 py-3 text-sm font-bold text-white transition hover:bg-navy-2"
-        >
-          구매 문의
-        </Link>
+        <div className="mt-1 flex gap-2">
+          {sample ? (
+            <SamplePreviewModal
+              sample={sample}
+              productName={product.name}
+              triggerClassName="flex flex-1 items-center justify-center gap-1.5 rounded-[6px] border border-line px-3 py-3 text-sm font-bold text-navy transition hover:border-navy/30 hover:bg-gray-light"
+            />
+          ) : null}
+          <Link
+            href={`/consult?product=${encodeURIComponent(product.name)}`}
+            className="flex flex-1 items-center justify-center rounded-[6px] bg-navy px-3 py-3 text-sm font-bold text-white transition hover:bg-navy-2"
+          >
+            구매 문의
+          </Link>
+        </div>
       </div>
     </div>
   );

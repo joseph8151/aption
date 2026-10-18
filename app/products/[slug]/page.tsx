@@ -7,8 +7,10 @@ import Badge from "@/components/Badge";
 import ProductCard from "@/components/ProductCard";
 import SampleQuestionPreview from "@/components/SampleQuestionPreview";
 import PackageBreakdown from "@/components/PackageBreakdown";
+import SamplePreviewModal from "@/components/samplepreview/SamplePreviewModal";
 import { getProductBySlug, products } from "@/data/products";
 import { getProductCoverTheme } from "@/lib/coverAccentColor";
+import { getSampleByProductSlug } from "@/data/productSamples";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -40,6 +42,7 @@ export default async function ProductDetailPage({
   const related = products
     .filter((p) => p.slug !== product.slug && p.area === product.area)
     .slice(0, 4);
+  const sample = getSampleByProductSlug(product.slug);
 
   return (
     <div className="section-y-tight bg-white">
@@ -172,6 +175,19 @@ export default async function ProductDetailPage({
 
         <Section title="샘플 페이지">
           <p className="-mt-3 text-sm leading-relaxed text-text-gray">{product.samplePreview}</p>
+          {sample ? (
+            <div className="flex flex-col gap-3 rounded-[8px] border border-line bg-gray-light p-5 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex flex-col gap-1">
+                <span className="text-sm font-extrabold text-navy">이 문제집 전용 샘플이 준비되어 있습니다</span>
+                <span className="text-xs text-text-gray">실제 지면 구성과 동일한 A4 샘플 {sample.questions.length}문항 · {sample.questions.length > sample.page1Count ? 2 : 1}페이지</span>
+              </div>
+              <SamplePreviewModal
+                sample={sample}
+                productName={product.name}
+                triggerClassName="inline-flex items-center justify-center gap-1.5 rounded-[6px] bg-navy px-5 py-3 text-sm font-bold text-white transition hover:bg-navy-2"
+              />
+            </div>
+          ) : null}
           <SampleQuestionPreview area={product.area} />
         </Section>
 

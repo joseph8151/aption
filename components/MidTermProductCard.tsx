@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { MidTermProduct } from "@/data/midTermProducts";
 import { midTermColors } from "@/lib/midTermFonts";
+import SamplePreviewModal from "./samplepreview/SamplePreviewModal";
+import { getSampleByProductSlug } from "@/data/productSamples";
 
 export default function MidTermProductCard({ product }: { product: MidTermProduct }) {
+  const sample = getSampleByProductSlug(product.slug);
   return (
     <div
       className="flex flex-col gap-5 rounded-[2px] border p-6"
@@ -49,13 +52,23 @@ export default function MidTermProductCard({ product }: { product: MidTermProduc
         <span className="text-xl font-bold" style={{ fontFamily: "var(--font-noto-serif-kr), serif" }}>
           {product.price.toLocaleString("ko-KR")}원
         </span>
-        <Link
-          href={`/consult?product=${encodeURIComponent(product.title)}`}
-          className="inline-flex items-center justify-center rounded-[2px] px-5 py-3 text-sm font-semibold"
-          style={{ background: midTermColors.button, color: midTermColors.card }}
-        >
-          구매 문의
-        </Link>
+        <div className="flex gap-2">
+          {sample ? (
+            <SamplePreviewModal
+              sample={sample}
+              productName={product.title}
+              triggerClassName="inline-flex items-center justify-center gap-1.5 rounded-[2px] border px-4 py-3 text-sm font-semibold"
+              triggerStyle={{ borderColor: midTermColors.line, color: midTermColors.ink }}
+            />
+          ) : null}
+          <Link
+            href={`/consult?product=${encodeURIComponent(product.title)}`}
+            className="inline-flex items-center justify-center rounded-[2px] px-5 py-3 text-sm font-semibold"
+            style={{ background: midTermColors.button, color: midTermColors.card }}
+          >
+            구매 문의
+          </Link>
+        </div>
       </div>
     </div>
   );

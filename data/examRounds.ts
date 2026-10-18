@@ -86,13 +86,13 @@ export const examRounds: ExamRound[] = [
     roundCount: 300,
     roundLabel: "빈출 유형 300문항 · 11.7–8",
     questionMeta: "빈출 유형 300문항",
-    cardMeta: "빈출 유형 300문항 · 짧은 해설 · 60~70p · PDF",
+    cardMeta: "빈출 유형 300문항 · 짧은 해설 · 90~120p · PDF",
     promise: "자주 나오는 유형만 300문항으로 집중해서 풉니다.",
     price: 49800,
     composition: [
       "신협 빈출 유형 300문항",
       "짧은 해설",
-      "60~70p",
+      "90~120p",
     ],
   },
   {

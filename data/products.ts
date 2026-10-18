@@ -18,7 +18,7 @@ export const products: Product[] = [
     productType: "문제집",
     price: 39800,
     questionCount: 300,
-    pageCount: 292,
+    pageCount: 100,
     badges: ["BEST"],
     targetAudience: [
       "NCS 수리가 처음이거나 계산 시간이 오래 걸리는 수험생",
@@ -63,7 +63,7 @@ export const products: Product[] = [
     productType: "문제집",
     price: 39800,
     questionCount: 300,
-    pageCount: 316,
+    pageCount: 140,
     badges: ["BEST"],
     targetAudience: [
       "자료해석 시간이 오래 걸리는 수험생",
@@ -108,7 +108,7 @@ export const products: Product[] = [
     productType: "문제집",
     price: 45800,
     questionCount: 200,
-    pageCount: 244,
+    pageCount: 115,
     badges: [],
     targetAudience: [
       "자료해석 기본기는 있으나 고득점이 필요한 수험생",
@@ -190,7 +190,7 @@ export const products: Product[] = [
     productType: "문제집",
     price: 39800,
     questionCount: 300,
-    pageCount: 288,
+    pageCount: 140,
     badges: [],
     targetAudience: [
       "문제해결능력에서 점수가 잘 나오지 않는 수험생",
@@ -233,7 +233,7 @@ export const products: Product[] = [
     productType: "문제집",
     price: 39800,
     questionCount: 300,
-    pageCount: 276,
+    pageCount: 145,
     badges: [],
     targetAudience: [
       "지문 독해 속도가 느린 수험생",
@@ -276,7 +276,7 @@ export const products: Product[] = [
     productType: "문제집",
     price: 33800,
     questionCount: 220,
-    pageCount: 208,
+    pageCount: 75,
     badges: ["NEW"],
     targetAudience: [
       "계산은 맞지만 시간이 오래 걸리는 수험생",
@@ -317,7 +317,7 @@ export const products: Product[] = [
     productType: "모의고사",
     price: 49800,
     questionCount: 500,
-    pageCount: 420,
+    pageCount: 220,
     badges: ["BEST"],
     targetAudience: [
       "실전 감각을 최종 점검하고 싶은 수험생",
@@ -358,7 +358,7 @@ export const products: Product[] = [
     productType: "패키지",
     price: 118000,
     questionCount: 1100,
-    pageCount: 1080,
+    pageCount: 520,
     badges: ["BEST"],
     targetAudience: [
       "여러 영역을 한 번에 준비하고 싶은 수험생",
@@ -958,7 +958,7 @@ export const products: Product[] = [
     productType: "문제집",
     price: 37800,
     questionCount: 220,
-    pageCount: 208,
+    pageCount: 130,
     badges: [],
     targetAudience: [
       "전개도·블록·회전 문제에서 시간이 오래 걸리는 수험생",

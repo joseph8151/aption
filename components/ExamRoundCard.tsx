@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { ExamRound } from "@/data/examRounds";
+import SamplePreviewModal from "./samplepreview/SamplePreviewModal";
+import { getSampleByProductSlug } from "@/data/productSamples";
 
 export default function ExamRoundCard({ exam }: { exam: ExamRound }) {
+  const sample = getSampleByProductSlug(exam.slug);
   return (
     <div className="flex flex-col gap-5 rounded-[4px] border border-line bg-card p-6">
       <div className="flex items-center justify-between">
@@ -27,16 +30,27 @@ export default function ExamRoundCard({ exam }: { exam: ExamRound }) {
         ))}
       </div>
 
-      <div className="mt-auto flex items-center justify-between pt-2">
-        <span className="text-xl font-extrabold text-ink">
-          {exam.price.toLocaleString("ko-KR")}원
-        </span>
-        <Link
-          href={`/consult?product=${encodeURIComponent(exam.title)}`}
-          className="inline-flex items-center justify-center rounded-[6px] bg-navy px-5 py-3 text-sm font-bold text-ivory transition hover:bg-navy-2"
-        >
-          구매 문의
-        </Link>
+      <div className="mt-auto flex flex-col gap-2 pt-2">
+        <div className="flex items-center justify-between">
+          <span className="text-xl font-extrabold text-ink">
+            {exam.price.toLocaleString("ko-KR")}원
+          </span>
+          <div className="flex gap-2">
+            {sample ? (
+              <SamplePreviewModal
+                sample={sample}
+                productName={exam.title}
+                triggerClassName="inline-flex items-center justify-center gap-1.5 rounded-[6px] border border-line px-4 py-3 text-sm font-bold text-ink transition hover:border-ink/30"
+              />
+            ) : null}
+            <Link
+              href={`/consult?product=${encodeURIComponent(exam.title)}`}
+              className="inline-flex items-center justify-center rounded-[6px] bg-navy px-5 py-3 text-sm font-bold text-ivory transition hover:bg-navy-2"
+            >
+              구매 문의
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );
