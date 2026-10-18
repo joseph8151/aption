@@ -152,7 +152,7 @@ export default function ConsultForm({ initialProduct = "" }: { initialProduct?: 
           type="text"
           defaultValue={initialProduct}
           className="input"
-          placeholder="예: NCS 자료해석 300제 (선택 사항)"
+          placeholder="예: NCS 자료해석 210제 (선택 사항)"
         />
       </Field>
 

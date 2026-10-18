@@ -8,7 +8,7 @@ const EXAMPLE_NOTE = "상품 구성에 맞춰 제작한 예시 문항입니다. 
 export const productSamples: ProductSample[] = [
   {
     productSlug: "ncs-arithmetic-300",
-    sampleTitle: "NCS 수리능력 기초연산 300제",
+    sampleTitle: "NCS 수리능력 기초연산 210제",
     category: "NCS · 수리",
     difficulty: "초급 → 중급",
     page1Count: 2,
@@ -71,7 +71,7 @@ export const productSamples: ProductSample[] = [
   },
   {
     productSlug: "ncs-data-interpretation-300",
-    sampleTitle: "NCS 자료해석 300제",
+    sampleTitle: "NCS 자료해석 210제",
     category: "NCS · 자료해석",
     difficulty: "기본 → 실전",
     page1Count: 2,
@@ -152,7 +152,7 @@ export const productSamples: ProductSample[] = [
   },
   {
     productSlug: "ncs-data-interpretation-advanced-200",
-    sampleTitle: "NCS 고난도 자료해석 200제",
+    sampleTitle: "NCS 고난도 자료해석 140제",
     category: "NCS · 자료해석(고난도)",
     difficulty: "실전 → 고난도",
     page1Count: 2,
@@ -220,7 +220,7 @@ export const productSamples: ProductSample[] = [
   },
   {
     productSlug: "ncs-problem-solving-300",
-    sampleTitle: "NCS 문제해결능력 300제",
+    sampleTitle: "NCS 문제해결능력 210제",
     category: "NCS · 문제해결",
     difficulty: "기본 → 실전",
     page1Count: 2,
@@ -295,7 +295,7 @@ export const productSamples: ProductSample[] = [
   },
   {
     productSlug: "ncs-communication-300",
-    sampleTitle: "NCS 의사소통능력 300제",
+    sampleTitle: "NCS 의사소통능력 210제",
     category: "NCS · 의사소통",
     difficulty: "기본 → 실전",
     page1Count: 2,
