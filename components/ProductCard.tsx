@@ -85,14 +85,15 @@ export default function ProductCard({ product }: { product: Product }) {
             <SamplePreviewModal
               sample={sample}
               productName={product.name}
+              productPrice={product.price}
               triggerClassName="flex flex-1 items-center justify-center gap-1.5 rounded-[6px] border border-line px-3 py-3 text-sm font-bold text-navy transition hover:border-navy/30 hover:bg-gray-light"
             />
           ) : null}
           <Link
-            href={`/consult?product=${encodeURIComponent(product.name)}`}
+            href={`/consult?product=${encodeURIComponent(product.name)}&intent=${encodeURIComponent("구매")}&price=${product.price}`}
             className="flex flex-1 items-center justify-center rounded-[6px] bg-navy px-3 py-3 text-sm font-bold text-white transition hover:bg-navy-2"
           >
-            구매 문의
+            구매 신청
           </Link>
         </div>
       </div>

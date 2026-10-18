@@ -69,16 +69,17 @@ export default function MidTermProductCard({ product }: { product: MidTermProduc
             <SamplePreviewModal
               sample={sample}
               productName={product.title}
+              productPrice={product.price}
               triggerClassName="inline-flex items-center justify-center gap-1.5 rounded-[2px] border px-4 py-3 text-sm font-semibold"
               triggerStyle={{ borderColor: midTermColors.line, color: midTermColors.ink }}
             />
           ) : null}
           <Link
-            href={`/consult?product=${encodeURIComponent(product.title)}`}
+            href={`/consult?product=${encodeURIComponent(product.title)}&intent=${encodeURIComponent("구매")}&price=${product.price}`}
             className="inline-flex items-center justify-center rounded-[2px] px-5 py-3 text-sm font-semibold"
             style={{ background: midTermColors.button, color: midTermColors.card }}
           >
-            구매 문의
+            구매 신청
           </Link>
         </div>
       </div>

@@ -49,14 +49,15 @@ export default function ExamRoundCard({ exam }: { exam: ExamRound }) {
               <SamplePreviewModal
                 sample={sample}
                 productName={exam.title}
+                productPrice={exam.price}
                 triggerClassName="inline-flex items-center justify-center gap-1.5 rounded-[6px] border border-line px-4 py-3 text-sm font-bold text-ink transition hover:border-ink/30"
               />
             ) : null}
             <Link
-              href={`/consult?product=${encodeURIComponent(exam.title)}`}
+              href={`/consult?product=${encodeURIComponent(exam.title)}&intent=${encodeURIComponent("구매")}&price=${exam.price}`}
               className="inline-flex items-center justify-center rounded-[6px] bg-navy px-5 py-3 text-sm font-bold text-ivory transition hover:bg-navy-2"
             >
-              구매 문의
+              구매 신청
             </Link>
           </div>
         </div>

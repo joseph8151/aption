@@ -142,11 +142,11 @@ export default function TopikEpsPage() {
                   {product.price.toLocaleString("ko-KR")}원
                 </span>
                 <Link
-                  href={`/consult?product=${encodeURIComponent(product.name)}`}
+                  href={`/consult?product=${encodeURIComponent(product.name)}&intent=${encodeURIComponent("구매")}&price=${product.price}`}
                   className="inline-flex items-center justify-center rounded-[2px] px-5 py-3 text-sm font-semibold"
                   style={{ background: colors.button, color: colors.card }}
                 >
-                  구매 문의
+                  구매 신청
                 </Link>
               </div>
             </div>

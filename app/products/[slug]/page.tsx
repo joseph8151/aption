@@ -101,7 +101,7 @@ export default async function ProductDetailPage({
                 {product.price.toLocaleString("ko-KR")}원
               </span>
               <p className="text-sm leading-relaxed text-text-gray">
-                상담만 받으셔도 되고, 바로 구매 문의를 주셔도 됩니다. 신청 내용 확인 후 이메일로
+                상담만 받으셔도 되고, 바로 구매 신청을 주셔도 됩니다. 신청 내용 확인 후 이메일로
                 안내드립니다.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
@@ -109,7 +109,7 @@ export default async function ProductDetailPage({
                   href={`/consult?product=${encodeURIComponent(product.name)}&intent=${encodeURIComponent("구매")}&price=${product.price}`}
                   className="inline-flex flex-1 items-center justify-center rounded-[6px] bg-navy px-6 py-3.5 text-base font-bold text-white transition hover:bg-navy-2"
                 >
-                  바로 구매 문의
+                  바로 구매 신청
                 </Link>
                 <Link
                   href={`/consult?product=${encodeURIComponent(product.name)}&intent=${encodeURIComponent("상담")}`}
@@ -185,6 +185,7 @@ export default async function ProductDetailPage({
               <SamplePreviewModal
                 sample={sample}
                 productName={product.name}
+                productPrice={product.price}
                 triggerClassName="inline-flex items-center justify-center gap-1.5 rounded-[6px] bg-navy px-5 py-3 text-sm font-bold text-white transition hover:bg-navy-2"
               />
             </div>

@@ -9,11 +9,13 @@ import SampleA4Page from "./SampleA4Page";
 export default function SamplePreviewModal({
   sample,
   productName,
+  productPrice,
   triggerClassName,
   triggerStyle,
 }: {
   sample: ProductSample;
   productName: string;
+  productPrice?: number;
   triggerClassName?: string;
   triggerStyle?: CSSProperties;
 }) {
@@ -57,7 +59,7 @@ export default function SamplePreviewModal({
 
       {open ? (
         // 바깥 오버레이 자체가 스크롤 컨테이너입니다. 내용이 화면보다 길어도
-        // 이 레이어를 스크롤해서 항상 헤더(닫기 버튼)·푸터(구매 문의)에 닿을 수 있습니다.
+        // 이 레이어를 스크롤해서 항상 헤더(닫기 버튼)·푸터(구매 신청)에 닿을 수 있습니다.
         <div
           className="fixed inset-0 z-[60] overflow-y-auto overscroll-contain bg-ink/70"
           role="dialog"
@@ -144,10 +146,10 @@ export default function SamplePreviewModal({
                     닫기
                   </button>
                   <Link
-                    href={`/consult?product=${encodeURIComponent(productName)}`}
+                    href={`/consult?product=${encodeURIComponent(productName)}&intent=${encodeURIComponent("구매")}${productPrice ? `&price=${productPrice}` : ""}`}
                     className="inline-flex flex-1 items-center justify-center rounded-[6px] bg-[#1C4336] px-5 py-3 text-sm font-bold text-white transition hover:opacity-90 sm:flex-none"
                   >
-                    구매 문의
+                    구매 신청
                   </Link>
                 </div>
               </div>

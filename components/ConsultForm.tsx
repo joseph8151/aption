@@ -1,9 +1,10 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useMemo, useState } from "react";
 import { X } from "lucide-react";
 import { siteConfig } from "@/lib/config";
 import { useProductSelection } from "@/lib/ProductSelectionContext";
+import { searchCatalog } from "@/lib/catalogSearch";
 
 const examOptions = [
   "NCS",
@@ -53,28 +54,36 @@ export default function ConsultForm({
     initialProduct ? [{ name: initialProduct, price: initialPrice }] : []
   );
   const [manualInput, setManualInput] = useState("");
+  const [showSuggestions, setShowSuggestions] = useState(false);
   const [submittedSummary, setSubmittedSummary] = useState<{
     items: DesiredItem[];
     total: number;
     hasUnknown: boolean;
   } | null>(null);
 
+  const suggestions = useMemo(() => searchCatalog(manualInput), [manualInput]);
+
+  const addItem = (item: DesiredItem) => {
+    const exists =
+      selectedItems.some((i) => i.name === item.name) || manualItems.some((i) => i.name === item.name);
+    if (!exists) setManualItems((prev) => [...prev, item]);
+    setManualInput("");
+    setShowSuggestions(false);
+  };
+
   const addManualItem = () => {
     const name = manualInput.trim();
     if (!name) return;
-    const exists =
-      selectedItems.some((i) => i.name === name) || manualItems.some((i) => i.name === name);
-    if (!exists) setManualItems((prev) => [...prev, { name }]);
-    setManualInput("");
+    addItem({ name });
   };
 
   const removeManualItem = (name: string) => {
     setManualItems((prev) => prev.filter((i) => i.name !== name));
   };
 
-  const desiredItems: DesiredItem[] = [
-    ...selectedItems.map((i) => ({ name: i.name, price: i.price, slug: i.slug })),
-    ...manualItems,
+  const desiredItems: (DesiredItem & { source: "context" | "manual" })[] = [
+    ...selectedItems.map((i) => ({ name: i.name, price: i.price, slug: i.slug, source: "context" as const })),
+    ...manualItems.map((i) => ({ ...i, source: "manual" as const })),
   ];
   const knownTotal = desiredItems.reduce((sum, i) => sum + (i.price ?? 0), 0);
   const hasUnknownPrice = desiredItems.some((i) => typeof i.price !== "number");
@@ -144,7 +153,7 @@ export default function ConsultForm({
           <CheckIcon />
         </span>
         <p className="text-lg font-bold text-navy">
-          {inquiryType === "구매" ? "구매 문의" : "상담 신청"}이 정상적으로 접수되었습니다.
+          {inquiryType === "구매" ? "구매 신청" : "상담 신청"}이 정상적으로 접수되었습니다.
         </p>
 
         {inquiryType === "구매" ? (
@@ -306,7 +315,11 @@ export default function ConsultForm({
                   <button
                     type="button"
                     aria-label={`${item.name} 제거`}
-                    onClick={() => (item.slug ? removeSelected(item.slug) : removeManualItem(item.name))}
+                    onClick={() =>
+                      item.source === "context" && item.slug
+                        ? removeSelected(item.slug)
+                        : removeManualItem(item.name)
+                    }
                     className="flex h-5 w-5 items-center justify-center rounded-full text-text-gray transition hover:bg-white hover:text-navy"
                   >
                     <X size={12} strokeWidth={2.5} />
@@ -315,20 +328,30 @@ export default function ConsultForm({
               ))}
             </ul>
           ) : null}
-          <div className="flex gap-2">
+          <div className="relative flex gap-2">
             <input
               id="desiredProductInput"
               type="text"
               value={manualInput}
-              onChange={(e) => setManualInput(e.target.value)}
+              onChange={(e) => {
+                setManualInput(e.target.value);
+                setShowSuggestions(true);
+              }}
+              onFocus={() => setShowSuggestions(true)}
+              onBlur={() => window.setTimeout(() => setShowSuggestions(false), 120)}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
                   e.preventDefault();
-                  addManualItem();
+                  if (suggestions[0] && showSuggestions) {
+                    addItem(suggestions[0]);
+                  } else {
+                    addManualItem();
+                  }
                 }
               }}
               className="input"
-              placeholder="예: NCS 자료해석 210제 (입력 후 추가 버튼 또는 Enter)"
+              placeholder="문제집 이름 검색 또는 직접 입력 후 Enter"
+              autoComplete="off"
             />
             <button
               type="button"
@@ -337,9 +360,31 @@ export default function ConsultForm({
             >
               추가
             </button>
+
+            {showSuggestions && manualInput.trim() && suggestions.length > 0 ? (
+              <ul className="absolute left-0 right-[76px] top-full z-10 mt-1 overflow-hidden rounded-[8px] border border-line bg-white shadow-xl">
+                {suggestions.map((s) => (
+                  <li key={s.slug}>
+                    <button
+                      type="button"
+                      onMouseDown={(e) => e.preventDefault()}
+                      onClick={() => addItem(s)}
+                      className="flex w-full items-center justify-between gap-3 px-4 py-2.5 text-left text-sm transition hover:bg-gray-light"
+                    >
+                      <span className="truncate text-ink/80">{s.name}</span>
+                      <span className="shrink-0 text-xs font-bold text-navy">
+                        {s.price.toLocaleString("ko-KR")}원
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </div>
           <p className="text-xs text-text-gray">
-            상품 상세페이지의 &apos;비교함 담기&apos;로 선택한 문제집도 자동으로 여기에 표시됩니다.
+            검색 결과를 선택하면 정확한 가격이 자동으로 반영됩니다. 목록에 없는 상품은 직접
+            입력할 수 있습니다. 상품 상세페이지의 &apos;비교함 담기&apos;로 선택한 문제집도
+            자동으로 여기에 표시됩니다.
           </p>
         </div>
       </Field>
@@ -373,7 +418,7 @@ export default function ConsultForm({
         disabled={status === "submitting"}
         className="inline-flex items-center justify-center rounded-full bg-lime px-7 py-3.5 text-base font-bold text-navy transition hover:brightness-95 disabled:opacity-60"
       >
-        {status === "submitting" ? "접수 중..." : inquiryType === "구매" ? "구매 문의하기" : "상담 신청하기"}
+        {status === "submitting" ? "접수 중..." : inquiryType === "구매" ? "구매 신청하기" : "상담 신청하기"}
       </button>
     </form>
   );

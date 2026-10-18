@@ -13,7 +13,7 @@ export const siteConfig = {
   // Formspree 상담폼 연동 엔드포인트
   formspreeEndpoint: "https://formspree.io/f/mppanjzr",
 
-  // 구매 입금 계좌 — 구매 문의 완료 화면에서만 노출 (정적 페이지에는 노출하지 않음)
+  // 구매 입금 계좌 — 구매 신청 완료 화면에서만 노출 (정적 페이지에는 노출하지 않음)
   bankAccount: {
     bank: "토스뱅크",
     holder: "김형기",
