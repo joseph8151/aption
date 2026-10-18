@@ -44,7 +44,7 @@ export default function PersonaSection() {
                 href={p.href}
                 className="group flex h-full flex-col gap-5 rounded-[8px] border border-line bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-navy/20 hover:shadow-[0_20px_40px_-24px_rgba(20,18,15,0.28)]"
               >
-                <span className="flex h-11 w-11 items-center justify-center rounded-[8px] bg-navy text-lime">
+                <span className="flex h-11 w-11 items-center justify-center rounded-[8px] bg-navy text-lime-tint">
                   <p.icon size={20} strokeWidth={1.75} />
                 </span>
                 <div className="flex flex-col gap-1.5">

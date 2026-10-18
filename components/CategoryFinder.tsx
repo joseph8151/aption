@@ -59,7 +59,7 @@ export default function CategoryFinder() {
                 href={item.href}
                 className="group flex h-full flex-col items-start gap-4 rounded-[8px] border border-line bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-navy hover:bg-navy hover:shadow-[0_20px_40px_-20px_rgba(20,18,15,0.35)]"
               >
-                <span className="flex h-11 w-11 items-center justify-center rounded-[8px] bg-gray-light text-navy transition-colors duration-300 group-hover:bg-white/10 group-hover:text-lime">
+                <span className="flex h-11 w-11 items-center justify-center rounded-[8px] bg-gray-light text-navy transition-colors duration-300 group-hover:bg-white/10 group-hover:text-lime-tint">
                   <item.icon size={20} strokeWidth={1.75} />
                 </span>
                 <div className="flex flex-col gap-1">

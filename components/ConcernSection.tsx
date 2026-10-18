@@ -46,7 +46,7 @@ export default function ConcernSection() {
         <div className="flex justify-center pt-2">
           <Link
             href="/consult"
-            className="inline-flex items-center justify-center rounded-[6px] bg-lime px-7 py-3.5 text-base font-bold text-navy transition hover:bg-lime-strong"
+            className="inline-flex items-center justify-center rounded-[6px] bg-lime px-7 py-3.5 text-base font-bold text-white transition hover:bg-lime-strong"
           >
             나에게 맞는 문제집 상담받기
           </Link>

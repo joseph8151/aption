@@ -16,7 +16,7 @@ export default function StatsSection() {
         {stats.map((stat, i) => (
           <Reveal key={stat.label} delay={i * 80}>
             <div className="flex flex-col items-center gap-2 text-center">
-              <span className="text-huge-figure font-black text-lime" style={{ fontSize: "clamp(2.25rem, 1.6rem + 2.4vw, 3.75rem)" }}>
+              <span className="text-huge-figure font-black text-lime-tint" style={{ fontSize: "clamp(2.25rem, 1.6rem + 2.4vw, 3.75rem)" }}>
                 {stat.number}
               </span>
               <span className="text-sm font-semibold text-white/60">{stat.label}</span>

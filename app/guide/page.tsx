@@ -44,7 +44,7 @@ export default function GuidePage() {
         <ol className="flex flex-col gap-4">
           {steps.map((step, i) => (
             <li key={step.title} className="flex gap-4 rounded-[8px] border border-line bg-white p-5">
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-navy text-sm font-bold text-lime">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-navy text-sm font-bold text-lime-tint">
                 {i + 1}
               </span>
               <div className="flex flex-col gap-1">
@@ -58,7 +58,7 @@ export default function GuidePage() {
         <div className="flex flex-col gap-3 sm:flex-row">
           <Link
             href="/consult"
-            className="inline-flex items-center justify-center rounded-[6px] bg-lime px-7 py-3.5 text-base font-bold text-navy transition hover:bg-lime-strong"
+            className="inline-flex items-center justify-center rounded-[6px] bg-lime px-7 py-3.5 text-base font-bold text-white transition hover:bg-lime-strong"
           >
             상담 신청하기
           </Link>

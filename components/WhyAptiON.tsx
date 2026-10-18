@@ -55,7 +55,7 @@ export default function WhyAptiON() {
                 >
                   {reason.number}
                 </span>
-                <span className="relative text-[11px] font-extrabold tracking-[0.22em] text-lime">
+                <span className="relative text-[11px] font-extrabold tracking-[0.22em] text-lime-tint">
                   {reason.tag}
                 </span>
                 <h3 className="relative text-xl font-extrabold text-white">{reason.title}</h3>

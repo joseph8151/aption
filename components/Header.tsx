@@ -40,7 +40,7 @@ export default function Header() {
     >
       <Container className="flex h-16 items-center justify-between gap-4 lg:h-20">
         <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="AptiON 홈으로 이동">
-          <span className="flex h-9 w-9 items-center justify-center rounded-[6px] bg-navy text-sm font-black text-lime">
+          <span className="flex h-9 w-9 items-center justify-center rounded-[6px] bg-navy text-sm font-black text-lime-tint">
             A
           </span>
           <span className="text-xl font-black tracking-tight text-navy">
@@ -81,7 +81,7 @@ export default function Header() {
           </Link>
           <Link
             href="/consult"
-            className="hidden items-center rounded-[6px] bg-lime px-4 py-2.5 text-sm font-bold text-navy transition hover:bg-lime-strong lg:flex"
+            className="hidden items-center rounded-[6px] bg-lime px-4 py-2.5 text-sm font-bold text-white transition hover:bg-lime-strong lg:flex"
           >
             상담하기
           </Link>
@@ -194,7 +194,7 @@ export default function Header() {
               <Link
                 href="/consult"
                 onClick={() => setMenuOpen(false)}
-                className="flex flex-1 items-center justify-center rounded-[6px] bg-lime px-4 py-3 text-sm font-bold text-navy"
+                className="flex flex-1 items-center justify-center rounded-[6px] bg-lime px-4 py-3 text-sm font-bold text-white"
               >
                 상담하기
               </Link>

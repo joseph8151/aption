@@ -16,11 +16,11 @@ export default function Footer() {
       <Container className="flex flex-col gap-8 py-12 lg:py-16">
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-2">
-            <span className="flex h-8 w-8 items-center justify-center rounded-[6px] bg-lime text-sm font-black text-navy">
+            <span className="flex h-8 w-8 items-center justify-center rounded-[6px] bg-lime text-sm font-black text-white">
               A
             </span>
             <span className="text-lg font-black tracking-tight text-ivory">
-              Apti<span className="text-lime">ON</span>
+              Apti<span className="text-lime-tint">ON</span>
             </span>
           </div>
           <p className="text-sm text-ivory/60">합격을 위한 실전 감각을 ON.</p>
@@ -29,19 +29,19 @@ export default function Footer() {
 
         <div className="flex flex-col gap-4 border-t border-ivory/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
-            <Link href="/consult" className="font-semibold text-ivory transition hover:text-lime">
+            <Link href="/consult" className="font-semibold text-ivory transition hover:text-lime-tint">
               상담
             </Link>
-            <Link href="/terms" className="text-ivory/60 transition hover:text-lime">
+            <Link href="/terms" className="text-ivory/60 transition hover:text-lime-tint">
               이용약관
             </Link>
             {catalogLinks.map((link) => (
-              <Link key={link.label} href={link.href} className="text-ivory/60 transition hover:text-lime">
+              <Link key={link.label} href={link.href} className="text-ivory/60 transition hover:text-lime-tint">
                 {link.label}
               </Link>
             ))}
             {secondaryLinks.map((link) => (
-              <Link key={link.label} href={link.href} className="text-ivory/40 transition hover:text-lime">
+              <Link key={link.label} href={link.href} className="text-ivory/40 transition hover:text-lime-tint">
                 {link.label}
               </Link>
             ))}

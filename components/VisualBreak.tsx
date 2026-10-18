@@ -51,7 +51,7 @@ export default function VisualBreak() {
             <br />
             더 풉니다.
             <br />
-            <span className="text-lime">시간 안에 끝냅니다.</span>
+            <span className="text-lime-tint">시간 안에 끝냅니다.</span>
           </h2>
           <p className="font-mono text-xs font-medium uppercase tracking-[0.24em] text-ivory/45">
             AptiON Exam Preparation System

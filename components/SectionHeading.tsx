@@ -18,7 +18,7 @@ export default function SectionHeading({
   const alignClass = align === "center" ? "text-center items-center mx-auto" : "text-left items-start";
   const titleColor = tone === "dark" ? "text-white" : "text-navy";
   const descColor = tone === "dark" ? "text-white/60" : "text-text-gray";
-  const eyebrowColor = tone === "dark" ? "text-lime" : "text-navy";
+  const eyebrowColor = tone === "dark" ? "text-lime-tint" : "text-navy";
   return (
     <div className={`flex flex-col gap-4 ${alignClass}`}>
       {eyebrow ? (

@@ -29,7 +29,7 @@ export default function PackageSection() {
             return (
               <Reveal key={pkg.slug} delay={i * 90}>
                 <div className="relative flex flex-col gap-6 overflow-hidden rounded-[8px] border border-line bg-ivory p-6 transition-shadow duration-300 hover:shadow-[0_24px_48px_-28px_rgba(20,18,15,0.3)] sm:p-8 lg:flex-row lg:items-center lg:gap-10">
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-[8px] bg-navy text-lime">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-[8px] bg-navy text-lime-tint">
                     <Package size={24} strokeWidth={1.75} />
                   </div>
 
@@ -49,7 +49,7 @@ export default function PackageSection() {
 
                   <div className="flex shrink-0 flex-col items-start gap-3 lg:items-end">
                     {pkg.bestValue ? (
-                      <span className="rounded-[3px] bg-lime px-3 py-1 text-[11px] font-extrabold tracking-wide text-navy">
+                      <span className="rounded-[3px] bg-lime px-3 py-1 text-[11px] font-extrabold tracking-wide text-white">
                         BEST VALUE
                       </span>
                     ) : null}

@@ -114,14 +114,22 @@ export default function ConsultForm({
       "희망 문제집",
       desiredItems.length > 0
         ? desiredItems
-            .map((i) => (typeof i.price === "number" ? `${i.name} (${i.price.toLocaleString("ko-KR")}원)` : i.name))
+            .map((i, idx) => {
+              const label =
+                typeof i.price === "number"
+                  ? `${i.name} (${i.price.toLocaleString("ko-KR")}원)`
+                  : `${i.name} (금액 확인 필요)`;
+              return desiredItems.length > 1 ? `${idx + 1}. ${label}` : label;
+            })
             .join("\n")
-        : ""
+        : "없음"
     );
-    if (knownTotal > 0) {
+    if (inquiryType === "구매") {
       formData.set(
-        "희망 상품 합계 금액",
-        `${knownTotal.toLocaleString("ko-KR")}원${hasUnknownPrice ? " (일부 상품 금액 미확인)" : ""}`
+        "입금액",
+        desiredItems.length === 0
+          ? "상품 미선택 — 상담 후 확정 필요"
+          : `${knownTotal.toLocaleString("ko-KR")}원${hasUnknownPrice ? " (일부 상품 금액 확인 필요)" : ""}`
       );
     }
 
@@ -149,7 +157,7 @@ export default function ConsultForm({
   if (status === "success") {
     return (
       <div className="flex flex-col items-center gap-5 rounded-[8px] border border-line bg-white p-10 text-center">
-        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-lime text-navy">
+        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-lime text-white">
           <CheckIcon />
         </span>
         <p className="text-lg font-bold text-navy">
@@ -422,7 +430,7 @@ export default function ConsultForm({
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="inline-flex items-center justify-center rounded-full bg-lime px-7 py-3.5 text-base font-bold text-navy transition hover:brightness-95 disabled:opacity-60"
+        className="inline-flex items-center justify-center rounded-full bg-lime px-7 py-3.5 text-base font-bold text-white transition hover:brightness-95 disabled:opacity-60"
       >
         {status === "submitting" ? "접수 중..." : inquiryType === "구매" ? "구매 신청하기" : "상담 신청하기"}
       </button>

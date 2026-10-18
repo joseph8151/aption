@@ -54,7 +54,7 @@ export default function PackageBreakdown({
         </div>
         <div className="flex items-center justify-between border-t border-line pt-2">
           <span className="text-sm font-semibold text-ink/60">패키지 혜택</span>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-lime px-3 py-1 text-sm font-bold text-navy">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-lime px-3 py-1 text-sm font-bold text-white">
             {discountRate}% 할인 · {savings.toLocaleString("ko-KR")}원 절약
           </span>
         </div>

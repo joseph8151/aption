@@ -1,6 +1,6 @@
 const styles: Record<string, string> = {
   BEST: "bg-navy text-white",
-  NEW: "bg-lime text-navy",
+  NEW: "bg-lime text-white",
 };
 
 export default function Badge({ label }: { label: "BEST" | "NEW" }) {

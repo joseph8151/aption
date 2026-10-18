@@ -163,7 +163,7 @@ function QuickFinderStep({
       }`}
     >
       <div className="flex items-center gap-3">
-        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-navy text-xs font-extrabold text-lime">
+        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-navy text-xs font-extrabold text-lime-tint">
           {step}
         </span>
         <span className="text-base font-extrabold text-navy sm:text-lg">{question}</span>
