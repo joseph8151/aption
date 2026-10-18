@@ -19,7 +19,7 @@ export default function SamplePreviewModal({
 }) {
   const [open, setOpen] = useState(false);
   const [page, setPage] = useState<0 | 1>(0);
-  const [zoomed, setZoomed] = useState(false);
+  const [zoom, setZoom] = useState(1);
   const pageCount = sample.questions.length > sample.page1Count ? 2 : 1;
 
   useEffect(() => {
@@ -42,7 +42,7 @@ export default function SamplePreviewModal({
         type="button"
         onClick={() => {
           setPage(0);
-          setZoomed(false);
+          setZoom(1);
           setOpen(true);
         }}
         className={
@@ -56,88 +56,101 @@ export default function SamplePreviewModal({
       </button>
 
       {open ? (
+        // 바깥 오버레이 자체가 스크롤 컨테이너입니다. 내용이 화면보다 길어도
+        // 이 레이어를 스크롤해서 항상 헤더(닫기 버튼)·푸터(구매 문의)에 닿을 수 있습니다.
         <div
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-ink/60 p-0 sm:p-6"
+          className="fixed inset-0 z-[60] overflow-y-auto overscroll-contain bg-ink/70"
           role="dialog"
           aria-modal="true"
           aria-label={`${sample.sampleTitle} 샘플 미리보기`}
           onClick={() => setOpen(false)}
         >
-          <div
-            className="flex h-full w-full flex-col overflow-hidden bg-[#EFE8DC] sm:h-auto sm:max-h-[92vh] sm:w-auto sm:rounded-[10px] sm:shadow-[0_32px_64px_-20px_rgba(20,18,15,0.5)]"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex shrink-0 items-center justify-between gap-3 border-b border-[#D6CDBE] bg-[#F7F3EC] px-4 py-3">
-              <span className="truncate text-sm font-bold text-[#1A1713]">{productName}</span>
-              <div className="flex shrink-0 items-center gap-1">
-                <button
-                  type="button"
-                  aria-label="축소"
-                  onClick={() => setZoomed(false)}
-                  className="hidden h-8 w-8 items-center justify-center rounded-[6px] text-[#1A1713]/60 transition hover:bg-[#EFE8DC] sm:flex"
-                >
-                  <Minus size={15} strokeWidth={2.25} />
-                </button>
-                <button
-                  type="button"
-                  aria-label="확대"
-                  onClick={() => setZoomed(true)}
-                  className="hidden h-8 w-8 items-center justify-center rounded-[6px] text-[#1A1713]/60 transition hover:bg-[#EFE8DC] sm:flex"
-                >
-                  <Plus size={15} strokeWidth={2.25} />
-                </button>
-                <button
-                  type="button"
-                  aria-label="닫기"
-                  onClick={() => setOpen(false)}
-                  className="flex h-8 w-8 items-center justify-center rounded-[6px] text-[#1A1713]/70 transition hover:bg-[#EFE8DC]"
-                >
-                  <X size={18} strokeWidth={2.25} />
-                </button>
-              </div>
-            </div>
-
-            <div className="flex flex-1 items-start justify-center overflow-auto px-3 py-5 sm:px-8 sm:py-7">
-              <div
-                className={`origin-top transition-[width] duration-200 ${zoomed ? "w-[720px] max-w-none" : "w-full sm:w-[480px]"}`}
-                style={{ aspectRatio: zoomed ? undefined : "210 / 297" }}
-              >
-                <div className="h-full min-h-[600px] rounded-[4px] border border-[#D6CDBE] shadow-[0_4px_16px_-4px_rgba(20,18,15,0.12)]">
-                  <SampleA4Page sample={sample} pageIndex={page} />
-                </div>
-              </div>
-            </div>
-
-            <div className="flex shrink-0 flex-col gap-3 border-t border-[#D6CDBE] bg-[#F7F3EC] px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
-              {pageCount > 1 ? (
-                <div className="flex items-center justify-center gap-3 text-sm font-semibold text-[#1A1713]">
+          <div className="flex min-h-full items-start justify-center sm:items-center sm:p-6">
+            <div
+              className="relative flex w-full flex-col bg-[#EFE8DC] sm:w-[560px] sm:rounded-[10px] sm:shadow-[0_32px_64px_-20px_rgba(20,18,15,0.5)]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="sticky top-0 z-10 flex items-center justify-between gap-3 border-b border-[#D6CDBE] bg-[#F7F3EC] px-4 py-3">
+                <span className="truncate text-sm font-bold text-[#1A1713]">{productName}</span>
+                <div className="flex shrink-0 items-center gap-1">
                   <button
                     type="button"
-                    disabled={page === 0}
-                    onClick={() => setPage(0)}
-                    className="rounded-[6px] px-2.5 py-1.5 text-[#1A1713]/60 transition hover:bg-[#EFE8DC] disabled:opacity-30"
+                    aria-label="축소"
+                    onClick={() => setZoom((z) => Math.max(0.85, Math.round((z - 0.1) * 100) / 100))}
+                    className="hidden h-9 w-9 items-center justify-center rounded-[6px] text-[#1A1713]/60 transition hover:bg-[#EFE8DC] sm:flex"
                   >
-                    ← 이전
+                    <Minus size={16} strokeWidth={2.25} />
                   </button>
-                  <span className="font-mono text-xs text-[#1A1713]/60">{page + 1} / {pageCount}</span>
                   <button
                     type="button"
-                    disabled={page === 1}
-                    onClick={() => setPage(1)}
-                    className="rounded-[6px] px-2.5 py-1.5 text-[#1A1713]/60 transition hover:bg-[#EFE8DC] disabled:opacity-30"
+                    aria-label="확대"
+                    onClick={() => setZoom((z) => Math.min(1.4, Math.round((z + 0.1) * 100) / 100))}
+                    className="hidden h-9 w-9 items-center justify-center rounded-[6px] text-[#1A1713]/60 transition hover:bg-[#EFE8DC] sm:flex"
                   >
-                    다음 →
+                    <Plus size={16} strokeWidth={2.25} />
+                  </button>
+                  <button
+                    type="button"
+                    aria-label="닫기"
+                    onClick={() => setOpen(false)}
+                    className="flex h-9 w-9 items-center justify-center rounded-[6px] text-[#1A1713]/70 transition hover:bg-[#EFE8DC]"
+                  >
+                    <X size={20} strokeWidth={2.25} />
                   </button>
                 </div>
-              ) : (
-                <span />
-              )}
-              <Link
-                href={`/consult?product=${encodeURIComponent(productName)}`}
-                className="inline-flex items-center justify-center rounded-[6px] bg-[#1C4336] px-5 py-3 text-sm font-bold text-white transition hover:opacity-90"
-              >
-                구매 문의
-              </Link>
+              </div>
+
+              <div className="flex justify-center px-3 py-5 sm:px-8 sm:py-7">
+                <div
+                  className="w-full max-w-[480px] origin-top transition-transform duration-150"
+                  style={{ transform: `scale(${zoom})` }}
+                >
+                  <div className="rounded-[4px] border border-[#D6CDBE] bg-white shadow-[0_4px_16px_-4px_rgba(20,18,15,0.12)]">
+                    <SampleA4Page sample={sample} pageIndex={page} />
+                  </div>
+                </div>
+              </div>
+
+              <div className="sticky bottom-0 z-10 flex flex-col gap-3 border-t border-[#D6CDBE] bg-[#F7F3EC] px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+                {pageCount > 1 ? (
+                  <div className="flex items-center justify-center gap-3 text-sm font-semibold text-[#1A1713]">
+                    <button
+                      type="button"
+                      disabled={page === 0}
+                      onClick={() => setPage(0)}
+                      className="rounded-[6px] px-2.5 py-1.5 text-[#1A1713]/60 transition hover:bg-[#EFE8DC] disabled:opacity-30"
+                    >
+                      ← 이전
+                    </button>
+                    <span className="font-mono text-xs text-[#1A1713]/60">{page + 1} / {pageCount}</span>
+                    <button
+                      type="button"
+                      disabled={page === 1}
+                      onClick={() => setPage(1)}
+                      className="rounded-[6px] px-2.5 py-1.5 text-[#1A1713]/60 transition hover:bg-[#EFE8DC] disabled:opacity-30"
+                    >
+                      다음 →
+                    </button>
+                  </div>
+                ) : (
+                  <span />
+                )}
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setOpen(false)}
+                    className="inline-flex items-center justify-center rounded-[6px] border border-[#D6CDBE] px-4 py-3 text-sm font-bold text-[#1A1713] transition hover:bg-[#EFE8DC]"
+                  >
+                    닫기
+                  </button>
+                  <Link
+                    href={`/consult?product=${encodeURIComponent(productName)}`}
+                    className="inline-flex flex-1 items-center justify-center rounded-[6px] bg-[#1C4336] px-5 py-3 text-sm font-bold text-white transition hover:opacity-90 sm:flex-none"
+                  >
+                    구매 문의
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
