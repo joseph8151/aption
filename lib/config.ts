@@ -13,5 +13,17 @@ export const siteConfig = {
   // Formspree 상담폼 연동 엔드포인트
   formspreeEndpoint: "https://formspree.io/f/mppanjzr",
 
+  // 구매 입금 계좌 — 구매 문의 완료 화면에서만 노출 (정적 페이지에는 노출하지 않음)
+  bankAccount: {
+    bank: "토스뱅크",
+    holder: "김형기",
+    number: "1001-4105-4081",
+  },
+
+  // 영업시간 — 입금 확인 및 발송 기준
+  businessHours: {
+    label: "연중무휴 08:00~22:00",
+  },
+
   siteUrl: "https://www.aption.co.kr",
 } as const;

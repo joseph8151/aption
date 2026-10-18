@@ -106,7 +106,7 @@ export default async function ProductDetailPage({
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Link
-                  href={`/consult?product=${encodeURIComponent(product.name)}&intent=${encodeURIComponent("구매")}`}
+                  href={`/consult?product=${encodeURIComponent(product.name)}&intent=${encodeURIComponent("구매")}&price=${product.price}`}
                   className="inline-flex flex-1 items-center justify-center rounded-[6px] bg-navy px-6 py-3.5 text-base font-bold text-white transition hover:bg-navy-2"
                 >
                   바로 구매 문의
