@@ -101,20 +101,21 @@ export default async function ProductDetailPage({
                 {product.price.toLocaleString("ko-KR")}원
               </span>
               <p className="text-sm leading-relaxed text-text-gray">
-                현재는 상담 신청을 통해 구매 안내를 드리고 있습니다.
+                상담만 받으셔도 되고, 바로 구매 문의를 주셔도 됩니다. 신청 내용 확인 후 이메일로
+                안내드립니다.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Link
-                  href={`/consult?product=${encodeURIComponent(product.name)}`}
+                  href={`/consult?product=${encodeURIComponent(product.name)}&intent=${encodeURIComponent("구매")}`}
                   className="inline-flex flex-1 items-center justify-center rounded-[6px] bg-navy px-6 py-3.5 text-base font-bold text-white transition hover:bg-navy-2"
                 >
-                  구매 문의
+                  바로 구매 문의
                 </Link>
                 <Link
-                  href={`/consult?product=${encodeURIComponent(product.name)}`}
+                  href={`/consult?product=${encodeURIComponent(product.name)}&intent=${encodeURIComponent("상담")}`}
                   className="inline-flex flex-1 items-center justify-center rounded-[6px] border border-line px-6 py-3.5 text-base font-bold text-navy transition hover:border-navy/30"
                 >
-                  문제집 상담
+                  먼저 상담받기
                 </Link>
               </div>
             </div>

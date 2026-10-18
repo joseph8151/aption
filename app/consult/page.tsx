@@ -11,9 +11,10 @@ export const metadata: Metadata = {
 export default async function ConsultPage({
   searchParams,
 }: {
-  searchParams: Promise<{ product?: string }>;
+  searchParams: Promise<{ product?: string; intent?: string }>;
 }) {
-  const { product } = await searchParams;
+  const { product, intent } = await searchParams;
+  const initialIntent = intent === "구매" || intent === "상담" ? intent : undefined;
 
   return (
     <div className="section-y-tight bg-white">
@@ -28,7 +29,7 @@ export default async function ConsultPage({
               준비 중인 시험과 어려운 영역을 알려주시면 적합한 문제집을 안내해드립니다.
             </p>
           </div>
-          <ConsultForm initialProduct={product} />
+          <ConsultForm initialProduct={product} initialIntent={initialIntent} />
         </div>
 
         <aside className="flex flex-col gap-5">

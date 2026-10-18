@@ -24,11 +24,24 @@ const weakAreaOptions = [
   "잘 모르겠음",
 ];
 
+const inquiryTypeOptions = [
+  { value: "상담", label: "상담만 받고 싶어요", desc: "어떤 문제집이 맞는지 먼저 물어보고 싶어요" },
+  { value: "구매", label: "바로 구매하고 싶어요", desc: "문제집을 정했고 구매 방법을 안내받고 싶어요" },
+] as const;
+
+type InquiryType = (typeof inquiryTypeOptions)[number]["value"];
 type Status = "idle" | "submitting" | "success" | "error";
 
-export default function ConsultForm({ initialProduct = "" }: { initialProduct?: string }) {
+export default function ConsultForm({
+  initialProduct = "",
+  initialIntent,
+}: {
+  initialProduct?: string;
+  initialIntent?: InquiryType;
+}) {
   const [status, setStatus] = useState<Status>("idle");
   const [weakAreas, setWeakAreas] = useState<string[]>([]);
+  const [inquiryType, setInquiryType] = useState<InquiryType>(initialIntent ?? "상담");
 
   const toggleWeakArea = (value: string) => {
     setWeakAreas((prev) =>
@@ -67,7 +80,8 @@ export default function ConsultForm({ initialProduct = "" }: { initialProduct?: 
           <CheckIcon />
         </span>
         <p className="text-lg font-bold text-navy">
-          상담 신청이 정상적으로 접수되었습니다. 확인 후 이메일로 안내드리겠습니다.
+          {inquiryType === "구매" ? "구매 문의" : "상담 신청"}이 정상적으로 접수되었습니다. 확인 후 이메일로
+          안내드리겠습니다.
         </p>
       </div>
     );
@@ -75,6 +89,31 @@ export default function ConsultForm({ initialProduct = "" }: { initialProduct?: 
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-7 rounded-[8px] border border-line bg-white p-6 sm:p-8">
+      <fieldset className="flex flex-col gap-3">
+        <legend className="text-sm font-bold text-navy">문의 유형</legend>
+        <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+          {inquiryTypeOptions.map((opt) => (
+            <label
+              key={opt.value}
+              className="flex cursor-pointer flex-col gap-0.5 rounded-lg border border-line px-4 py-3 text-sm has-[:checked]:border-navy has-[:checked]:bg-navy/5"
+            >
+              <span className="flex items-center gap-2 font-semibold text-navy">
+                <input
+                  type="radio"
+                  name="문의 유형"
+                  value={opt.value}
+                  checked={inquiryType === opt.value}
+                  onChange={() => setInquiryType(opt.value)}
+                  className="h-4 w-4 accent-navy"
+                />
+                {opt.label}
+              </span>
+              <span className="pl-6 text-xs text-text-gray">{opt.desc}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <Field label="이름" htmlFor="name" required>
           <input
@@ -185,7 +224,7 @@ export default function ConsultForm({ initialProduct = "" }: { initialProduct?: 
         disabled={status === "submitting"}
         className="inline-flex items-center justify-center rounded-full bg-lime px-7 py-3.5 text-base font-bold text-navy transition hover:brightness-95 disabled:opacity-60"
       >
-        {status === "submitting" ? "접수 중..." : "상담 신청하기"}
+        {status === "submitting" ? "접수 중..." : inquiryType === "구매" ? "구매 문의하기" : "상담 신청하기"}
       </button>
     </form>
   );
