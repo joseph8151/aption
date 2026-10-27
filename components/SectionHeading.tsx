@@ -26,7 +26,7 @@ export default function SectionHeading({
           {eyebrow}
         </span>
       ) : null}
-      <h2 className={`text-display font-display font-black text-balance ${titleColor}`}>{title}</h2>
+      <h2 className={`text-display font-display font-bold text-balance ${titleColor}`}>{title}</h2>
       {description ? (
         <p className={`max-w-2xl text-base leading-relaxed sm:text-lg ${descColor}`}>
           {description}

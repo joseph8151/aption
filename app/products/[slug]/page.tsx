@@ -83,7 +83,7 @@ export default async function ProductDetailPage({
               <span className="text-xs font-extrabold uppercase tracking-[0.22em] text-navy">
                 {product.coverEyebrow} · {product.area}
               </span>
-              <h1 className="text-display font-display font-black leading-tight text-navy">{product.name}</h1>
+              <h1 className="text-display font-display font-bold leading-tight text-navy">{product.name}</h1>
               <p className="text-base leading-relaxed text-text-gray sm:text-lg">
                 {product.shortDescription}
               </p>

@@ -17,7 +17,7 @@ export default function ThisMonthPage() {
           <span className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-text-gray">
             이번 달 필기
           </span>
-          <h1 className="text-display font-display font-black text-ink text-balance">
+          <h1 className="text-display font-display font-bold text-ink text-balance">
             이번 달, 필기가 확정된 곳부터.
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-text-gray sm:text-lg">
