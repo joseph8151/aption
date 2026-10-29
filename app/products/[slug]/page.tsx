@@ -11,6 +11,7 @@ import SamplePreviewModal from "@/components/samplepreview/SamplePreviewModal";
 import { getProductBySlug, products } from "@/data/products";
 import { getProductCoverTheme } from "@/lib/coverAccentColor";
 import { getSampleByProductSlug } from "@/data/productSamples";
+import { areaKeywords, examKeywords, siteKeywords } from "@/lib/seoKeywords";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -27,6 +28,12 @@ export async function generateMetadata({
   return {
     title: product.name,
     description: `${product.shortDescription} · ${product.questionCount}문제 · ${product.difficultyLabel}`,
+    keywords: [
+      product.name,
+      ...(areaKeywords[product.area] ?? []),
+      ...(examKeywords[product.exam] ?? []),
+      ...siteKeywords.slice(0, 6),
+    ],
   };
 }
 

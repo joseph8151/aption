@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import Container from "@/components/Container";
 import ProductsExplorer from "@/components/ProductsExplorer";
+import { productsPageKeywords } from "@/lib/seoKeywords";
 
 export const metadata: Metadata = {
   title: "전체 문제집",
   description:
     "NCS, 공기업, 대기업 인적성, 취업 직무능력 문제집을 시험·영역·난이도·상품유형으로 검색하고 필터링하세요.",
+  keywords: productsPageKeywords,
 };
 
 export default function ProductsPage() {

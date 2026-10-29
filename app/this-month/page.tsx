@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Container from "@/components/Container";
 import ExamRoundCard from "@/components/ExamRoundCard";
 import { examRounds } from "@/data/examRounds";
+import { thisMonthKeywords } from "@/lib/seoKeywords";
 
 export const metadata: Metadata = {
   title: "이번 달 필기",
   description:
     "농축협·신협·부산·수원 등 이번 달 필기시험 일정이 확정된 기관의 실전 회차. 기출예상 문제로 구성된 한시 상품입니다.",
+  keywords: thisMonthKeywords,
 };
 
 export default function ThisMonthPage() {

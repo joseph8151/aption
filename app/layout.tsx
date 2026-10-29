@@ -10,6 +10,7 @@ import FloatingConsultButton from "@/components/FloatingConsultButton";
 import SelectionTray from "@/components/SelectionTray";
 import { ProductSelectionProvider } from "@/lib/ProductSelectionContext";
 import { siteConfig } from "@/lib/config";
+import { siteKeywords } from "@/lib/seoKeywords";
 
 const pretendard = localFont({
   variable: "--font-pretendard",
@@ -44,6 +45,7 @@ export const metadata: Metadata = {
   },
   description:
     "농축협·신협·부산·수원 등 이번 달 필기시험 일정에 맞춘 기관별 실전 회차. NCS·공기업·인적성 문제집도 함께 만나보세요.",
+  keywords: siteKeywords,
   openGraph: {
     title: "AptiON 앱티온 | 이번 달 필기, 기관별 실전 회차",
     description:

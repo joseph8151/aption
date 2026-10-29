@@ -25,5 +25,5 @@ export const siteConfig = {
     label: "연중무휴 08:00~22:00",
   },
 
-  siteUrl: "https://www.aption.co.kr",
+  siteUrl: "https://www.aption.app",
 } as const;
