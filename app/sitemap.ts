@@ -6,6 +6,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "",
     "/products",
+    "/this-month",
+    "/category/topik-eps",
     "/consult",
     "/about",
     "/faq",
