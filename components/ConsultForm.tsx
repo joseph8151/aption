@@ -49,7 +49,6 @@ export default function ConsultForm({
   const [status, setStatus] = useState<Status>("idle");
   const [weakAreas, setWeakAreas] = useState<string[]>([]);
   const [inquiryType, setInquiryType] = useState<InquiryType>(initialIntent ?? "상담");
-  const [copied, setCopied] = useState(false);
   const [manualItems, setManualItems] = useState<DesiredItem[]>(
     initialProduct ? [{ name: initialProduct, price: initialPrice }] : []
   );
@@ -88,16 +87,6 @@ export default function ConsultForm({
   ];
   const knownTotal = desiredItems.reduce((sum, i) => sum + (i.price ?? 0), 0);
   const hasUnknownPrice = desiredItems.some((i) => typeof i.price !== "number");
-
-  const copyAccountNumber = async () => {
-    try {
-      await navigator.clipboard.writeText(siteConfig.bankAccount.number);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
-    } catch {
-      // 클립보드 접근 실패 시 조용히 무시 — 번호는 화면에 그대로 표시되어 있음
-    }
-  };
 
   const toggleWeakArea = (value: string) => {
     setWeakAreas((prev) =>
@@ -166,54 +155,21 @@ export default function ConsultForm({
           {inquiryType === "구매" ? "구매 신청" : "상담 신청"}이 정상적으로 접수되었습니다.
         </p>
 
-        {inquiryType === "구매" ? (
-          <div className="flex w-full flex-col gap-3 rounded-[8px] border border-line bg-gray-light p-5 text-left">
-            {submittedSummary && submittedSummary.items.length > 0 ? (
-              <ul className="flex flex-col gap-1 border-b border-line pb-3 text-sm text-ink">
-                {submittedSummary.items.map((item) => (
-                  <li key={item.slug ?? item.name}>
-                    {item.name}
-                    {typeof item.price === "number" ? ` — ${item.price.toLocaleString("ko-KR")}원` : ""}
-                  </li>
-                ))}
-              </ul>
-            ) : null}
-            <span className="text-sm font-bold text-navy">입금 계좌 안내</span>
-            <div className="flex flex-col gap-1 text-sm text-ink">
-              <span>
-                {siteConfig.bankAccount.bank} {siteConfig.bankAccount.number} (예금주:{" "}
-                {siteConfig.bankAccount.holder})
-              </span>
-              {submittedSummary && submittedSummary.total > 0 ? (
-                <span className="font-bold text-navy">
-                  입금 금액: {submittedSummary.total.toLocaleString("ko-KR")}원
-                  {submittedSummary.hasUnknown ? " + 일부 상품 (금액 확인 후 안내)" : ""}
-                </span>
-              ) : (
-                <span>정확한 입금 금액은 확인 후 이메일로 안내드립니다.</span>
-              )}
-              <span className="font-bold text-navy">
-                입금자명:{" "}
-                {submittedSummary?.name ? `반드시 "${submittedSummary.name}" (신청자 본인 이름)` : "반드시 신청자 본인 이름"}
-                으로 입력해 주세요
-              </span>
-            </div>
-            <button
-              type="button"
-              onClick={copyAccountNumber}
-              className="inline-flex w-fit items-center justify-center rounded-[6px] border border-line bg-white px-3.5 py-2 text-xs font-bold text-navy transition hover:border-navy/30"
-            >
-              {copied ? "복사됨" : "계좌번호 복사"}
-            </button>
-            <p className="text-xs leading-relaxed text-text-gray">
-              입금자명이 신청자 이름과 다르면 확인이 지연될 수 있습니다. 입금해 주시면
-              영업시간({siteConfig.businessHours.label}) 기준 입금 확인 후 3~10시간 이내
-              이메일로 발송해 드립니다. 영업시간 이후 입금은 다음 영업시간 중 확인됩니다.
-            </p>
-          </div>
-        ) : (
-          <p className="text-sm text-text-gray">확인 후 이메일로 안내드리겠습니다.</p>
-        )}
+        {submittedSummary && submittedSummary.items.length > 0 ? (
+          <ul className="flex w-full flex-col gap-1 rounded-[8px] border border-line bg-gray-light p-4 text-left text-sm text-ink">
+            {submittedSummary.items.map((item) => (
+              <li key={item.slug ?? item.name}>
+                {item.name}
+                {typeof item.price === "number" ? ` — ${item.price.toLocaleString("ko-KR")}원` : ""}
+              </li>
+            ))}
+          </ul>
+        ) : null}
+        <p className="text-sm text-text-gray">
+          {inquiryType === "구매"
+            ? "신청 내용을 확인한 후 구매 안내(계좌 등)를 개별적으로 보내드립니다."
+            : "확인 후 이메일로 안내드리겠습니다."}
+        </p>
       </div>
     );
   }
