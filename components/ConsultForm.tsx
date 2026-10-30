@@ -244,8 +244,14 @@ export default function ConsultForm({
         />
       </Field>
 
-      <Field label="준비 시험" htmlFor="examType" required>
-        <select id="examType" name="준비 시험" required defaultValue="" className="input">
+      <Field label="준비 시험" htmlFor="examType" required={inquiryType !== "구매"}>
+        <select
+          id="examType"
+          name="준비 시험"
+          required={inquiryType !== "구매"}
+          defaultValue=""
+          className="input"
+        >
           <option value="" disabled>
             선택해주세요
           </option>
@@ -257,25 +263,27 @@ export default function ConsultForm({
         </select>
       </Field>
 
-      <fieldset className="flex flex-col gap-3">
-        <legend className="text-sm font-bold text-navy">현재 가장 어려운 영역</legend>
-        <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4">
-          {weakAreaOptions.map((opt) => (
-            <label
-              key={opt}
-              className="flex cursor-pointer items-center gap-2 rounded-lg border border-line px-3 py-2.5 text-sm text-ink/75 has-[:checked]:border-navy has-[:checked]:bg-navy/5 has-[:checked]:font-semibold has-[:checked]:text-navy"
-            >
-              <input
-                type="checkbox"
-                checked={weakAreas.includes(opt)}
-                onChange={() => toggleWeakArea(opt)}
-                className="h-4 w-4 accent-navy"
-              />
-              {opt}
-            </label>
-          ))}
-        </div>
-      </fieldset>
+      {inquiryType !== "구매" ? (
+        <fieldset className="flex flex-col gap-3">
+          <legend className="text-sm font-bold text-navy">현재 가장 어려운 영역</legend>
+          <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+            {weakAreaOptions.map((opt) => (
+              <label
+                key={opt}
+                className="flex cursor-pointer items-center gap-2 rounded-lg border border-line px-3 py-2.5 text-sm text-ink/75 has-[:checked]:border-navy has-[:checked]:bg-navy/5 has-[:checked]:font-semibold has-[:checked]:text-navy"
+              >
+                <input
+                  type="checkbox"
+                  checked={weakAreas.includes(opt)}
+                  onChange={() => toggleWeakArea(opt)}
+                  className="h-4 w-4 accent-navy"
+                />
+                {opt}
+              </label>
+            ))}
+          </div>
+        </fieldset>
+      ) : null}
 
       <Field label="희망 문제집 (여러 개 선택 가능)" htmlFor="desiredProductInput">
         <div className="flex flex-col gap-3">
