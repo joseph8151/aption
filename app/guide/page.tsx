@@ -69,6 +69,12 @@ export default function GuidePage() {
           >
             FAQ 보기
           </Link>
+          <Link
+            href="/study-guide"
+            className="inline-flex items-center justify-center rounded-[6px] border border-line px-7 py-3.5 text-base font-bold text-navy transition hover:border-navy/30"
+          >
+            학습 가이드 보기
+          </Link>
         </div>
       </Container>
     </div>

@@ -1,7 +1,10 @@
 import Link from "next/link";
 import Container from "./Container";
 
-const catalogLinks = [{ label: "TOPIK·EPS", href: "/category/topik-eps" }];
+const catalogLinks = [
+  { label: "TOPIK·EPS", href: "/category/topik-eps" },
+  { label: "학습 가이드", href: "/study-guide" },
+];
 
 const secondaryLinks = [
   { label: "FAQ", href: "/faq" },

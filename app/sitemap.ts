@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { products } from "@/data/products";
+import { studyGuides } from "@/data/studyGuides";
 import { siteConfig } from "@/lib/config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -8,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/products",
     "/this-month",
     "/category/topik-eps",
+    "/study-guide",
     "/consult",
     "/about",
     "/faq",
@@ -24,5 +26,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
   }));
 
-  return [...staticRoutes, ...productRoutes];
+  const studyGuideRoutes = studyGuides.map((g) => ({
+    url: `${siteConfig.siteUrl}/study-guide/${g.slug}`,
+    lastModified: new Date(),
+  }));
+
+  return [...staticRoutes, ...productRoutes, ...studyGuideRoutes];
 }

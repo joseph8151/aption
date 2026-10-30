@@ -13,6 +13,7 @@ import { getProductCoverTheme } from "@/lib/coverAccentColor";
 import { getSampleByProductSlug } from "@/data/productSamples";
 import { areaKeywords, examKeywords, siteKeywords } from "@/lib/seoKeywords";
 import { siteConfig } from "@/lib/config";
+import { studyGuides } from "@/data/studyGuides";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -52,6 +53,7 @@ export default async function ProductDetailPage({
     .filter((p) => p.slug !== product.slug && p.area === product.area)
     .slice(0, 4);
   const sample = getSampleByProductSlug(product.slug);
+  const studyGuide = studyGuides.find((g) => g.area === product.area);
 
   const productJsonLd = {
     "@context": "https://schema.org",
@@ -251,6 +253,18 @@ export default async function ProductDetailPage({
               ))}
             </div>
           </Section>
+        ) : null}
+
+        {studyGuide ? (
+          <Link
+            href={`/study-guide/${studyGuide.slug}`}
+            className="flex flex-col gap-1.5 rounded-[8px] border border-line bg-gray-light p-5 transition hover:border-navy/20"
+          >
+            <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-lime-strong">
+              학습 가이드
+            </span>
+            <span className="font-bold text-navy">{studyGuide.title} →</span>
+          </Link>
         ) : null}
       </Container>
     </div>
