@@ -5,6 +5,7 @@ import Container from "@/components/Container";
 export const metadata: Metadata = {
   title: "이용안내",
   description: "AptiON 문제집 상담부터 구매까지의 이용 절차를 안내합니다.",
+  alternates: { canonical: "/guide" },
 };
 
 const steps = [

@@ -4,6 +4,7 @@ import Container from "@/components/Container";
 export const metadata: Metadata = {
   title: "이용약관",
   description: "AptiON 웹사이트 및 상담 서비스 이용에 관한 약관을 안내합니다.",
+  alternates: { canonical: "/terms" },
 };
 
 export default function TermsPage() {

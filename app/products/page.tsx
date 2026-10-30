@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description:
     "NCS, 공기업, 대기업 인적성, 취업 직무능력 문제집을 시험·영역·난이도·상품유형으로 검색하고 필터링하세요.",
   keywords: productsPageKeywords,
+  alternates: { canonical: "/products" },
 };
 
 export default function ProductsPage() {

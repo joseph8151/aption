@@ -12,6 +12,7 @@ import { getProductBySlug, products } from "@/data/products";
 import { getProductCoverTheme } from "@/lib/coverAccentColor";
 import { getSampleByProductSlug } from "@/data/productSamples";
 import { areaKeywords, examKeywords, siteKeywords } from "@/lib/seoKeywords";
+import { siteConfig } from "@/lib/config";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -34,6 +35,7 @@ export async function generateMetadata({
       ...(examKeywords[product.exam] ?? []),
       ...siteKeywords.slice(0, 6),
     ],
+    alternates: { canonical: `/products/${product.slug}` },
   };
 }
 
@@ -51,8 +53,27 @@ export default async function ProductDetailPage({
     .slice(0, 4);
   const sample = getSampleByProductSlug(product.slug);
 
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.shortDescription,
+    brand: { "@type": "Brand", name: siteConfig.brandName },
+    offers: {
+      "@type": "Offer",
+      url: `${siteConfig.siteUrl}/products/${product.slug}`,
+      priceCurrency: "KRW",
+      price: product.price,
+      availability: "https://schema.org/InStock",
+    },
+  };
+
   return (
     <div className="section-y-tight bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
       <Container className="flex flex-col gap-16">
         <nav aria-label="이동 경로" className="text-sm text-text-gray">
           <Link href="/" className="hover:text-navy">

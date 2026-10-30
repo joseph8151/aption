@@ -30,6 +30,7 @@ export const metadata: Metadata = {
   title: "TOPIK·EPS",
   description:
     "TOPIK II·EPS-TOPIK 유형예상 실전 자료. 공식 기출 복원이 아니며, 두 시험은 한 상품으로 섞지 않습니다.",
+  alternates: { canonical: "/category/topik-eps" },
 };
 
 const colors = {

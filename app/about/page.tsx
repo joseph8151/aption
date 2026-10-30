@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "브랜드 소개",
   description:
     "AptiON은 Aptitude(직무역량)와 ON(켜다)이 결합된 이름으로, 반복 훈련을 통해 실전 시험 감각을 켜는 문제집 전문 브랜드입니다.",
+  alternates: { canonical: "/about" },
 };
 
 const positioningPoints = [

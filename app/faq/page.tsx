@@ -7,6 +7,7 @@ import { faqItems } from "@/data/faq";
 export const metadata: Metadata = {
   title: "자주 묻는 질문",
   description: "AptiON 문제집 선택, 구매, 상담과 관련해 자주 묻는 질문을 확인하세요.",
+  alternates: { canonical: "/faq" },
 };
 
 export default function FaqPage() {

@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "상담 신청",
   description:
     "준비 중인 시험과 어려운 영역을 알려주시면 적합한 AptiON 문제집을 안내해드립니다.",
+  alternates: { canonical: "/consult" },
 };
 
 export default async function ConsultPage({

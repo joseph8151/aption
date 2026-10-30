@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/config";
 export const metadata: Metadata = {
   title: "개인정보처리방침",
   description: "AptiON의 개인정보 수집, 이용, 보관에 관한 처리방침을 안내합니다.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {
