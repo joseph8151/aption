@@ -10,9 +10,26 @@ export const metadata: Metadata = {
   alternates: { canonical: "/faq" },
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+};
+
 export default function FaqPage() {
   return (
     <div className="section-y-tight bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <Container className="flex flex-col items-center gap-10">
         <div className="flex flex-col items-center gap-3 text-center">
           <span className="text-xs font-extrabold uppercase tracking-[0.22em] text-navy">FAQ</span>

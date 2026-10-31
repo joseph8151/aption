@@ -75,6 +75,8 @@ const organizationJsonLd = {
   url: siteConfig.siteUrl,
   logo: `${siteConfig.siteUrl}/icon`,
   email: siteConfig.contactEmail,
+  description:
+    "NCS·공기업·대기업 인적성·TOPIK·EPS 시험 대비 실전 문제집을 만드는 한국 교육 출판 브랜드.",
 };
 
 const websiteJsonLd = {
