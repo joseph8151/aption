@@ -3,10 +3,13 @@ import { ArrowRight } from "lucide-react";
 import Container from "./Container";
 import SectionHeading from "./SectionHeading";
 import ProductCard from "./ProductCard";
+import FeaturedProductCard from "./FeaturedProductCard";
 import Reveal from "./Reveal";
 import { bestProducts } from "@/data/products";
 
 export default function BestProducts() {
+  const [featured, ...rest] = bestProducts;
+
   return (
     <section className="section-y bg-white">
       <Container className="flex flex-col gap-12">
@@ -25,9 +28,15 @@ export default function BestProducts() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {bestProducts.map((product, i) => (
-            <Reveal key={product.slug} delay={(i % 4) * 70}>
+        {featured ? (
+          <Reveal>
+            <FeaturedProductCard product={featured} />
+          </Reveal>
+        ) : null}
+
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {rest.map((product, i) => (
+            <Reveal key={product.slug} delay={(i % 3) * 70}>
               <ProductCard product={product} />
             </Reveal>
           ))}
