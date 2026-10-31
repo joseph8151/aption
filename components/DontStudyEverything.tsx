@@ -5,7 +5,7 @@ import Reveal from "./Reveal";
 
 export default function DontStudyEverything() {
   return (
-    <section className="section-y-tight bg-ivory">
+    <section className="section-y-tight !pt-0 bg-ivory">
       <Container>
         <Reveal className="grid grid-cols-1 gap-10 rounded-[8px] border border-line bg-white p-8 sm:p-12 lg:grid-cols-2 lg:gap-16 lg:p-16">
           <h2 className="text-display font-display font-bold leading-[1.08] text-navy text-balance">
