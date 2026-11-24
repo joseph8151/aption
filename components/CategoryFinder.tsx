@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BarChart3, Building2, Calculator, ClipboardList, Puzzle, Target } from "lucide-react";
+import { BarChart3, BookOpenCheck, Building2, Calculator, ClipboardList, Puzzle, Target } from "lucide-react";
 import Container from "./Container";
 import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
@@ -40,6 +40,12 @@ const finderItems = [
     description: "실제 시험처럼 시간 제한 훈련",
     href: `/products?type=${encodeURIComponent("모의고사")}`,
     icon: BarChart3,
+  },
+  {
+    title: "TOPIK·EPS",
+    description: "외국인 근로자·유학생 대상 한국어 시험 대비",
+    href: "/category/topik-eps",
+    icon: BookOpenCheck,
   },
 ];
 
