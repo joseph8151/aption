@@ -2,30 +2,44 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Container from "./Container";
 import BookCover from "./BookCover";
+import { examRounds } from "@/data/examRounds";
+import { bestProducts } from "@/data/products";
+import { getProductCoverTheme } from "@/lib/coverAccentColor";
+import { CoverTheme } from "@/lib/types";
 
-const heroBooks = [
-  {
-    eyebrow: "농축협",
-    titleLines: ["농축협", "직무능력", "실전"],
-    footer: "5회 · 2026 하반기",
-    bigNumber: 5,
-    wrapClassName: "left-[6%] top-[10%] z-10 w-[40%] rotate-[-7deg]",
-  },
-  {
-    eyebrow: "신협",
-    titleLines: ["신협", "필기", "실전"],
-    footer: "3회 · 11.7–8",
-    bigNumber: 3,
-    wrapClassName: "left-[30%] top-[2%] z-20 w-[40%] rotate-[3deg]",
-  },
-  {
-    eyebrow: "부산",
-    titleLines: ["부산 공공기관", "NCS", "실전"],
-    footer: "6회 · 10.24",
-    bigNumber: 6,
-    wrapClassName: "left-[16%] top-[26%] z-30 w-[40%] rotate-[-2deg]",
-  },
+const wrapClassNames = [
+  "left-[6%] top-[10%] z-10 w-[40%] rotate-[-7deg]",
+  "left-[30%] top-[2%] z-20 w-[40%] rotate-[3deg]",
+  "left-[16%] top-[26%] z-30 w-[40%] rotate-[-2deg]",
 ];
+
+// 필기 일정이 확정된 회차가 있으면 그 회차 표지를, 없으면 상시 베스트셀러
+// 표지를 보여준다. 특정 기관/날짜를 하드코딩하지 않아 examRounds.ts가
+// 비어도(필기 일정 없음) 실제 데이터와 어긋나지 않는다.
+const heroBooks =
+  examRounds.length > 0
+    ? examRounds.slice(0, 3).map((exam) => ({
+        theme: "lime" as CoverTheme,
+        eyebrow: exam.institution,
+        titleLines: exam.coverTitleLines ?? [exam.institution],
+        footer: exam.roundLabel,
+        bigNumber: exam.roundCount,
+      }))
+    : bestProducts.slice(0, 3).map((product) => ({
+        theme: getProductCoverTheme(product),
+        eyebrow: product.coverEyebrow,
+        titleLines: product.coverTitleLines,
+        footer: product.coverFooter,
+        bigNumber: product.questionCount,
+      }));
+
+const heroEyebrow =
+  examRounds.length > 0
+    ? `이번 달 마감 일정 · ${examRounds
+        .slice(0, 3)
+        .map((e) => `${e.institution} ${e.examDateLabel}`)
+        .join(" · ")}`
+    : "약점 영역만 골라 반복하는 실전 문제집";
 
 export default function Hero() {
   return (
@@ -33,7 +47,7 @@ export default function Hero() {
       <Container className="relative grid grid-cols-1 items-center gap-16 py-20 lg:grid-cols-[55%_45%] lg:gap-10 lg:py-28">
         <div className="flex flex-col gap-8">
           <span className="font-mono text-xs font-medium tracking-[0.1em] text-text-gray">
-            10월 마감 일정 · 부산 10/24 · 신협 11/7 · 농축협 11/22
+            {heroEyebrow}
           </span>
           <h1 className="text-hero font-display max-w-2xl font-black text-ink text-balance">
             이번 달 필기만
@@ -71,9 +85,9 @@ export default function Hero() {
             aria-hidden="true"
           />
           {heroBooks.map((book, i) => (
-            <div key={i} className={`absolute ${book.wrapClassName}`}>
+            <div key={i} className={`absolute ${wrapClassNames[i]}`}>
               <BookCover
-                theme="lime"
+                theme={book.theme}
                 eyebrow={book.eyebrow}
                 titleLines={book.titleLines}
                 footer={book.footer}

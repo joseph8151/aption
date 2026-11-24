@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useSyncExternalStore } from "react";
 import { X } from "lucide-react";
+import { examRounds } from "@/data/examRounds";
 
 const STORAGE_KEY = "aption-announcement-dismissed";
 
@@ -25,7 +26,16 @@ export default function AnnouncementBar() {
   const [closedNow, setClosedNow] = useState(false);
   const dismissed = storedDismissed || closedNow;
 
-  if (dismissed) return null;
+  if (dismissed || examRounds.length === 0) return null;
+
+  const summary = examRounds
+    .slice(0, 3)
+    .map((e) => `${e.institution} ${e.examDateLabel}`)
+    .join(" · ");
+  const summaryShort = examRounds
+    .slice(0, 3)
+    .map((e) => e.examDateLabel)
+    .join(" · ");
 
   const handleDismiss = () => {
     setClosedNow(true);
@@ -40,10 +50,8 @@ export default function AnnouncementBar() {
     <div className="flex h-10 items-center justify-center bg-ink px-4 text-[13px]">
       <div className="flex w-full max-w-(--container-content) items-center justify-center gap-3 sm:justify-between">
         <Link href="/this-month" className="flex min-w-0 items-center gap-1.5 overflow-hidden text-ivory">
-          <span className="hidden truncate font-mono text-lime-tint sm:inline">
-            부산 공공기관 10/24 · 신협 11/7 · 농축협 11/22
-          </span>
-          <span className="truncate font-mono text-lime-tint sm:hidden">10/24 · 11/7 · 11/22</span>
+          <span className="hidden truncate font-mono text-lime-tint sm:inline">{summary}</span>
+          <span className="truncate font-mono text-lime-tint sm:hidden">{summaryShort}</span>
           <span className="shrink-0 font-semibold underline-offset-4 hover:underline">
             이번 달 필기 보기 →
           </span>

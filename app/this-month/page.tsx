@@ -29,15 +29,26 @@ export default function ThisMonthPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-          {examRounds.map((exam) => (
-            <ExamRoundCard key={exam.slug} exam={exam} />
-          ))}
-        </div>
+        {examRounds.length > 0 ? (
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+            {examRounds.map((exam) => (
+              <ExamRoundCard key={exam.slug} exam={exam} />
+            ))}
+          </div>
+        ) : (
+          <div className="rounded-[4px] border border-line bg-card p-10 text-center">
+            <p className="text-base font-bold text-navy">현재 필기 일정이 확정된 기관이 없습니다.</p>
+            <p className="mt-2 text-sm leading-relaxed text-text-gray">
+              새로운 채용 일정이 확정되는 대로 기관별 실전 회차를 이곳에 추가합니다.
+            </p>
+          </div>
+        )}
 
-        <p className="text-xs leading-relaxed text-text-gray">
-          기출 복원이 아닌 기출예상 실전 회차입니다. 기본서는 포함되지 않습니다.
-        </p>
+        {examRounds.length > 0 ? (
+          <p className="text-xs leading-relaxed text-text-gray">
+            기출 복원이 아닌 기출예상 실전 회차입니다. 기본서는 포함되지 않습니다.
+          </p>
+        ) : null}
       </Container>
     </div>
   );

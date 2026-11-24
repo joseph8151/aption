@@ -25,13 +25,21 @@ export default function ThisMonthSection() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-          {examRounds.map((exam, i) => (
-            <Reveal key={exam.slug} delay={i * 80}>
-              <ExamRoundCard exam={exam} />
-            </Reveal>
-          ))}
-        </div>
+        {examRounds.length > 0 ? (
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+            {examRounds.map((exam, i) => (
+              <Reveal key={exam.slug} delay={i * 80}>
+                <ExamRoundCard exam={exam} />
+              </Reveal>
+            ))}
+          </div>
+        ) : (
+          <div className="rounded-[4px] border border-line bg-card p-8 text-center">
+            <p className="text-sm leading-relaxed text-text-gray">
+              현재 필기 일정이 확정된 기관이 없습니다. 새 일정이 확정되는 대로 이곳에 추가됩니다.
+            </p>
+          </div>
+        )}
       </Container>
     </section>
   );
